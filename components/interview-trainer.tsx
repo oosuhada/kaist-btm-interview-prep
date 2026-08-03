@@ -1792,29 +1792,30 @@ export function InterviewTrainer({
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f7f9fc] text-slate-900">
       <header className="border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
-              <GraduationCap className="h-6 w-6" />
-            </div>
-            <div>
-              <div className="text-lg font-black tracking-tight">KAIST BTM 면접 준비</div>
-              <div className="text-xs font-bold text-slate-400">장우수 · 2027 Spring · Active Recall</div>
-            </div>
+        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white">
+            <GraduationCap className="h-6 w-6" />
           </div>
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2">
+            <div className="col-span-2 whitespace-nowrap text-lg font-black tracking-tight sm:col-span-1">
+              KAIST BTM 면접 준비
+            </div>
+            <div className="col-start-1 row-start-2 min-w-0 pr-1 text-xs font-bold leading-4 text-slate-400 sm:whitespace-nowrap">
+              장우수 · 2027 Spring · Active Recall
+            </div>
+            <div className="col-start-2 row-start-2 flex shrink-0 items-center justify-end gap-1.5 sm:row-span-2 sm:row-start-1 sm:gap-2">
             <Link
               href="/audio"
-              className="flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-2 text-xs font-black text-white transition hover:bg-slate-800"
+              className="flex items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1.5 text-xs font-black text-white transition hover:bg-slate-800 sm:gap-1.5 sm:px-3 sm:py-2"
             >
-              <Headphones className="h-4 w-4" />
+              <Headphones className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span>Audio</span>
             </Link>
             <Link
               href="/visual"
-              className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-black text-slate-700 transition hover:bg-slate-50"
+              className="flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-black text-slate-700 transition hover:bg-slate-50 sm:gap-1.5 sm:px-3 sm:py-2"
             >
-              <Network className="h-4 w-4" />
+              <Network className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span>Visual</span>
             </Link>
             <div
@@ -1825,6 +1826,7 @@ export function InterviewTrainer({
               }`}
             >
               {content.loadedFromLocalNotionMirror ? "Local content override" : "Bundled content"}
+            </div>
             </div>
           </div>
         </div>
