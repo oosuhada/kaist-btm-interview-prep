@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { MusicalRecallVisualizer } from "@/components/musical-recall-visualizer";
+import type { MusicalVisualTrack } from "@/components/musical-recall-visualizer";
 import {
   ArrowLeft,
   BookOpen,
@@ -1076,6 +1078,7 @@ function GraphCanvas({
                 stroke={direct && focusEnabled ? "#64748b" : "#cbd5e1"}
                 strokeWidth={direct && focusEnabled ? 3 : 2}
                 markerEnd="url(#arrow)"
+                className={direct && focusEnabled ? "visual-graph-flow" : undefined}
               />
               {edge.label && (
                 <g
@@ -1140,6 +1143,18 @@ function GraphCanvas({
               className="cursor-pointer outline-none"
               opacity={dimmed ? 0.22 : 1}
             >
+              {selected && (
+                <rect
+                  x={node.x - 7}
+                  y={node.y - 7}
+                  width={width + 14}
+                  height="90"
+                  rx="23"
+                  fill="none"
+                  stroke="#8b5cf6"
+                  className="visual-graph-pulse"
+                />
+              )}
               <rect
                 x={node.x}
                 y={node.y}
@@ -1181,7 +1196,15 @@ function GraphCanvas({
   );
 }
 
-export function InterviewKnowledgeGraph() {
+export function InterviewKnowledgeGraph({
+  musicalTracks = [],
+  initialMusicalTrackId,
+  initialMusicalLanguage,
+}: {
+  musicalTracks?: MusicalVisualTrack[];
+  initialMusicalTrackId?: string;
+  initialMusicalLanguage?: "ko" | "en";
+}) {
   const [mode, setMode] = useState<Mode>("research");
   const [focusEnabled, setFocusEnabled] = useState(true);
   const [recallMode, setRecallMode] = useState(false);
@@ -1366,6 +1389,14 @@ export function InterviewKnowledgeGraph() {
 
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-7">
         <MemoryCinema onJump={jumpFromCinema} />
+
+        {musicalTracks.length > 0 && (
+          <MusicalRecallVisualizer
+            tracks={musicalTracks}
+            initialTrackId={initialMusicalTrackId}
+            initialLanguage={initialMusicalLanguage}
+          />
+        )}
 
         <div id="visual-knowledge-map" className="scroll-mt-24" />
         <div className="mb-5 flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">

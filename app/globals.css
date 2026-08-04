@@ -141,6 +141,140 @@ body {
   }
 }
 
+@keyframes visual-music-aurora-a {
+  0%,
+  100% {
+    transform: translate(-18%, -10%) scale(calc(0.95 + var(--bass-energy) * 0.18));
+  }
+  50% {
+    transform: translate(30%, 16%) scale(calc(1.04 + var(--bass-energy) * 0.24));
+  }
+}
+
+@keyframes visual-music-aurora-b {
+  0%,
+  100% {
+    transform: translate(210%, 12%) scale(calc(0.98 + var(--music-energy) * 0.22));
+  }
+  50% {
+    transform: translate(155%, 48%) scale(calc(1.08 + var(--music-energy) * 0.28));
+  }
+}
+
+@keyframes visual-music-aurora-c {
+  0%,
+  100% {
+    transform: translate(90%, 128%) scale(calc(0.96 + var(--music-energy) * 0.24));
+  }
+  50% {
+    transform: translate(145%, 92%) scale(calc(1.05 + var(--bass-energy) * 0.3));
+  }
+}
+
+@keyframes visual-lyric-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.88);
+    filter: blur(10px);
+  }
+  58% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.035);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes visual-music-keyword {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.82);
+  }
+  35% {
+    opacity: 0.72;
+  }
+  68% {
+    transform: translateY(-8px) scale(calc(0.96 + var(--music-energy) * 0.18));
+  }
+  100% {
+    opacity: 0.42;
+    transform: translateY(0) scale(calc(0.94 + var(--music-energy) * 0.12));
+  }
+}
+
+@keyframes visual-music-disc {
+  0%,
+  100% {
+    transform: scale(calc(0.98 + var(--bass-energy) * 0.1)) rotate(-2deg);
+    box-shadow: 0 0 calc(38px + var(--bass-energy) * 65px) rgba(139, 92, 246, 0.28);
+  }
+  50% {
+    transform: scale(calc(1 + var(--bass-energy) * 0.18)) rotate(2deg);
+    box-shadow: 0 0 calc(52px + var(--bass-energy) * 90px) rgba(34, 211, 238, 0.22);
+  }
+}
+
+@keyframes visual-music-play {
+  0%,
+  100% {
+    box-shadow: 0 0 calc(24px + var(--music-energy) * 44px) rgba(255, 255, 255, 0.14);
+  }
+  50% {
+    box-shadow: 0 0 calc(34px + var(--bass-energy) * 70px) rgba(196, 181, 253, 0.28);
+  }
+}
+
+@keyframes visual-role-switch {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.82);
+    filter: blur(8px);
+  }
+  58% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.06);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes visual-role-ghost {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(28px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+}
+
+@keyframes visual-graph-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes visual-graph-pulse {
+  0%,
+  100% {
+    opacity: 0.15;
+    stroke-width: 2;
+  }
+  50% {
+    opacity: 0.75;
+    stroke-width: 5;
+  }
+}
+
 .visual-cinema-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
@@ -193,6 +327,68 @@ body {
   animation: visual-live-dot 1.35s ease-in-out infinite;
 }
 
+.visual-music-stage {
+  isolation: isolate;
+}
+
+.visual-music-aurora-a {
+  left: 3%;
+  top: 3%;
+  animation: visual-music-aurora-a 8s ease-in-out infinite;
+}
+
+.visual-music-aurora-b {
+  left: 3%;
+  top: 1%;
+  animation: visual-music-aurora-b 9.5s ease-in-out infinite;
+}
+
+.visual-music-aurora-c {
+  left: 9%;
+  top: 0;
+  animation: visual-music-aurora-c 11s ease-in-out infinite;
+}
+
+.visual-lyric-pop {
+  text-shadow:
+    0 0 calc(10px + var(--bass-energy) * 24px) rgba(196, 181, 253, 0.15),
+    0 0 calc(24px + var(--music-energy) * 48px) rgba(34, 211, 238, 0.08);
+  animation: visual-lyric-pop 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-music-keyword {
+  animation: visual-music-keyword 2.8s ease-in-out both;
+}
+
+.visual-music-disc {
+  animation: visual-music-disc 1.05s ease-in-out infinite;
+}
+
+.visual-music-play {
+  animation: visual-music-play 1.25s ease-in-out infinite;
+}
+
+.visual-role-switch {
+  animation: visual-role-switch 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-role-ghost {
+  animation: visual-role-ghost 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-karaoke-word-active {
+  transform: scale(calc(1.08 + var(--bass-energy) * 0.18));
+}
+
+.visual-graph-flow {
+  stroke-dasharray: 8 6;
+  animation: visual-graph-flow 1.15s linear infinite;
+}
+
+.visual-graph-pulse {
+  animation: visual-graph-pulse 1.55s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .visual-cinema-enter,
   .visual-cinema-step,
@@ -202,7 +398,16 @@ body {
   .visual-orbit-ring,
   .visual-core-pop,
   .visual-brain-node,
-  .visual-live-dot {
+  .visual-live-dot,
+  .visual-music-aurora,
+  .visual-lyric-pop,
+  .visual-music-keyword,
+  .visual-music-disc,
+  .visual-music-play,
+  .visual-role-switch,
+  .visual-role-ghost,
+  .visual-graph-flow,
+  .visual-graph-pulse {
     animation: none !important;
   }
 }
