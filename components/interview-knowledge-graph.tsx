@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowLeft,
   BookOpen,
@@ -710,6 +710,263 @@ function splitNodeLabel(label: string, maxChars: number) {
   return lines.slice(0, 2);
 }
 
+type MemoryScene = {
+  kicker: string;
+  title: string;
+  accent: string;
+  description: string;
+  sequence: string[];
+  orbit: string[];
+  cue: string;
+  targetMode: Mode;
+  targetNode: string;
+  tone: "violet" | "cyan" | "emerald" | "orange" | "rose";
+};
+
+const memoryScenes: MemoryScene[] = [
+  {
+    kicker: "01 · RESEARCH STORY",
+    title: "정보를 더 보여주는 AI가 아니라",
+    accent: "검증하게 만드는 AI",
+    description: "내 연구를 한 장면으로 기억합니다. 조직지식이 RAG를 거쳐 답변이 되고, 검증행동이 적정 의존으로 이어집니다.",
+    sequence: ["조직지식", "Workplace RAG", "검증 행동", "적정 의존"],
+    orbit: ["PROVENANCE", "WORKFLOW", "BEHAVIOR", "RELIANCE"],
+    cue: "trust를 높이는 연구가 아니다 → correctness-aware reliance를 만든다",
+    targetMode: "research",
+    targetNode: "rag",
+    tone: "violet",
+  },
+  {
+    kicker: "02 · EXPERIENCE STORY",
+    title: "경력이 여러 개인 게 아니라",
+    accent: "질문이 진화해 왔다",
+    description: "데이터를 보고, 현장을 운영하고, 직접 만들고, RAG를 구현하면서 같은 질문을 더 깊게 파고들었습니다.",
+    sequence: ["GfK", "우수살롱", "UX · 개발", "AskOosu", "Research"],
+    orbit: ["DATA", "FIELD", "BUILD", "QUESTION"],
+    cue: "직접 시도 → 관찰 → 문제 발견 → 다음 시도 → 연구로 검증",
+    targetMode: "experience",
+    targetNode: "identity",
+    tone: "emerald",
+  },
+  {
+    kicker: "03 · FACULTY FIT",
+    title: "교수 이름을 외우는 게 아니라",
+    accent: "내 질문과 연결한다",
+    description: "Tom은 domain experts와 actionable systems의 중심축, Zo와 Jung은 transparency와 knowledge recombination의 보조축입니다.",
+    sequence: ["Domain experts", "Tom", "내 연구", "Zo · Jung"],
+    orbit: ["SITUATED", "ACTIONABLE", "TRUST", "RECOMBINE"],
+    cue: "Tom = primary intellectual anchor / 다른 교수 = complementary lenses",
+    targetMode: "faculty",
+    targetNode: "research-core",
+    tone: "cyan",
+  },
+  {
+    kicker: "04 · PRESSURE DEFENSE",
+    title: "발표문을 외우는 게 아니라",
+    accent: "논리의 빈틈을 막는다",
+    description: "교수의 질문은 결국 왜 이 질문인지, 기존 연구와 뭐가 다른지, 어떻게 검증할지, 왜 KAIST인지로 수렴합니다.",
+    sequence: ["RQ", "GAP", "ARGUMENT", "METHOD", "FIT"],
+    orbit: ["WHY?", "SO WHAT?", "HOW?", "WHY BTM?"],
+    cue: "RQ → Gap → Argument → Contribution → Method → Plan → Fit",
+    targetMode: "pressure",
+    targetNode: "defense-core",
+    tone: "orange",
+  },
+  {
+    kicker: "05 · INTERVIEW IDENTITY",
+    title: "나는 답을 아는 사람이 아니라",
+    accent: "직접 확인하는 사람",
+    description: "새로운 문제를 밖에서 분석하는 데서 멈추지 않고 직접 시도하고, 관찰하고, 다음 질문을 찾아 연구로 연결합니다.",
+    sequence: ["TRY", "OBSERVE", "QUESTION", "TEST", "LEARN"],
+    orbit: ["EXECUTION", "CURIOSITY", "EVIDENCE", "RESEARCH"],
+    cue: "Experience → Research → Fit → Defense 를 하나의 자기소개 서사로 묶기",
+    targetMode: "integrated",
+    targetNode: "integrated-center",
+    tone: "rose",
+  },
+];
+
+const sceneTone: Record<MemoryScene["tone"], { glow: string; text: string; pill: string; dot: string }> = {
+  violet: {
+    glow: "from-violet-500/30 via-fuchsia-500/10 to-transparent",
+    text: "text-violet-300",
+    pill: "border-violet-400/25 bg-violet-400/10 text-violet-100",
+    dot: "bg-violet-300",
+  },
+  cyan: {
+    glow: "from-cyan-400/30 via-sky-500/10 to-transparent",
+    text: "text-cyan-300",
+    pill: "border-cyan-400/25 bg-cyan-400/10 text-cyan-100",
+    dot: "bg-cyan-300",
+  },
+  emerald: {
+    glow: "from-emerald-400/30 via-teal-500/10 to-transparent",
+    text: "text-emerald-300",
+    pill: "border-emerald-400/25 bg-emerald-400/10 text-emerald-100",
+    dot: "bg-emerald-300",
+  },
+  orange: {
+    glow: "from-orange-400/30 via-amber-500/10 to-transparent",
+    text: "text-orange-300",
+    pill: "border-orange-400/25 bg-orange-400/10 text-orange-100",
+    dot: "bg-orange-300",
+  },
+  rose: {
+    glow: "from-rose-400/30 via-pink-500/10 to-transparent",
+    text: "text-rose-300",
+    pill: "border-rose-400/25 bg-rose-400/10 text-rose-100",
+    dot: "bg-rose-300",
+  },
+};
+
+function MemoryCinema({ onJump }: { onJump: (mode: Mode, nodeId: string) => void }) {
+  const [sceneIndex, setSceneIndex] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const scene = memoryScenes[sceneIndex];
+  const tone = sceneTone[scene.tone];
+
+  useEffect(() => {
+    if (!playing) return;
+    const timer = window.setInterval(() => {
+      setSceneIndex((current) => (current + 1) % memoryScenes.length);
+    }, 6200);
+    return () => window.clearInterval(timer);
+  }, [playing]);
+
+  const orbitPositions = [
+    "left-[6%] top-[13%]",
+    "right-[5%] top-[20%]",
+    "left-[3%] bottom-[18%]",
+    "right-[7%] bottom-[12%]",
+  ];
+
+  return (
+    <section className="relative mb-6 overflow-hidden rounded-[32px] border border-white/10 bg-[#070b16] text-white shadow-[0_24px_80px_rgba(15,23,42,0.24)]">
+      <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${tone.glow}`} />
+      <div className="visual-cinema-grid pointer-events-none absolute inset-0 opacity-30" />
+      <div className="visual-cinema-scan pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent" />
+      <div className="visual-cinema-orb visual-cinema-orb-a pointer-events-none absolute h-56 w-56 rounded-full bg-violet-500/15 blur-3xl" />
+      <div className="visual-cinema-orb visual-cinema-orb-b pointer-events-none absolute h-52 w-52 rounded-full bg-cyan-400/10 blur-3xl" />
+
+      <div className="relative grid min-h-[440px] lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-black tracking-[0.18em] text-white/60">
+                VISUAL MEMORY CINEMA
+              </span>
+              <span className="flex items-center gap-1.5 rounded-full border border-emerald-300/15 bg-emerald-300/10 px-3 py-1.5 text-[10px] font-black tracking-[0.14em] text-emerald-200">
+                <span className="visual-live-dot h-1.5 w-1.5 rounded-full bg-emerald-300" /> AUTO · 6.2s
+              </span>
+            </div>
+
+            <div key={`copy-${sceneIndex}`} className="visual-cinema-enter mt-8">
+              <div className={`text-xs font-black tracking-[0.2em] ${tone.text}`}>{scene.kicker}</div>
+              <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,4.7rem)] font-black leading-[0.98] tracking-[-0.055em] text-white">
+                {scene.title}
+                <br />
+                <span className={tone.text}>{scene.accent}</span>
+              </h1>
+              <p className="mt-5 max-w-2xl text-sm font-semibold leading-7 text-slate-300 sm:text-base">{scene.description}</p>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <div key={`sequence-${sceneIndex}`} className="flex flex-wrap items-center gap-2">
+              {scene.sequence.map((item, index) => (
+                <div key={item} className="flex items-center gap-2">
+                  <span
+                    className={`visual-cinema-step rounded-xl border px-3 py-2 text-[11px] font-black sm:text-xs ${tone.pill}`}
+                    style={{ animationDelay: `${index * 110}ms` }}
+                  >
+                    {item}
+                  </span>
+                  {index < scene.sequence.length - 1 && <ChevronRight className="h-3.5 w-3.5 text-white/25" />}
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="max-w-2xl text-xs font-bold leading-5 text-slate-400">
+                <span className={tone.text}>MEMORY CUE · </span>{scene.cue}
+              </div>
+              <button
+                type="button"
+                onClick={() => onJump(scene.targetMode, scene.targetNode)}
+                className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-xs font-black text-slate-950 transition hover:scale-[1.02]"
+              >
+                그래프에서 열기 <ChevronRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative hidden min-h-[440px] overflow-hidden border-l border-white/10 lg:block">
+          <div className="absolute left-1/2 top-1/2 h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
+          <div className="visual-orbit-ring absolute left-1/2 top-1/2 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/15" />
+          <div className="absolute left-1/2 top-1/2 h-[150px] w-[150px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-white/[0.03]" />
+
+          <div key={`core-${sceneIndex}`} className="visual-core-pop absolute left-1/2 top-1/2 z-10 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-white/20 bg-slate-950/85 text-center shadow-[0_0_70px_rgba(139,92,246,0.22)] backdrop-blur">
+            <Network className={`mb-2 h-6 w-6 ${tone.text}`} />
+            <div className="text-[9px] font-black tracking-[0.18em] text-white/40">ACTIVE CORE</div>
+            <div className="mt-1 max-w-24 text-sm font-black leading-4 text-white">{scene.accent}</div>
+          </div>
+
+          {scene.orbit.map((item, index) => (
+            <div
+              key={`${sceneIndex}-${item}`}
+              className={`visual-brain-node absolute ${orbitPositions[index]} rounded-2xl border border-white/15 bg-slate-950/75 px-3 py-2.5 shadow-xl backdrop-blur`}
+              style={{ animationDelay: `${index * 180}ms` }}
+            >
+              <div className="flex items-center gap-2">
+                <span className={`h-2 w-2 rounded-full ${tone.dot}`} />
+                <span className="text-[10px] font-black tracking-[0.12em] text-white/80">{item}</span>
+              </div>
+            </div>
+          ))}
+
+          <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 520 440" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="260" y1="220" x2="92" y2="90" stroke="rgba(255,255,255,.13)" strokeWidth="1" strokeDasharray="5 7" />
+            <line x1="260" y1="220" x2="435" y2="112" stroke="rgba(255,255,255,.13)" strokeWidth="1" strokeDasharray="5 7" />
+            <line x1="260" y1="220" x2="88" y2="353" stroke="rgba(255,255,255,.13)" strokeWidth="1" strokeDasharray="5 7" />
+            <line x1="260" y1="220" x2="438" y2="362" stroke="rgba(255,255,255,.13)" strokeWidth="1" strokeDasharray="5 7" />
+          </svg>
+
+          <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/20 p-1.5 backdrop-blur">
+            {memoryScenes.map((item, index) => (
+              <button
+                key={item.kicker}
+                type="button"
+                onClick={() => setSceneIndex(index)}
+                className={`h-2.5 rounded-full transition-all ${index === sceneIndex ? `w-8 ${tone.dot}` : "w-2.5 bg-white/20 hover:bg-white/40"}`}
+                aria-label={`Visual memory scene ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="relative border-t border-white/10 bg-black/10 px-5 py-3 sm:px-8">
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => setPlaying((current) => !current)}
+            className="flex shrink-0 items-center gap-1.5 text-[10px] font-black tracking-[0.12em] text-white/60 hover:text-white"
+          >
+            {playing ? <Square className="h-3 w-3" /> : <Play className="h-3 w-3" />}
+            {playing ? "PAUSE" : "PLAY"}
+          </button>
+          <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+            {playing && <div key={`progress-${sceneIndex}`} className={`visual-cinema-progress h-full rounded-full ${tone.dot}`} />}
+          </div>
+          <div className="shrink-0 text-[10px] font-black tabular-nums tracking-[0.12em] text-white/40">
+            {String(sceneIndex + 1).padStart(2, "0")} / {String(memoryScenes.length).padStart(2, "0")}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function GraphCanvas({
   data,
   selectedId,
@@ -1068,6 +1325,23 @@ export function InterviewKnowledgeGraph() {
     );
   };
 
+  const jumpFromCinema = (targetMode: Mode, targetNode: string) => {
+    setMode(targetMode);
+    setPathEnabled(false);
+    setPathIndex(0);
+    setShowMobileMap(false);
+    setSelectedByMode((current) => ({ ...current, [targetMode]: targetNode }));
+    setRevealedByMode((current) => ({
+      ...current,
+      [targetMode]: current[targetMode].includes(targetNode)
+        ? current[targetMode]
+        : [...current[targetMode], targetNode],
+    }));
+    window.setTimeout(() => {
+      document.getElementById("visual-knowledge-map")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 40);
+  };
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f7f9fc] text-slate-900">
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -1091,6 +1365,9 @@ export function InterviewKnowledgeGraph() {
       </header>
 
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-7">
+        <MemoryCinema onJump={jumpFromCinema} />
+
+        <div id="visual-knowledge-map" className="scroll-mt-24" />
         <div className="mb-5 flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {modeMeta.map((item) => {
