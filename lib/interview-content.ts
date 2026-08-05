@@ -112,7 +112,7 @@ const researchKeywordOverrides: Record<
   },
   "개인적 출발점 / Personal starting point": {
     korean: ["GfK 시장 데이터", "우수살롱 현장지식", "AskOosu 근거 부족", "정보 구조와 판단"],
-    english: ["GfK market data", "Oosu Saloin tacit knowledge", "AskOosu insufficient evidence", "information structure and judgment"],
+    english: ["GfK market data", "Oosu Salon tacit knowledge", "AskOosu insufficient evidence", "information structure and judgment"],
   },
   "연구질문 / Research question": {
     korean: ["지식 구조", "검증 설계", "검증 행동", "적정 의존", "의사결정 품질"],
@@ -466,7 +466,7 @@ const supplementalApplicationQuestions: InterviewQuestion[] = [
     answer:
       "제 나만의 무기는 시장·고객·운영의 문제를 데이터와 기술의 구조로 번역하고, 직접 작동하는 서비스까지 구현하는 힘입니다. GfK에서는 시장 질문을 데이터로 구조화했고, 우수살롱에서는 고객 요구를 운영기준으로 바꿨습니다. 최근 AskOosu에서는 제 경험과 프로젝트 정보를 RAG가 검색할 수 있는 지식구조로 만들고 출처와 fallback이 있는 서비스로 구현했습니다. 그래서 제 강점은 기획이나 개발 하나보다 문제정의와 구현 사이의 거리를 줄이는 능력이라고 생각합니다.",
     englishAnswer:
-      "My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services. At GfK, I structured market questions through data. At Oosu Saloin, I turned customer needs into operating standards. More recently, in AskOosu, I structured my project information for RAG retrieval and implemented source links and fallback behavior. My strength is therefore reducing the distance between problem definition and implementation rather than specializing in planning or coding alone.",
+      "My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services. At GfK, I structured market questions through data. At Oosu Salon, I turned customer needs into operating standards. More recently, in AskOosu, I structured my project information for RAG retrieval and implemented source links and fallback behavior. My strength is therefore reducing the distance between problem definition and implementation rather than specializing in planning or coding alone.",
     englishKeyPoint: "Translate business problems into data and technology, then implement and test them.",
     priority: "S",
     readiness: "ready",
@@ -498,7 +498,7 @@ const supplementalApplicationQuestions: InterviewQuestion[] = [
     answer:
       "기간이 짧았던 이유는 각 단계마다 분명한 전환 계기가 있었기 때문입니다. GfK에서는 회사 사정도 좋지 않았고, 담당 고객의 요구에 따라 시장 정의나 데이터 가공 방식이 달라지는 일을 반복해서 보면서 데이터가 항상 중립적인 사실로만 쓰이는 것은 아니라는 점을 크게 느꼈습니다. 그래서 좀 더 실행에 가까운 일을 경험하고 싶어 JW CRONY로 옮겼습니다. 그런데 JW에서는 급여가 몇 달 밀릴 정도로 회사의 안정성이 낮았습니다. 회사원으로서도 큰 불확실성을 감수해야 한다면 차라리 그 리스크를 직접 지고 제 사업을 해보자는 생각으로 이어졌고, 이후 우수살롱 창업을 선택했습니다. 태영테크는 그 이후 제한된 기간의 실무 지원 성격이었습니다.",
     englishAnswer:
-      "Each short role had a specific reason for transition. At GfK, the company was also going through a difficult period, and I repeatedly saw that market definitions or data framing could change depending on what a client wanted to demonstrate. That experience challenged my earlier belief that data is automatically neutral and made me want to work closer to execution. I therefore moved to JW CRONY. At JW, however, salaries were delayed for several months, so I did not experience the stability I had expected from employment. I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Saloin. Taeyoung Tech later had a more limited, short-term support nature.",
+      "Each short role had a specific reason for transition. At GfK, the company was also going through a difficult period, and I repeatedly saw that market definitions or data framing could change depending on what a client wanted to demonstrate. That experience challenged my earlier belief that data is automatically neutral and made me want to work closer to execution. I therefore moved to JW CRONY. At JW, however, salaries were delayed for several months, so I did not experience the stability I had expected from employment. I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Salon. Taeyoung Tech later had a more limited, short-term support nature.",
     englishKeyPoint: "Data framing at GfK changed my view of neutrality; instability at JW then pushed me toward entrepreneurship.",
     priority: "S",
     readiness: "ready",
@@ -734,7 +734,7 @@ const supplementalApplicationQuestions: InterviewQuestion[] = [
     answer:
       "우수살롱을 처음 열었을 때 블로그 체험단과 온라인 마케팅 제휴 제안이 네이버 메시지, 문자, 전화, 인스타그램 DM 등 거의 모든 채널로 쏟아졌습니다. 문제는 영업 설명은 그럴듯해도 실제 서비스 품질이 낮거나 사후관리가 되지 않는 경우가 많아, 외부 서비스를 처음부터 신뢰하기가 어려워졌다는 점입니다. 세무 서비스도 비슷해서 세무사를 두 번 바꾼 뒤에야 주변 사장님의 추천을 받은 곳에 정착했습니다. 이 경험을 통해 소상공인에게는 기능의 존재보다 공급자의 주장과 실제 품질을 검증할 수 있는 근거와 신뢰경로가 중요하다고 느꼈습니다.",
     englishAnswer:
-      "When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs. The problem was that the sales pitch could sound convincing while the actual service quality or follow-up was often poor, so I became cautious about trusting outside services from the beginning. I had a similar experience with tax services: I changed accountants twice before settling on one recommended by another business owner. This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality.",
+      "When I first opened Oosu Salon, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs. The problem was that the sales pitch could sound convincing while the actual service quality or follow-up was often poor, so I became cautious about trusting outside services from the beginning. I had a similar experience with tax services: I changed accountants twice before settling on one recommended by another business owner. This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality.",
     englishKeyPoint: "Repeated low-quality marketing and professional-service experiences made verification and trusted referrals more important than sales claims.",
     priority: "S",
     readiness: "ready",

@@ -1,0 +1,1913 @@
+{
+  "tracks": [
+    {
+      "trackId": "application-extra-101",
+      "language": "en",
+      "src": "/audio/musical-recall/application-extra-101-en.mp3",
+      "duration": 83.383,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "What exactly is the 'unique weapon' described in your statement? My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services.",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "At GfK, I structured market questions through data. At Oosu Saloin, I turned customer needs into operating standards.",
+          "end": 36.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 36.0,
+          "text": "More recently, in AskOosu, I structured my project information for RAG retrieval and implemented source links and fallback behavior. My strength is therefore reducing the distance between problem definition and implementation rather than specializing in planning or coding alone.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 72.0,
+          "text": "My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services. (Turning them into services, yeah...)",
+          "end": 83.382792,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-101",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-extra-101-ko.mp3",
+      "duration": 79.543,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "자기소개서 제목의 ‘나만의 무기'는 한 문장으로 무엇입니까?",
+          "end": 10.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.0,
+          "text": "제 강점은 경영 문제를 데이터로 구조화하고, 현장을 이해한 뒤 필요하면 직접 기술로 구현해서 검증할 수 있다는 점입니다.",
+          "end": 30.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 30.0,
+          "text": "지에프케이에서는 데이터를 다뤘고, 우수살롱에서는 실제 운영을 했으며, 최근에는 애스크 우수 같은 래그 서비스를 직접 만들었습니다.",
+          "end": 50.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 50.0,
+          "text": "이 세 경험을 연결해서 문제를 정의하고 실행까지 가져갈 수 있다는 것이 제 나만의 무기라고 생각합니다.",
+          "end": 65.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 65.0,
+          "text": "제 강점은 경영 문제를 데이터로 구조화하고, 현장을 이해한 뒤 필요하면 직접 기술로 구현해서 검증할 수 있다는 점입니다. (제 강점은!) (구현해서!) (검증!)",
+          "end": 79.542792,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-102",
+      "language": "en",
+      "src": "/audio/musical-recall/application-extra-102-en.mp3",
+      "duration": 81.998,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Please explain your Samsung Galaxy Studio project at JW CRONY.",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "At JW CRONY, I participated in Samsung's overseas Galaxy VR experience-space projects. (Overseas experience-space projects.)",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 24.0,
+          "text": "The locations I clearly remember working on were Harajuku in Tokyo and the Shanghai Expo. We used motion chairs produced by CGV 4DX to plan, install, and operate VR experience spaces.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 48.0,
+          "text": "When equipment had to be transported, I coordinated with the CGV 4DX factory and they handled the shipment. My role was not to develop the technology itself, but to connect partners and on-site execution so that the experience space could actually be installed and operated.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "C4",
+          "start": 72.0,
+          "text": "At JW CRONY, I participated in Samsung's overseas Galaxy VR experience-space projects. At JW CRONY... (Overseas experience-space projects...)",
+          "end": 81.998292,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-102",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-extra-102-ko.mp3",
+      "duration": 86.935,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "JW CRONY에서 삼성전자 해외 Galaxy Studio 설치·운영 프로젝트를 구체적으로 설명해보세요. JW CRONY에서는 삼성전자의 해외 Galaxy VR 체험관 프로젝트에 참여했습니다.",
+          "end": 21.3,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 21.3,
+          "text": "제가 직접 기억하는 현장은 도쿄 하라주쿠와 상하이 엑스포이고, CGV 4DX가 제작한 모션체어를 활용해 VR 체험 공간을 기획하고 설치한 뒤 운영하는 업무를 했습니다. 장비 운송이 필요할 때는 CGV 4DX 공장과 소통했고 배송은 그쪽에서 진행했습니다.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 48.0,
+          "text": "제 역할은 기술을 개발하는 것보다 여러 파트너와 현장 실행을 연결해 체험관이 실제로 설치되고 운영되게 만드는 쪽이었습니다.",
+          "end": 64.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 64.0,
+          "text": "JW CRONY에서는 삼성전자의 해외 Galaxy VR 체험관 프로젝트에 참여했습니다.",
+          "end": 86.935458,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-103",
+      "language": "en",
+      "src": "/audio/musical-recall/application-extra-103-en.mp3",
+      "duration": 79.543,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why were several of your earlier roles relatively short? Each short role had a specific reason for transition.",
+          "end": 18.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 18.0,
+          "text": "At GfK, the company was also going through a difficult period, and I repeatedly saw that market definitions or data framing could change depending on what a client wanted to demonstrate. That experience challenged my earlier belief that data is automatically neutral and made me want to work closer to execution. I therefore moved to JW CRONY. At JW, however, salaries were delayed for several months, so I did not experience the stability I had expected from employment.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 48.0,
+          "text": "I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Saloin. Taeyoung Tech later had a more limited, short-term support nature.",
+          "end": 66.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 66.0,
+          "text": "Each short role had a specific reason for transition.",
+          "end": 79.542792,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-103",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-extra-103-ko.mp3",
+      "duration": 83.984,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "지에프케이·JW CRONY·태영테크처럼 일부 경력이 짧은 이유는 무엇입니까? 기간이 짧았던 이유는 각 단계마다 분명한 전환 계기가 있었기 때문입니다.",
+          "end": 16.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 16.0,
+          "text": "지에프케이에서는 회사 사정도 좋지 않았고, 담당 고객의 요구에 따라 시장 정의나 데이터 가공 방식이 달라지는 일을 반복해서 보면서 데이터가 항상 중립적인 사실로만 쓰이는 것은 아니라는 점을 크게 느꼈습니다. 그래서 좀 더 실행에 가까운 일을 경험하고 싶어 JW CRONY로 옮겼습니다. 그런데 JW에서는 급여가 몇 달 밀릴 정도로 회사의 안정성이 낮았습니다.",
+          "end": 40.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 40.0,
+          "text": "회사원으로서도 큰 불확실성을 감수해야 한다면 차라리 그 리스크를 직접 지고 제 사업을 해보자는 생각으로 이어졌고, 이후 우수살롱 창업을 선택했습니다. 태영테크는 그 이후 제한된 기간의 실무 지원 성격이었습니다.",
+          "end": 56.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 56.0,
+          "text": "기간이 짧았던 이유는 각 단계마다 분명한 전환 계기가 있었기 때문입니다. (분명한 전환 계기가 있었기 때문입니다) (Mm-mm, 분명한 전환...)",
+          "end": 83.983625,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-106",
+      "language": "en",
+      "src": "/audio/musical-recall/application-extra-106-en.mp3",
+      "duration": 80.771,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "What did you actually do each week in MiFE, and what was your role?",
+          "end": 10.7,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.7,
+          "text": "I was a staff member of MiFE from March 2012 to February 2014.",
+          "end": 32.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 32.0,
+          "text": "We held weekly meetings in which we selected brand and marketing cases, analyzed them, and discussed them together. I also participated in university–industry programs.",
+          "end": 53.3,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 53.3,
+          "text": "My role was closer to helping operate the recurring case-study and discussion process than simply attending meetings.",
+          "end": 66.6,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 66.6,
+          "text": "I was a staff member of MiFE from March 2012 to February 2014. (From March 2012 to February 2014.)",
+          "end": 80.770542,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-106",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-extra-106-ko.mp3",
+      "duration": 84.95,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "MiFE에서는 매주 실제로 무엇을 했고 본인은 어떤 역할을 했습니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "MiFE에서는 2012년 3월부터 2014년 2월까지 스태프로 활동했습니다.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "매주 브랜드와 마케팅 사례를 선정해 구성원들과 분석하고 토론하는 미팅을 운영했고, 기업과 연계된 산학협력 프로그램에도 참여했습니다.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 48.0,
+          "text": "제 역할은 단순히 참석하는 것보다 정기적인 사례연구와 토론이 계속 돌아가도록 운영하는 쪽에 가까웠습니다.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 72.0,
+          "text": "MiFE에서는 2012년 3월부터 2014년 2월까지 스태프로 활동했습니다.",
+          "end": 84.950167,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-115",
+      "language": "en",
+      "src": "/audio/musical-recall/application-extra-115-en.mp3",
+      "duration": 90.697,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why did your undergraduate study span from 2012 to 2018?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "I entered university in 2012 and, after being accepted into KATUSA, took one semester of leave before enlistment.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "At the time I was heavily involved in student activities, so I finished those responsibilities before entering the military and served from 2014 to 2015.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "B3",
+          "start": 48.0,
+          "text": "After returning, I completed the credits required for graduation but deferred graduation while looking for work.",
+          "end": 74.0,
+          "role": "answer"
+        },
+        {
+          "section": "C4",
+          "start": 74.0,
+          "text": "I later applied to graduate and completed the degree in August 2018. I explain the length of enrollment through this academic timeline, while treating my GPA management as a separate issue for which I take responsibility.",
+          "end": 82.0,
+          "role": "answer"
+        },
+        {
+          "section": "D5",
+          "start": 82.0,
+          "text": "I entered university in 2012 and, after being accepted into KATUSA, took one semester of leave before enlistment.",
+          "end": 90.697083,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-115",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-extra-115-ko.mp3",
+      "duration": 69.642,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "2012년 입학 후 2018년 졸업까지 재학기간이 긴 이유는 무엇입니까?",
+          "end": 10.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.0,
+          "text": "2012년에 입학한 뒤 KATUSA에 합격했고, 입대 전에 한 학기를 휴학했습니다.",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 24.0,
+          "text": "당시 학생회 활동에 과도하게 몰입해 있었기 때문에 맡은 활동을 마무리한 뒤 입대했고, 2014년부터 2015년까지 복무했습니다.",
+          "end": 44.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 44.0,
+          "text": "이후 복학해 필요한 이수학점을 모두 채웠지만 바로 졸업하지 않고 졸업유예 상태로 구직활동을 했고, 이후 졸업신청을 해 2018년 8월 졸업했습니다.",
+          "end": 54.0,
+          "role": "answer"
+        },
+        {
+          "section": "A4",
+          "start": 54.0,
+          "text": "재학기간 자체는 이 학적 흐름으로 설명하고, 학점 관리의 부족은 별개의 문제로 인정하고 있습니다.",
+          "end": 62.0,
+          "role": "answer"
+        },
+        {
+          "section": "B5",
+          "start": 62.0,
+          "text": "2012년에 입학한 뒤 KATUSA에 합격했고, 입대 전에 한 학기를 휴학했습니다.",
+          "end": 69.642375,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-120",
+      "language": "en",
+      "src": "/audio/musical-recall/application-extra-120-en.mp3",
+      "duration": 69.407,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "You wrote that small-business owners may distrust digital tools. What concrete example did you observe?",
+          "end": 10.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.0,
+          "text": "When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
+          "end": 30.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 30.0,
+          "text": "The problem was that the sales pitch could sound convincing while the actual service quality or follow-up was often poor, so I became cautious about trusting outside services from the beginning. I had a similar experience with tax services: I changed accountants twice before settling on one recommended by another business owner.",
+          "end": 50.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 50.0,
+          "text": "This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality. When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
+          "end": 69.407292,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-extra-120",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-extra-120-ko.mp3",
+      "duration": 83.775,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "소상공인이 디지털 도구를 쉽게 신뢰하지 못한다고 지원서에 썼는데 실제 사례가 있습니까?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "우수살롱을 처음 열었을 때 블로그 체험단과 온라인 마케팅 제휴 제안이 네이버 메시지, 문자, 전화, 인스타그램 DM 등 거의 모든 채널로 쏟아졌습니다.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "문제는 영업 설명은 그럴듯해도 실제 서비스 품질이 낮거나 사후관리가 되지 않는 경우가 많아, 외부 서비스를 처음부터 신뢰하기가 어려워졌다는 점입니다. 세무 서비스도 비슷해서 세무사를 두 번 바꾼 뒤에야 주변 사장님의 추천을 받은 곳에 정착했습니다.",
+          "end": 52.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 52.0,
+          "text": "이 경험을 통해 소상공인에게는 기능의 존재보다 공급자의 주장과 실제 품질을 검증할 수 있는 근거와 신뢰경로가 중요하다고 느꼈습니다.",
+          "end": 68.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 68.0,
+          "text": "우수살롱을 처음 열었을 때 블로그 체험단과 온라인 마케팅 제휴 제안이 네이버 메시지, 문자, 전화, 인스타그램 DM 등 거의 모든 채널로 쏟아졌습니다.",
+          "end": 83.774625,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-opening-30",
+      "language": "en",
+      "src": "/audio/musical-recall/application-opening-30-en.mp3",
+      "duration": 81.345,
+      "style": "A",
+      "cues": [
+        {
+          "section": "Intro - question cue",
+          "role": "question",
+          "text": "Please introduce yourself in 30 seconds.",
+          "start": 0.0,
+          "end": 11.76
+        },
+        {
+          "section": "Chorus - thesis",
+          "role": "answer",
+          "text": "If you remember one thing about me, I hope it's that I learn by trying things myself.",
+          "start": 11.76,
+          "end": 33.6
+        },
+        {
+          "section": "Verse 1",
+          "role": "answer",
+          "text": "Hello, I'm Woosu Jang.",
+          "start": 33.6,
+          "end": 39.77
+        },
+        {
+          "section": "Verse 1",
+          "role": "answer",
+          "text": "I ran my own business for nearly five years,",
+          "start": 39.77,
+          "end": 43.52
+        },
+        {
+          "section": "Verse 1",
+          "role": "answer",
+          "text": "then learned development and built RAG-based AI services when I saw the need for technology.",
+          "start": 43.52,
+          "end": 51.04
+        },
+        {
+          "section": "Verse 2",
+          "role": "answer",
+          "text": "Each step led to a new question.",
+          "start": 51.04,
+          "end": 59.52
+        },
+        {
+          "section": "Verse 2",
+          "role": "answer",
+          "text": "At KAIST BTM, I want to turn those questions from practical experience into research I can test systematically.",
+          "start": 59.52,
+          "end": 71.78
+        },
+        {
+          "section": "Final Chorus / Reprise",
+          "role": "answer",
+          "text": "If you remember one thing about me, I hope it's that I learn by trying things myself.",
+          "start": 71.78,
+          "end": 81.345
+        }
+      ],
+      "alignment": {
+        "engine": "whisper-large-v3-turbo",
+        "mode": "actual-audio-word-alignment",
+        "averagePhraseMatch": 0.923,
+        "phraseMatchScores": [
+          0.945,
+          0.944,
+          0.748,
+          1.0,
+          0.938,
+          1.0,
+          0.869,
+          0.944
+        ]
+      }
+    },
+    {
+      "trackId": "application-opening-30",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-opening-30-ko.mp3",
+      "duration": 80.17,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "30초 자기소개를 해보세요",
+          "end": 8.4,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.4,
+          "text": "오늘 면접이 끝난 뒤 저를 ‘직접 시도해보고 답을 찾는 사람'으로 기억해주시면 좋겠습니다.",
+          "end": 25.2,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 25.2,
+          "text": "안녕하십니까, 지원자 장우수입니다. 저는 비즈니스를 더 깊이 이해하고 싶어 직접 사업을 시작해 약 5년간 운영했고, 기술의 필요성을 느낀 뒤에는 개발을 배워 래그 기반 AI 서비스까지 만들어봤습니다.",
+          "end": 47.6,
+          "role": "answer"
+        },
+        {
+          "section": "D3",
+          "start": 47.6,
+          "text": "직접 해보는 과정에서 늘 다음 질문이 생겼고, 이제 카이스트 비티엠에서는 그 질문을 경험이 아니라 연구로 검증해보고 싶습니다.",
+          "end": 64.4,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 64.4,
+          "text": "오늘 면접이 끝난 뒤 저를 ‘직접 시도해보고 답을 찾는 사람'으로 기억해주시면 좋겠습니다.",
+          "end": 80.16975,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-opening-60",
+      "language": "en",
+      "src": "/audio/musical-recall/application-opening-60-en.mp3",
+      "duration": 80.692,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Please introduce yourself in one minute. My background combines market-data analysis, offline business operations, and the implementation of web and generative-AI services.",
+          "end": 18.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 18.0,
+          "text": "Hello, I am Woosu Jang. As an undergraduate, I learned many management tools, but I had not yet found the technical domain in which I wanted to build distinctive expertise. At GfK, I learned how global point-of-sales data is transformed into business decisions. I then operated Oosu Saloin for nearly five years, where I experienced the importance of tacit knowledge, routines, and exception handling.",
+          "end": 42.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 42.0,
+          "text": "More recently, I learned programming and built RAG-based services such as AskOosu and CodeMap. That experience showed me that management and technology are not separate parts of my career; together, they allow me to understand organizational problems and implement systems that address them. It also led me to ask how source provenance, freshness, uncertainty, and verification controls affect the use of AI at work. I hope to study this question empirically at KAIST BTM.",
+          "end": 68.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 68.0,
+          "text": "My background combines market-data analysis, offline business operations, and the implementation of web and generative-AI services.",
+          "end": 80.692167,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-opening-60",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-opening-60-ko.mp3",
+      "duration": 99.213,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "1분 자기소개를 해보세요 저는 시장 데이터 분석, 오프라인 사업 운영, 웹·생성형 AI 서비스 구현을 차례로 경험해 온 장우수입니다.",
+          "end": 20.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 20.0,
+          "text": "안녕하십니까. 학부에서는 경영학의 여러 수단을 배웠지만 그것을 깊이 적용할 기술적 대상을 찾지 못해 제 전문성에 대한 고민이 길었습니다. 지에프케이에서는 글로벌 POS 데이터가 의사결정으로 바뀌는 과정을 배웠고, 이후 우수살롱을 약 5년간 운영하며 현장지식과 예외처리의 중요성을 체감했습니다.",
+          "end": 50.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 50.0,
+          "text": "최근 프로그래밍을 배우고 애스크 우수와 코드맵 같은 래그 기반 서비스를 직접 만들면서, 경영과 기술이 별개의 경력이 아니라 조직의 문제를 이해하고 시스템으로 구현하는 하나의 역량이라는 확신을 얻었습니다. 이 과정에서 출처, 최신성, 불확실성, 검증 기능의 설계가 AI의 업무 활용을 좌우한다는 연구질문이 생겼습니다.",
+          "end": 80.0,
+          "role": "answer"
+        },
+        {
+          "section": "D3",
+          "start": 80.0,
+          "text": "카이스트 비티엠에서는 이 질문을 조직 AI, 지식구조화, 기술수용 관점에서 실증적으로 연구하고 싶습니다. 저는 시장 데이터 분석, 오프라인 사업 운영, 웹·생성형 AI 서비스 구현을 차례로 경험해 온 장우수입니다.",
+          "end": 99.213,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q32",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q32-en.mp3",
+      "duration": 68.545,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Your GPA is 3.08. Can you handle graduate-level coursework?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "A GPA of 3.08 is the clearest weakness in my application, and I do not want to make excuses for it.",
+          "end": 20.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 20.0,
+          "text": "As an undergraduate, I divided my energy among student-government work, an academic society, and competitions, and I did not yet have a clear professional domain in which to apply management knowledge. However, neither the number of activities nor the fact that my direction developed later excuses the GPA. I was responsible for failing to make academics the central priority.",
+          "end": 40.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 40.0,
+          "text": "Later, I earned an A in Business Statistics, an A+ in Technology Management and Operations Strategy, and a B+ in Marketing Research. I also learned to manage time and outputs through market-data work at G-F-K, nearly five years of business operations, and sustained Python and R-A-G projects. Before admission, I will review probability, statistics, and regression and replicate analyses from relevant papers so that my readiness is demonstrated through outputs rather than promises.",
+          "end": 60.0,
+          "role": "answer"
+        },
+        {
+          "section": "C4",
+          "start": 60.0,
+          "text": "A GPA of 3.08 is the clearest weakness in my application, and I do not want to make excuses for it.",
+          "end": 68.54525,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q32",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q32-ko.mp3",
+      "duration": 67.788,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "GPA가 3.08로 낮습니다. 대학원 수업을 따라갈 수 있습니까? 3.08은 제 지원서의 가장 분명한 약점이며 변명하지 않겠습니다.",
+          "end": 16.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 16.0,
+          "text": "학부 당시 학생회와 학회·공모전 등 여러 활동에 에너지를 배분했고, 경영학의 수단을 어떤 전문영역에 적용할지 목표도 명확하지 않았습니다. 그러나 활동이 많았다는 사실이나 목표가 늦게 정해졌다는 점은 낮은 학점의 면책 사유가 아닙니다. 학업을 기본축으로 두고 우선순위를 조절하지 못한 결과까지 제 책임입니다.",
+          "end": 36.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 36.0,
+          "text": "이후 경영통계학 A0, 기술경영 및 운영전략 A+, 마케팅리서치 B+를 받았고, 지에프케이 데이터 업무와 약 5년의 사업 운영, Python·래그 프로젝트를 지속적으로 완수하면서 시간과 산출물을 관리하는 방식을 바꿨습니다. 입학 전에는 확률통계·회귀분석을 복습하고 관심 논문의 분석을 재현해, 대학원 수학능력을 말이 아니라 결과물로 증명하겠습니다.",
+          "end": 58.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 58.0,
+          "text": "3.08은 제 지원서의 가장 분명한 약점이며 변명하지 않겠습니다.",
+          "end": 67.787708,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q39",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q39-en.mp3",
+      "duration": 86.57,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 11.4,
+          "text": "Is your career path too scattered?",
+          "end": 22.8,
+          "role": "question"
+        },
+        {
+          "section": "B2",
+          "start": 22.8,
+          "text": "The job titles can look scattered.",
+          "end": 34.2,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 34.2,
+          "text": "I also spent a long time asking where management knowledge could become a distinctive specialization for me. However, these were not unrelated moves. At G-F-K, I learned to read markets through data, but I wanted more responsibility for implementation, so I operated a business.",
+          "end": 57.0,
+          "role": "answer"
+        },
+        {
+          "section": "A4",
+          "start": 57.0,
+          "text": "At Oosu Saloin, I worked directly with customers and operations, but I experienced the scalability limits of an offline business, which led me to digital products and development. Programming and R-A-G then brought data, operations, and user experience together within one system. I am now integrating these experiences into one research question: under what conditions does organizational A-I actually work in practice?",
+          "end": 79.8,
+          "role": "answer"
+        },
+        {
+          "section": "B5",
+          "start": 79.8,
+          "text": "The job titles can look scattered.",
+          "end": 86.56975,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q39",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q39-ko.mp3",
+      "duration": 83.043,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "경력이 너무 산만한 것 아닙니까? 직무명만 보면 산만해 보일 수 있습니다.",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "저 역시 오랫동안 ‘경영학을 어디에 적용해야 나만의 전문성이 되는가'를 고민했습니다. 그러나 각 단계는 무관한 이동이 아니라 이전 단계의 한계를 보완한 과정입니다.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 28.0,
+          "text": "지에프케이에서 시장을 데이터로 읽었지만 실행의 주체성이 부족해 사업을 운영했고, 우수살롱에서 고객과 운영을 직접 다뤘지만 오프라인의 확장성 한계를 경험해 디지털 제품과 개발을 배웠습니다.",
+          "end": 56.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 56.0,
+          "text": "프로그래밍과 래그를 배우면서 데이터·운영·사용자 경험이 하나의 시스템 안에서 연결됐고, 지금은 이 경험을 조직 AI가 실제 업무에서 작동하는 조건이라는 하나의 연구질문으로 통합하고 있습니다.",
+          "end": 76.0,
+          "role": "answer"
+        },
+        {
+          "section": "A4",
+          "start": 76.0,
+          "text": "직무명만 보면 산만해 보일 수 있습니다.",
+          "end": 83.043208,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q4",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q4-en.mp3",
+      "duration": 80.797,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why do you want to study technology management? As an undergraduate, I learned tools from strategy, marketing, and statistics, but I did not yet have a specific technology or industry problem to which I wanted to apply them deeply.",
+          "end": 16.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 16.0,
+          "text": "I therefore spent a long time asking what I wanted to manage and what kind of expertise I could build. After working with market data, operating a business, and building RAG services, I realized that technology and AI were the concrete domain I had been looking for.",
+          "end": 36.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 36.0,
+          "text": "At the same time, I became more interested in why a technology becomes embedded in one organization but fails in another than in development alone. Technology management allows me to study the technical system, organizational workflow, user adoption, and market value together, so it is the field that most coherently integrates my background.",
+          "end": 56.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 56.0,
+          "text": "As an undergraduate, I learned tools from strategy, marketing, and statistics, but I did not yet have a specific technology or industry problem to which I wanted to apply them deeply.",
+          "end": 76.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 76.0,
+          "text": "(As an undergraduate, I learned tools from strategy, marketing, and statistics, but I did not yet have a specific technology or industry problem to which I wanted to apply them deeply.)",
+          "end": 80.796667,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q4",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q4-ko.mp3",
+      "duration": 82.886,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 기술경영을 공부하려 합니까? 학부에서 경영학을 공부할 때는 전략, 마케팅, 통계라는 수단은 배웠지만 그것을 깊이 적용할 특정 기술이나 산업 문제가 제 안에 없었습니다.",
+          "end": 18.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 18.0,
+          "text": "그래서 ‘내가 경영할 대상과 내가 축적할 전문성은 무엇인가'라는 고민이 오래 지속됐습니다. 이후 지에프케이의 데이터 업무와 사업 운영을 거쳐 프로그래밍과 래그 서비스를 직접 구현하면서 기술과 AI가 제가 오래 찾던 구체적 대상이라는 것을 발견했습니다.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 48.0,
+          "text": "동시에 개발 자체보다 기술이 왜 어떤 조직에서는 정착하고 다른 조직에서는 실패하는지가 더 궁금해졌습니다. 기술경영은 기술의 구조, 조직의 업무방식, 사용자의 수용, 시장가치를 함께 다루기 때문에 제 경영 경험과 기술 역량을 가장 일관되게 통합할 수 있는 분야라고 생각합니다.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 72.0,
+          "text": "학부에서 경영학을 공부할 때는 전략, 마케팅, 통계라는 수단은 배웠지만 그것을 깊이 적용할 특정 기술이나 산업 문제가 제 안에 없었습니다.",
+          "end": 82.886458,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q40",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q40-en.mp3",
+      "duration": 86.126,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "How does your GfK experience contribute to your research?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "At G-F-K, I organized point-of-sales data by country, channel, and product and transformed it into reports.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "I learned that a large amount of data does not automatically create insight. The categories and metrics used to structure the data, and the decision-maker for whom it is interpreted, determine its meaning.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 48.0,
+          "text": "This directly connects to my R-A-G question: which documents are treated as retrievable knowledge, and how metadata and freshness are represented, can change both the A-I response and the organization's judgment.",
+          "end": 68.0,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 68.0,
+          "text": "At G-F-K, I organized point-of-sales data! by country, channel, and product and transformed it into reports!",
+          "end": 86.125667,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q40",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q40-ko.mp3",
+      "duration": 86.387,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "지에프케이 경험이 연구에 어떤 도움이 됩니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "지에프케이에서는 국가, 채널, 제품 단위의 POS 데이터를 정리하고 리포트로 전환했습니다.",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 24.0,
+          "text": "이 경험을 통해 데이터가 많다고 곧바로 인사이트가 생기는 것이 아니라 어떤 범주와 지표로 구조화하고 누구의 의사결정에 맞게 해석하는지가 중요하다는 점을 배웠습니다.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 48.0,
+          "text": "이는 래그에서도 어떤 문서를 검색 대상으로 삼고 메타데이터와 최신성을 어떻게 표현하느냐가 AI의 답과 조직의 판단을 바꾼다는 연구질문으로 이어졌습니다.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 72.0,
+          "text": "지에프케이에서는 국가, 채널, 제품 단위의 POS 데이터를 정리하고 리포트로 전환했습니다.",
+          "end": 86.386875,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q41",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q41-en.mp3",
+      "duration": 88.242,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "What does operating Oosu Saloin have to do with academic research?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "At Oosu Saloin, I designed not only products and marketing, but also ordering, inventory, customer service, employee handoffs, and exception handling. (Exception handling)",
+          "end": 36.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 36.0,
+          "text": "Even when the same manual was available, experienced and new staff interpreted situations differently, and small differences in work sequence and handoffs changed service quality. That experience led me to believe that collecting documents and placing them in an AI system is not enough.",
+          "end": 60.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 60.0,
+          "text": "The system must also reflect work context and define who is responsible for verification.",
+          "end": 74.4,
+          "role": "answer"
+        },
+        {
+          "section": "C4",
+          "start": 74.4,
+          "text": "At Oosu Saloin, I designed not only products and marketing, but also ordering, inventory, customer service, employee handoffs, and exception handling. (Oosu Saloin)",
+          "end": 88.241583,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q41",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q41-ko.mp3",
+      "duration": 86.282,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "우수살롱 운영 경험이 학술연구와 무슨 관련이 있습니까?",
+          "end": 10.7,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.7,
+          "text": "우수살롱에서는 상품과 마케팅뿐 아니라 주문, 재고, 고객응대, 직원 간 인수인계, 예외상황 처리를 직접 설계했습니다.",
+          "end": 32.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 32.0,
+          "text": "같은 매뉴얼이 있어도 숙련자와 신규 인력이 상황을 판단하는 방식이 달랐고, 작은 업무 순서와 인수인계 차이가 서비스 품질을 바꿨습니다.",
+          "end": 50.7,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 50.7,
+          "text": "이 경험 때문에 조직지식을 단순히 문서로 모아 AI에 넣는 것만으로는 부족하며, 실제 업무의 맥락과 검증 책임까지 설계해야 한다는 문제의식을 갖게 됐습니다.",
+          "end": 69.4,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 69.4,
+          "text": "우수살롱에서는 상품과 마케팅뿐 아니라 주문, 재고, 고객응대, 직원 간 인수인계, 예외상황 처리를 직접 설계했습니다. (우수살롱에서는) (직접 설계했습니다.)",
+          "end": 86.282375,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q44",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q44-en.mp3",
+      "duration": 71.157,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "What was the most important problem you discovered while building AskOosu?",
+          "end": 11.2,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 11.2,
+          "text": "The most important moment was when AskOosu produced a fluent and plausible answer using outdated or insufficient evidence.",
+          "end": 25.6,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 25.6,
+          "text": "I realized that making the sentence more natural was less important than showing which documents had been used and refusing to invent an answer when the information was missing. The system needed to ask a follow-up question or disclose its limitation.",
+          "end": 41.6,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 41.6,
+          "text": "That experience led me to treat source provenance, freshness, fallback behavior, and verification roles as potential research variables.",
+          "end": 54.4,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 54.4,
+          "text": "The most important moment was when AskOosu produced a fluent and plausible answer using outdated or insufficient evidence.",
+          "end": 71.1575,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q44",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q44-ko.mp3",
+      "duration": 63.895,
+      "style": "C",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "애스크 우수에서 가장 중요한 문제를 발견한 순간은 무엇입니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "애스크 우수가 문장 자체는 그럴듯하게 답했지만 오래된 정보나 충분하지 않은 근거를 사용했을 때가 가장 중요한 순간이었습니다.",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 24.0,
+          "text": "모델의 답을 더 자연스럽게 만드는 것보다 어떤 문서를 사용했는지 보여주고, 정보가 없을 때는 답을 만들지 않고 되묻거나 한계를 알리는 것이 더 중요했습니다.",
+          "end": 40.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 40.0,
+          "text": "이 경험이 출처, 최신성, fallback, 검증 역할을 연구변수로 보게 한 출발점입니다.",
+          "end": 52.0,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 52.0,
+          "text": "애스크 우수가 문장 자체는 그럴듯하게 답했지만 오래된 정보나 충분하지 않은 근거를 사용했을 때가 가장 중요한 순간이었습니다.",
+          "end": 63.895458,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q46",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q46-en.mp3",
+      "duration": 63.556,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "What did you do in the Sticks & Stones project?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "The existing WordPress site made it difficult for users to understand the company's services and cases, And it was also inefficient to maintain.",
+          "end": 28.8,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 28.8,
+          "text": "I participated in redesigning the information architecture and screens around the company's needs And the customer's information-discovery flow, And in moving the site toward a TypeScript and Vite environment.",
+          "end": 40.8,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 40.8,
+          "text": "The project showed me that the way data and content are structured Affects both user behavior and the organization's maintenance burden.",
+          "end": 52.8,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 52.8,
+          "text": "The existing WordPress site made it difficult for users to understand the company's services and cases, And it was also inefficient to maintain.",
+          "end": 63.555875,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q46",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q46-ko.mp3",
+      "duration": 82.521,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Sticks & Stones 프로젝트에서 무엇을 했습니까?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "기존 WordPress 사이트에서 회사의 서비스와 사례를 사용자가 이해하기 어렵고 관리도 비효율적인 문제를 발견했습니다.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "회사의 요구와 고객의 정보 탐색 흐름을 기준으로 정보구조와 화면을 재설계하고 TypeScript/Vite 기반 환경으로 전환하는 과정에 참여했습니다.",
+          "end": 50.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 50.0,
+          "text": "이 경험은 데이터와 콘텐츠를 어떻게 구조화하느냐가 사용자 행동과 조직의 유지보수 부담을 함께 바꾼다는 점을 보여주었습니다.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 72.0,
+          "text": "(기존 WordPress 사이트에서 회사의 서비스와 사례를 사용자가 이해하기 어렵고 관리도 비효율적인 문제를 발견했습니다.)",
+          "end": 82.52075,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q47",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q47-en.mp3",
+      "duration": 80.875,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "What is your greatest strength? My greatest strength is learning new technology quickly and connecting problems from different domains to concrete outputs.",
+          "end": 20.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 20.0,
+          "text": "The tendency that led me to solve computer problems and adopt new collaboration tools early has now developed into the ability to learn Python and RAG systems and implement them within a relatively short period. At GfK, I translated market questions into data. At Oosu Saloin, I translated customer needs into operating standards.",
+          "end": 44.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 44.0,
+          "text": "More recently, I translated organizational information and user questions into RAG services and interfaces. In research, I want to use this ability to turn field problems into variables, prototypes, and data rather than leaving them as abstract claims.",
+          "end": 64.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 64.0,
+          "text": "My greatest strength is learning new technology quickly and connecting problems from different domains to concrete outputs.",
+          "end": 80.875042,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q47",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q47-ko.mp3",
+      "duration": 87.144,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "본인의 가장 큰 강점은 무엇입니까?",
+          "end": 10.7,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.7,
+          "text": "제 강점은 새로운 기술을 빠르게 익히고 서로 다른 영역의 문제를 실제 산출물로 연결하는 능력입니다.",
+          "end": 26.7,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 26.7,
+          "text": "어릴 때 컴퓨터 문제를 직접 해결하고 학부 때 새로운 협업도구를 먼저 활용했던 성향이, 지금은 Python과 래그 시스템을 짧은 기간 안에 익혀 구현하는 역량으로 이어졌습니다. 지에프케이에서는 시장의 언어를 데이터로, 우수살롱에서는 고객 요구를 운영기준으로, 최근에는 조직의 정보와 사용자 질문을 래그 서비스와 인터페이스로 바꿨습니다.",
+          "end": 61.4,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 61.4,
+          "text": "연구에서도 현장 문제를 추상적인 주장으로 끝내지 않고 변수와 프로토타입, 데이터로 검증하는 데 이 강점을 활용하고 싶습니다.",
+          "end": 74.7,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 74.7,
+          "text": "제 강점은 새로운 기술을 빠르게 익히고 서로 다른 영역의 문제를 실제 산출물로 연결하는 능력입니다.",
+          "end": 87.144417,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q5",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q5-en.mp3",
+      "duration": 85.734,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 11.4,
+          "text": "Why did you apply to KAIST BTM?",
+          "end": 25.1,
+          "role": "question"
+        },
+        {
+          "section": "C2",
+          "start": 25.1,
+          "text": "What I need is not another broad overview of management, but training that can turn questions from practice into testable research.",
+          "end": 36.5,
+          "role": "answer"
+        },
+        {
+          "section": "B3",
+          "start": 36.5,
+          "text": "KAIST BTM offers research methods, digital innovation and IT management, technology and innovation strategy, and data-analysis training. These courses would allow me to strengthen my weaknesses in research design and quantitative analysis while studying organizational AI.",
+          "end": 54.8,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 54.8,
+          "text": "The faculty's work on organizational data practices, AI-supported knowledge work, knowledge search, innovation strategy, and digital business also has a clear connection to my experience. My main reason for applying is this research and curriculum fit rather than the university's reputation alone.",
+          "end": 73.1,
+          "role": "answer"
+        },
+        {
+          "section": "C5",
+          "start": 73.1,
+          "text": "What I need is not another broad overview of management, but training that can turn questions from practice into testable research.",
+          "end": 85.733833,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q5",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q5-ko.mp3",
+      "duration": 81.424,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 카이스트 비티엠입니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "제가 원하는 것은 일반적인 경영지식을 더 배우는 것보다, 현장에서 얻은 질문을 검증 가능한 연구로 바꾸는 훈련입니다.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 28.0,
+          "text": "카이스트 비티엠에는 연구방법론과 디지털혁신, 기술혁신전략, 데이터 분석 관련 과목이 있어 제가 부족한 연구설계와 계량 역량을 보완하면서 조직 AI 문제를 다룰 수 있습니다. 또 조직의 데이터 활용과 AI 기반 지식업무, 지식탐색과 디지털 비즈니스를 연구하는 교수진과 제 경험의 접점도 분명합니다.",
+          "end": 62.0,
+          "role": "answer"
+        },
+        {
+          "section": "D3",
+          "start": 62.0,
+          "text": "그래서 학교의 이름 자체보다 연구주제와 교과과정의 적합성이 지원한 가장 큰 이유입니다.",
+          "end": 74.0,
+          "role": "answer"
+        },
+        {
+          "section": "E4",
+          "start": 74.0,
+          "text": "제가 원하는 것은 일반적인 경영지식을 더 배우는 것보다, 현장에서 얻은 질문을 검증 가능한 연구로 바꾸는 훈련입니다.",
+          "end": 81.423625,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q51",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q51-en.mp3",
+      "duration": 94.955,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Tell us about your leadership experience.",
+          "end": 10.7,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 10.7,
+          "text": "At Specup, I served as project manager for a one-day employment event attended by approximately 1,300 people.",
+          "end": 32.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 32.0,
+          "text": "The event-planning, external-relations, design, and promotion teams had to work toward the same objective and deadline. I connected responsibilities and milestones across the teams and coordinated progress through event delivery.",
+          "end": 53.3,
+          "role": "answer"
+        },
+        {
+          "section": "D3",
+          "start": 53.3,
+          "text": "I learned that leadership is not about doing everything personally; it is about clarifying goals and standards so that different roles lead to one result. While operating Oosu Saloin, I tried to develop that lesson further through repeatable operating standards and exception-handling procedures.",
+          "end": 74.6,
+          "role": "answer"
+        },
+        {
+          "section": "E4",
+          "start": 74.6,
+          "text": "At Specup, I served as project manager for a one-day employment event attended by approximately 1,300 people.",
+          "end": 94.955042,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q51",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q51-ko.mp3",
+      "duration": 80.562,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "리더십 경험을 말해보세요",
+          "end": 7.2,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 7.2,
+          "text": "스펙업에서 약 1,300명이 참여하는 1일 취업행사의 프로젝트 매니저를 맡았습니다.",
+          "end": 21.6,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 21.6,
+          "text": "행사를 열기 위해 행사기획, 대외협력, 디자인, 홍보 TF가 같은 목표와 일정으로 움직여야 했습니다. 저는 각 팀의 역할과 마감 일정을 연결하고 진행상황을 조율해 실제 행사 운영까지 이어지도록 관리했습니다.",
+          "end": 40.8,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 40.8,
+          "text": "이 경험을 통해 리더십은 모든 일을 직접 하는 것이 아니라 서로 다른 역할이 하나의 결과로 이어지도록 목표와 기준을 명확히 만드는 일임을 배웠습니다. 이후 우수살롱에서는 이를 반복 가능한 운영기준과 예외처리 방식으로 발전시키고자 했습니다.",
+          "end": 74.4,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 74.4,
+          "text": "스펙업에서 약 1,300명이 참여하는 1일 취업행사의 프로젝트 매니저를 맡았습니다. (음...)",
+          "end": 80.561583,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q56",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q56-en.mp3",
+      "duration": 82.704,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "How are your marketing-society and competition experiences connected to your current research?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "A1",
+          "start": 12.0,
+          "text": "From March 2012 to February 2014, I served as a staff member in the business-school marketing society MiFE, helping run weekly case-study and discussion meetings and participating in industry-linked programs. (Industry-linked programs.)",
+          "end": 32.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 32.0,
+          "text": "In an LG Styler IMC project, our team proposed a strategy and received the top award. That experience first exposed me to the problem of translating a technological product's functions into user meaning and market value.",
+          "end": 52.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 52.0,
+          "text": "After operating a business and building AI services, my interest developed from message delivery to how users interpret, verify, and act on a system's output. My current research extends that early interest into organizational verification behavior and calibrated reliance.",
+          "end": 68.0,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 68.0,
+          "text": "From March 2012 to February 2014, I served as a staff member in the business-school marketing society MiFE, helping run weekly case-study and discussion meetings and participating in industry-linked programs. (Industry-linked programs.)",
+          "end": 82.703625,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q56",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q56-ko.mp3",
+      "duration": 86.909,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "마케팅학회와 공모전 경험이 현재와 어떻게 연결됩니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "2012년 3월부터 2014년 2월까지 경영학과 마케팅학회 MiFE에서 스태프로 활동하며 매주 사례연구와 토론 미팅을 운영하고 기업연계 프로그램을 경험했습니다.",
+          "end": 32.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 32.0,
+          "text": "LG전자 스타일러 IMC 학술제에서는 팀으로 전략을 제안해 최우수상을 받았습니다. 당시에는 기술제품의 기능을 소비자가 이해하는 메시지와 시장가치로 바꾸는 문제를 처음 다뤘습니다.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 48.0,
+          "text": "이후 사업 운영과 AI 서비스 구현을 경험하면서 관심이 메시지 전달을 넘어 ‘사용자가 시스템의 답을 어떻게 이해하고 검증해 실제 행동으로 옮기는가'로 깊어졌습니다. 현재 연구는 그 초기 관심을 조직의 검증 행동과 적정 의존으로 확장한 것입니다.",
+          "end": 64.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 64.0,
+          "text": "2012년 3월부터 2014년 2월까지 경영학과 마케팅학회 MiFE에서 스태프로 활동하며 매주 사례연구와 토론 미팅을 운영하고 기업연계 프로그램을 경험했습니다. (MiFE, 사례연구, 토론 미팅!)",
+          "end": 86.909333,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q62",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q62-en.mp3",
+      "duration": 82.73,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why should our department select you?",
+          "end": 7.2,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 7.2,
+          "text": "I am not a conventional applicant with a high GPA and prior publications, and I acknowledge that weakness in comparison.",
+          "end": 21.6,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 21.6,
+          "text": "What distinguishes me is the combination of experiences within one person. I understand markets and organizations through management, worked with real market data at GfK, operated a business for nearly five years, and recently implemented information architectures and RAG services. In my current AI-application program, I am also completing the same tasks as participants with technical majors and have confirmed my ability to learn new technologies quickly and connect them to problem definition and implementation.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 48.0,
+          "text": "This means I can move an organizational-AI problem beyond interviews and discussion into a real task and prototype. I hope to use rigorous methods and data to convert that combination into a master's thesis that connects field relevance with academic contribution.",
+          "end": 69.6,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 69.6,
+          "text": "I am not a conventional applicant with a high GPA and prior publications, and I acknowledge that weakness in comparison.",
+          "end": 82.72975,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q62",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q62-ko.mp3",
+      "duration": 81.189,
+      "style": "B",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 우리 학부가 지원자를 선발해야 합니까? 저는 높은 학점이나 기존 논문으로 준비된 전형적인 지원자는 아니며, 그 비교에서 약점이 있다는 점을 인정합니다.",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "대신 경영학의 언어로 시장과 조직을 이해하고, 지에프케이에서 데이터를 다루고, 사업을 5년 가까이 운영했으며, 최근에는 정보구조와 래그 서비스를 직접 구현했습니다. 현재 AI 응용개발 과정에서도 전공자들과 같은 과제를 수행하며 새로운 기술을 빠르게 익혀 문제정의와 구현으로 연결하는 경쟁력을 확인하고 있습니다.",
+          "end": 36.0,
+          "role": "answer"
+        },
+        {
+          "section": "B2",
+          "start": 36.0,
+          "text": "이 경험의 결합 덕분에 조직 AI의 문제를 현장 인터뷰에서 끝내지 않고 실제 과업과 프로토타입으로 바꿀 수 있습니다. 이를 연구방법론과 데이터로 검증해 현장성과 학술성을 연결하는 석사논문을 만들 수 있다는 점이 제 차별점입니다.",
+          "end": 60.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 60.0,
+          "text": "저는 높은 학점이나 기존 논문으로 준비된 전형적인 지원자는 아니며, 그 비교에서 약점이 있다는 점을 인정합니다.",
+          "end": 81.1885,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q63",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q63-en.mp3",
+      "duration": 81.397,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why did you select the AI Future Studies program as your second choice?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "BTM is my first choice because it allows me to study technology, organization, users, and markets together.",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 24.0,
+          "text": "While building AskOosu and CodeMap, I also became interested in the practical application and diffusion of AI systems and the division of roles between humans and AI, so I selected the AI Future Studies program as a complementary second option. In either program, my core interest is not model development alone, but the conditions under which people can trust and use AI in their work.",
+          "end": 50.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 50.0,
+          "text": "However, BTM integrates my management, entrepreneurial, and organizational experience most fully, so it remains my first choice.",
+          "end": 64.0,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 64.0,
+          "text": "BTM is my first choice because it allows me to study technology, organization, users, and markets together.",
+          "end": 81.3975,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q63",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q63-ko.mp3",
+      "duration": 87.98,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 AI미래학과를 2지망으로 지원했습니까?",
+          "end": 11.4,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 11.4,
+          "text": "1지망은 기술과 조직, 사용자, 시장을 함께 다루는 비티엠입니다.",
+          "end": 29.7,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 29.7,
+          "text": "다만 애스크 우수와 코드맵을 개발하면서 AI 시스템의 실제 적용과 확산, 인간과 AI의 역할분담에도 관심이 커졌기 때문에 AI미래학과를 2지망으로 선택했습니다. 어느 과정이든 단순 모델 개발보다 사용자가 신뢰하고 업무에 활용하는 AI의 조건을 연구하겠다는 중심은 같습니다.",
+          "end": 61.7,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 61.7,
+          "text": "다만 제 경영학·창업·조직 경험을 가장 온전히 통합하는 곳은 비티엠이라고 판단했습니다.",
+          "end": 73.1,
+          "role": "answer"
+        },
+        {
+          "section": "B4",
+          "start": 73.1,
+          "text": "1지망은 기술과 조직, 사용자, 시장을 함께 다루는 비티엠입니다.",
+          "end": 87.980333,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q7",
+      "language": "en",
+      "src": "/audio/musical-recall/application-q7-en.mp3",
+      "duration": 81.659,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why do you want to enter graduate school now? Throughout university and my early career, I kept asking in which field I could develop expertise that would be difficult to replace.",
+          "end": 18.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 18.0,
+          "text": "Market-data analysis and business operations each left me on one side of the divide between analysis and implementation. When I began programming and building RAG services, I realized that I could connect management, data, and user experience within one technical system. However, experience with one service cannot tell me whether the same mechanism applies to other organizations or which factor is actually causal.",
+          "end": 48.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 48.0,
+          "text": "My interests have now converged on organizational AI, and I can also build experimental prototypes. That makes this the right time to transform my practical intuition into a research question and receive systematic methodological training.",
+          "end": 70.0,
+          "role": "answer"
+        },
+        {
+          "section": "A3",
+          "start": 70.0,
+          "text": "Throughout university and my early career, I kept asking in which field I could develop expertise that would be difficult to replace.",
+          "end": 81.658708,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "application-q7",
+      "language": "ko",
+      "src": "/audio/musical-recall/application-q7-ko.mp3",
+      "duration": 83.435,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 지금 대학원에 오려 합니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "학부와 직장생활 동안에는 제가 어떤 분야에서 대체하기 어려운 전문성을 만들 수 있을지 계속 탐색했습니다.",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 24.0,
+          "text": "시장데이터 분석과 사업 운영만으로는 각각 분석과 실행의 한쪽에 머문다는 아쉬움이 있었는데, 프로그래밍과 래그 서비스를 직접 구현하면서 경영·데이터·사용자 경험을 기술 시스템 안에서 연결할 수 있다는 확신을 얻었습니다.",
+          "end": 44.0,
+          "role": "answer"
+        },
+        {
+          "section": "D3",
+          "start": 44.0,
+          "text": "다만 한 서비스에서 얻은 직관이 다른 조직에도 적용되는지, 어떤 요인이 실제 원인인지는 경험만으로 설명할 수 없습니다.",
+          "end": 54.0,
+          "role": "answer"
+        },
+        {
+          "section": "C4",
+          "start": 54.0,
+          "text": "연구영역이 조직 AI로 수렴했고 실험 가능한 프로토타입도 만들 수 있게 된 지금이, 경험을 연구질문으로 전환하고 방법론을 체계적으로 배울 적절한 시점이라고 판단했습니다.",
+          "end": 68.0,
+          "role": "answer"
+        },
+        {
+          "section": "B5",
+          "start": 68.0,
+          "text": "학부와 직장생활 동안에는 제가 어떤 분야에서 대체하기 어려운 전문성을 만들 수 있을지 계속 탐색했습니다.",
+          "end": 83.435042,
+          "role": "answer"
+        }
+      ]
+    }
+  ]
+}
