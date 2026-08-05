@@ -128,6 +128,51 @@ function getQuestionWordCount(track: PlaylistTrack, cue: PlaylistCue | undefined
   return Math.min(count, cue.words?.length ?? count);
 }
 
+function splitMusicalRecallCues(track: PlaylistTrack, cues: PlaylistCue[]) {
+  return cues.flatMap((cue, cueIndex) => {
+    if (!cue.words?.length) return [cue];
+
+    const questionWordCount = cueIndex === 0 ? getQuestionWordCount(track, cue) : 0;
+    const wordRole = (word: NonNullable<PlaylistCue["words"]>[number], wordIndex: number) =>
+      word.role ??
+      (cueIndex === 0 && wordIndex < questionWordCount ? "question" : cue.role);
+
+    const roleChanges = cue.words.some(
+      (word, wordIndex) => wordIndex > 0 && wordRole(word, wordIndex) !== wordRole(cue.words![wordIndex - 1], wordIndex - 1)
+    );
+    if (!roleChanges) return [cue];
+
+    const segments: PlaylistCue[] = [];
+    let segmentStart = 0;
+    let segmentRole = wordRole(cue.words[0], 0);
+
+    const pushSegment = (endExclusive: number) => {
+      const words = cue.words!.slice(segmentStart, endExclusive);
+      if (!words.length) return;
+      const matchedWords = words.filter((word) => word.matched !== false);
+      segments.push({
+        ...cue,
+        role: segmentRole,
+        text: words.map((word) => word.text).join(" "),
+        start: words[0].start,
+        end: words[words.length - 1].end,
+        words,
+        matchRate: matchedWords.length / words.length,
+      });
+    };
+
+    for (let wordIndex = 1; wordIndex < cue.words.length; wordIndex += 1) {
+      const nextRole = wordRole(cue.words[wordIndex], wordIndex);
+      if (nextRole === segmentRole) continue;
+      pushSegment(wordIndex);
+      segmentStart = wordIndex;
+      segmentRole = nextRole;
+    }
+    pushSegment(cue.words.length);
+    return segments;
+  });
+}
+
 function shuffled(ids: string[], keepFirst?: string) {
   const rest = ids.filter((id) => id !== keepFirst);
   for (let i = rest.length - 1; i > 0; i -= 1) {
@@ -202,10 +247,13 @@ export function ContinuousAudioPlayer({
       ? musicalRecallSrc
       : currentTrack?.src ?? "";
   const currentDuration = mediaDuration || currentTrack?.duration || 0;
-  const currentCues =
-    currentTrack && playbackMode === "musical" && currentTrack.musicalRecall
-      ? currentTrack.musicalRecall.cues
-      : currentTrack?.cues ?? [];
+  const currentCues = useMemo(() => {
+    if (!currentTrack) return [];
+    if (playbackMode === "musical" && currentTrack.musicalRecall) {
+      return splitMusicalRecallCues(currentTrack, currentTrack.musicalRecall.cues);
+    }
+    return currentTrack.cues;
+  }, [currentTrack, playbackMode]);
 
   const orderedIds = useMemo(() => {
     const natural = filteredTracks.map((track) => track.trackId);
@@ -699,11 +747,6 @@ export function ContinuousAudioPlayer({
                     cue.words?.findIndex(
                       (word) => currentTime >= word.start && currentTime < word.end
                     ) ?? -1;
-                  const mixedQuestionAnswer =
-                    playbackMode === "musical" &&
-                    index === 0 &&
-                    questionWordCount > 0 &&
-                    (cue.words?.length ?? 0) > questionWordCount;
                   const effectiveRole: "question" | "answer" =
                     playbackMode === "musical" && index === 0 && activeWordIndex >= 0
                       ? activeWordIndex < questionWordCount
@@ -743,9 +786,7 @@ export function ContinuousAudioPlayer({
                           }`}
                         >
                           {playbackMode === "musical"
-                            ? mixedQuestionAnswer
-                              ? "Question → Answer"
-                              : effectiveRole === "question"
+                            ? effectiveRole === "question"
                                 ? "Question · Interviewer"
                                 : "Answer · Me"
                             : cue.role === "question"
@@ -778,7 +819,7 @@ export function ContinuousAudioPlayer({
                                         : "text-slate-500"
                                 }`}
                               >
-                                {word.text}
+                                {word.text}{wordIndex < cue.words!.length - 1 ? " " : ""}
                               </span>
                             );
                           })}

@@ -532,7 +532,7 @@ export function MusicalRecallVisualizer({
                               : "text-white/32"
                         }`}
                       >
-                        {word.text}
+                        {word.text}{index < activeLyricWords.length - 1 ? " " : ""}
                       </span>
                     );
                   })
