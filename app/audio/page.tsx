@@ -25,6 +25,49 @@ export default async function AudioPage({
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as {
     tracks: PlaylistTrack[];
   };
+  const standardContinuousPath = path.join(
+    process.cwd(),
+    "public",
+    "audio",
+    "tracks",
+    "continuous.json"
+  );
+  const standardContinuous = fs.existsSync(standardContinuousPath)
+    ? (JSON.parse(fs.readFileSync(standardContinuousPath, "utf8")) as {
+        languages: Record<
+          "ko" | "en",
+          {
+            src: string;
+            duration: number;
+            tracks: Array<{
+              trackId: string;
+              start: number;
+              end: number;
+              duration: number;
+            }>;
+          }
+        >;
+      })
+    : null;
+  const standardContinuousMap = new Map<string, {
+    src: string;
+    playlistDuration: number;
+    start: number;
+    end: number;
+  }>();
+  if (standardContinuous) {
+    for (const language of ["ko", "en"] as const) {
+      const playlist = standardContinuous.languages[language];
+      for (const track of playlist.tracks) {
+        standardContinuousMap.set(track.trackId, {
+          src: playlist.src,
+          playlistDuration: playlist.duration,
+          start: track.start,
+          end: track.end,
+        });
+      }
+    }
+  }
   const musicalManifestPath = path.join(
     process.cwd(),
     "public",
@@ -95,9 +138,11 @@ export default async function AudioPage({
     const musicalRecall = musicalMap.get(`${track.id}:${track.language}`);
     const alignment = alignmentMap.get(`${track.id}:${track.language}`);
     const continuous = continuousMap.get(`${track.id}:${track.language}`);
+    const standardTrackContinuous = standardContinuousMap.get(track.trackId);
     return musicalRecall
       ? {
           ...track,
+          continuous: standardTrackContinuous,
           musicalRecall: {
             ...musicalRecall,
             cues: alignment?.cues ?? musicalRecall.cues,
@@ -107,7 +152,10 @@ export default async function AudioPage({
             continuous,
           },
         }
-      : track;
+      : {
+          ...track,
+          continuous: standardTrackContinuous,
+        };
   });
   return (
     <ContinuousAudioPlayer

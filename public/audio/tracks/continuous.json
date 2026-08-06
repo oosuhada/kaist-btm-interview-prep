@@ -1,0 +1,1427 @@
+{
+  "version": 1,
+  "purpose": "single-resource lock-screen playback for standard interview audio",
+  "languages": {
+    "en": {
+      "src": "/audio/tracks/continuous-en.mp3",
+      "duration": 3746.64,
+      "trackCount": 98,
+      "tracks": [
+        {
+          "trackId": "application:application-opening-60:en",
+          "id": "application-opening-60",
+          "start": 0.0,
+          "end": 66.05,
+          "duration": 66.05
+        },
+        {
+          "trackId": "application:application-opening-30:en",
+          "id": "application-opening-30",
+          "start": 66.05,
+          "end": 94.18,
+          "duration": 28.13
+        },
+        {
+          "trackId": "application:application-q5:en",
+          "id": "application-q5",
+          "start": 94.18,
+          "end": 140.862,
+          "duration": 46.682
+        },
+        {
+          "trackId": "application:application-q6:en",
+          "id": "application-q6",
+          "start": 140.862,
+          "end": 182.168,
+          "duration": 41.306
+        },
+        {
+          "trackId": "defense:defense-tom-fit:en",
+          "id": "defense-tom-fit",
+          "start": 182.168,
+          "end": 220.234,
+          "duration": 38.066
+        },
+        {
+          "trackId": "presentation:research-1:en",
+          "id": "research-1",
+          "start": 220.234,
+          "end": 249.756,
+          "duration": 29.522
+        },
+        {
+          "trackId": "presentation:research-3:en",
+          "id": "research-3",
+          "start": 249.756,
+          "end": 275.654,
+          "duration": 25.898
+        },
+        {
+          "trackId": "application:application-q40:en",
+          "id": "application-q40",
+          "start": 275.654,
+          "end": 308.872,
+          "duration": 33.218
+        },
+        {
+          "trackId": "application:application-q41:en",
+          "id": "application-q41",
+          "start": 308.872,
+          "end": 344.61,
+          "duration": 35.738
+        },
+        {
+          "trackId": "application:application-q44:en",
+          "id": "application-q44",
+          "start": 344.61,
+          "end": 381.74,
+          "duration": 37.13
+        },
+        {
+          "trackId": "application:application-q39:en",
+          "id": "application-q39",
+          "start": 381.74,
+          "end": 426.79,
+          "duration": 45.05
+        },
+        {
+          "trackId": "application:application-q32:en",
+          "id": "application-q32",
+          "start": 426.79,
+          "end": 487.943,
+          "duration": 61.154
+        },
+        {
+          "trackId": "application:application-q7:en",
+          "id": "application-q7",
+          "start": 487.943,
+          "end": 537.193,
+          "duration": 49.25
+        },
+        {
+          "trackId": "application:application-extra-101:en",
+          "id": "application-extra-101",
+          "start": 537.193,
+          "end": 573.963,
+          "duration": 36.77
+        },
+        {
+          "trackId": "application:application-q62:en",
+          "id": "application-q62",
+          "start": 573.963,
+          "end": 629.405,
+          "duration": 55.442
+        },
+        {
+          "trackId": "defense:defense-q11:en",
+          "id": "defense-q11",
+          "start": 629.405,
+          "end": 649.135,
+          "duration": 19.73
+        },
+        {
+          "trackId": "defense:defense-q13:en",
+          "id": "defense-q13",
+          "start": 649.135,
+          "end": 677.217,
+          "duration": 28.082
+        },
+        {
+          "trackId": "defense:defense-q28:en",
+          "id": "defense-q28",
+          "start": 677.217,
+          "end": 726.875,
+          "duration": 49.658
+        },
+        {
+          "trackId": "application:application-q4:en",
+          "id": "application-q4",
+          "start": 726.875,
+          "end": 773.365,
+          "duration": 46.49
+        },
+        {
+          "trackId": "application:application-q8:en",
+          "id": "application-q8",
+          "start": 773.365,
+          "end": 810.111,
+          "duration": 36.746
+        },
+        {
+          "trackId": "application:application-q9:en",
+          "id": "application-q9",
+          "start": 810.111,
+          "end": 853.913,
+          "duration": 43.802
+        },
+        {
+          "trackId": "application:application-q10:en",
+          "id": "application-q10",
+          "start": 853.913,
+          "end": 888.763,
+          "duration": 34.85
+        },
+        {
+          "trackId": "application:application-q33:en",
+          "id": "application-q33",
+          "start": 888.763,
+          "end": 937.389,
+          "duration": 48.626
+        },
+        {
+          "trackId": "application:application-q34:en",
+          "id": "application-q34",
+          "start": 937.389,
+          "end": 984.935,
+          "duration": 47.546
+        },
+        {
+          "trackId": "application:application-q35:en",
+          "id": "application-q35",
+          "start": 984.935,
+          "end": 1019.497,
+          "duration": 34.562
+        },
+        {
+          "trackId": "application:application-q36:en",
+          "id": "application-q36",
+          "start": 1019.497,
+          "end": 1071.915,
+          "duration": 52.418
+        },
+        {
+          "trackId": "application:application-q37:en",
+          "id": "application-q37",
+          "start": 1071.915,
+          "end": 1109.693,
+          "duration": 37.778
+        },
+        {
+          "trackId": "application:application-q42:en",
+          "id": "application-q42",
+          "start": 1109.693,
+          "end": 1142.623,
+          "duration": 32.93
+        },
+        {
+          "trackId": "application:application-q43:en",
+          "id": "application-q43",
+          "start": 1142.623,
+          "end": 1177.089,
+          "duration": 34.466
+        },
+        {
+          "trackId": "application:application-q45:en",
+          "id": "application-q45",
+          "start": 1177.089,
+          "end": 1207.619,
+          "duration": 30.53
+        },
+        {
+          "trackId": "application:application-q46:en",
+          "id": "application-q46",
+          "start": 1207.619,
+          "end": 1236.637,
+          "duration": 29.018
+        },
+        {
+          "trackId": "application:application-q47:en",
+          "id": "application-q47",
+          "start": 1236.637,
+          "end": 1280.943,
+          "duration": 44.306
+        },
+        {
+          "trackId": "application:application-q48:en",
+          "id": "application-q48",
+          "start": 1280.943,
+          "end": 1316.273,
+          "duration": 35.33
+        },
+        {
+          "trackId": "application:application-q49:en",
+          "id": "application-q49",
+          "start": 1316.273,
+          "end": 1355.419,
+          "duration": 39.146
+        },
+        {
+          "trackId": "application:application-q50:en",
+          "id": "application-q50",
+          "start": 1355.419,
+          "end": 1394.157,
+          "duration": 38.738
+        },
+        {
+          "trackId": "application:application-q51:en",
+          "id": "application-q51",
+          "start": 1394.157,
+          "end": 1433.134,
+          "duration": 38.978
+        },
+        {
+          "trackId": "application:application-q52:en",
+          "id": "application-q52",
+          "start": 1433.134,
+          "end": 1468.56,
+          "duration": 35.426
+        },
+        {
+          "trackId": "application:application-q53:en",
+          "id": "application-q53",
+          "start": 1468.56,
+          "end": 1503.77,
+          "duration": 35.21
+        },
+        {
+          "trackId": "application:application-q54:en",
+          "id": "application-q54",
+          "start": 1503.77,
+          "end": 1542.124,
+          "duration": 38.354
+        },
+        {
+          "trackId": "application:application-q55:en",
+          "id": "application-q55",
+          "start": 1542.124,
+          "end": 1590.99,
+          "duration": 48.866
+        },
+        {
+          "trackId": "application:application-q56:en",
+          "id": "application-q56",
+          "start": 1590.99,
+          "end": 1639.976,
+          "duration": 48.986
+        },
+        {
+          "trackId": "application:application-q57:en",
+          "id": "application-q57",
+          "start": 1639.976,
+          "end": 1677.106,
+          "duration": 37.13
+        },
+        {
+          "trackId": "application:application-q58:en",
+          "id": "application-q58",
+          "start": 1677.106,
+          "end": 1716.852,
+          "duration": 39.746
+        },
+        {
+          "trackId": "application:application-q59:en",
+          "id": "application-q59",
+          "start": 1716.852,
+          "end": 1752.23,
+          "duration": 35.378
+        },
+        {
+          "trackId": "application:application-q60:en",
+          "id": "application-q60",
+          "start": 1752.23,
+          "end": 1785.976,
+          "duration": 33.746
+        },
+        {
+          "trackId": "application:application-q61:en",
+          "id": "application-q61",
+          "start": 1785.976,
+          "end": 1818.282,
+          "duration": 32.306
+        },
+        {
+          "trackId": "application:application-q63:en",
+          "id": "application-q63",
+          "start": 1818.282,
+          "end": 1861.412,
+          "duration": 43.13
+        },
+        {
+          "trackId": "application:application-q64:en",
+          "id": "application-q64",
+          "start": 1861.412,
+          "end": 1892.35,
+          "duration": 30.938
+        },
+        {
+          "trackId": "application:application-q75:en",
+          "id": "application-q75",
+          "start": 1892.35,
+          "end": 1926.36,
+          "duration": 34.01
+        },
+        {
+          "trackId": "application:application-q76:en",
+          "id": "application-q76",
+          "start": 1926.36,
+          "end": 1971.218,
+          "duration": 44.858
+        },
+        {
+          "trackId": "application:application-q77:en",
+          "id": "application-q77",
+          "start": 1971.218,
+          "end": 2005.084,
+          "duration": 33.866
+        },
+        {
+          "trackId": "application:application-q78:en",
+          "id": "application-q78",
+          "start": 2005.084,
+          "end": 2046.03,
+          "duration": 40.946
+        },
+        {
+          "trackId": "application:application-q79:en",
+          "id": "application-q79",
+          "start": 2046.03,
+          "end": 2092.28,
+          "duration": 46.25
+        },
+        {
+          "trackId": "application:application-extra-102:en",
+          "id": "application-extra-102",
+          "start": 2092.28,
+          "end": 2132.746,
+          "duration": 40.466
+        },
+        {
+          "trackId": "application:application-extra-103:en",
+          "id": "application-extra-103",
+          "start": 2132.746,
+          "end": 2180.988,
+          "duration": 48.242
+        },
+        {
+          "trackId": "application:application-extra-104:en",
+          "id": "application-extra-104",
+          "start": 2180.988,
+          "end": 2222.438,
+          "duration": 41.45
+        },
+        {
+          "trackId": "application:application-extra-106:en",
+          "id": "application-extra-106",
+          "start": 2222.438,
+          "end": 2249.392,
+          "duration": 26.954
+        },
+        {
+          "trackId": "application:application-extra-113:en",
+          "id": "application-extra-113",
+          "start": 2249.392,
+          "end": 2288.01,
+          "duration": 38.618
+        },
+        {
+          "trackId": "application:application-extra-114:en",
+          "id": "application-extra-114",
+          "start": 2288.01,
+          "end": 2318.156,
+          "duration": 30.146
+        },
+        {
+          "trackId": "application:application-extra-115:en",
+          "id": "application-extra-115",
+          "start": 2318.156,
+          "end": 2357.445,
+          "duration": 39.29
+        },
+        {
+          "trackId": "application:application-extra-116:en",
+          "id": "application-extra-116",
+          "start": 2357.445,
+          "end": 2392.007,
+          "duration": 34.562
+        },
+        {
+          "trackId": "application:application-extra-120:en",
+          "id": "application-extra-120",
+          "start": 2392.007,
+          "end": 2438.785,
+          "duration": 46.778
+        },
+        {
+          "trackId": "application:application-extra-122:en",
+          "id": "application-extra-122",
+          "start": 2438.785,
+          "end": 2478.963,
+          "duration": 40.178
+        },
+        {
+          "trackId": "defense:defense-q12:en",
+          "id": "defense-q12",
+          "start": 2478.963,
+          "end": 2519.477,
+          "duration": 40.514
+        },
+        {
+          "trackId": "defense:defense-q14:en",
+          "id": "defense-q14",
+          "start": 2519.477,
+          "end": 2565.127,
+          "duration": 45.65
+        },
+        {
+          "trackId": "defense:defense-q15:en",
+          "id": "defense-q15",
+          "start": 2565.127,
+          "end": 2603.937,
+          "duration": 38.81
+        },
+        {
+          "trackId": "defense:defense-q16:en",
+          "id": "defense-q16",
+          "start": 2603.937,
+          "end": 2639.939,
+          "duration": 36.002
+        },
+        {
+          "trackId": "defense:defense-q17:en",
+          "id": "defense-q17",
+          "start": 2639.939,
+          "end": 2685.061,
+          "duration": 45.122
+        },
+        {
+          "trackId": "defense:defense-q18:en",
+          "id": "defense-q18",
+          "start": 2685.061,
+          "end": 2728.527,
+          "duration": 43.466
+        },
+        {
+          "trackId": "defense:defense-q19:en",
+          "id": "defense-q19",
+          "start": 2728.527,
+          "end": 2765.105,
+          "duration": 36.578
+        },
+        {
+          "trackId": "defense:defense-q20:en",
+          "id": "defense-q20",
+          "start": 2765.105,
+          "end": 2794.915,
+          "duration": 29.81
+        },
+        {
+          "trackId": "defense:defense-q21:en",
+          "id": "defense-q21",
+          "start": 2794.915,
+          "end": 2826.069,
+          "duration": 31.154
+        },
+        {
+          "trackId": "defense:defense-q22:en",
+          "id": "defense-q22",
+          "start": 2826.069,
+          "end": 2861.879,
+          "duration": 35.81
+        },
+        {
+          "trackId": "defense:defense-q23:en",
+          "id": "defense-q23",
+          "start": 2861.879,
+          "end": 2896.273,
+          "duration": 34.394
+        },
+        {
+          "trackId": "defense:defense-q24:en",
+          "id": "defense-q24",
+          "start": 2896.273,
+          "end": 2926.083,
+          "duration": 29.81
+        },
+        {
+          "trackId": "defense:defense-q25:en",
+          "id": "defense-q25",
+          "start": 2926.083,
+          "end": 2966.549,
+          "duration": 40.466
+        },
+        {
+          "trackId": "defense:defense-q26:en",
+          "id": "defense-q26",
+          "start": 2966.549,
+          "end": 3006.895,
+          "duration": 40.346
+        },
+        {
+          "trackId": "defense:defense-q27:en",
+          "id": "defense-q27",
+          "start": 3006.895,
+          "end": 3039.609,
+          "duration": 32.714
+        },
+        {
+          "trackId": "defense:defense-q29:en",
+          "id": "defense-q29",
+          "start": 3039.609,
+          "end": 3076.235,
+          "duration": 36.626
+        },
+        {
+          "trackId": "defense:defense-q30:en",
+          "id": "defense-q30",
+          "start": 3076.235,
+          "end": 3113.893,
+          "duration": 37.658
+        },
+        {
+          "trackId": "defense:defense-q31:en",
+          "id": "defense-q31",
+          "start": 3113.893,
+          "end": 3149.439,
+          "duration": 35.546
+        },
+        {
+          "trackId": "defense:defense-q38:en",
+          "id": "defense-q38",
+          "start": 3149.439,
+          "end": 3183.569,
+          "duration": 34.13
+        },
+        {
+          "trackId": "defense:defense-q70:en",
+          "id": "defense-q70",
+          "start": 3183.569,
+          "end": 3214.627,
+          "duration": 31.058
+        },
+        {
+          "trackId": "defense:defense-q71:en",
+          "id": "defense-q71",
+          "start": 3214.627,
+          "end": 3249.332,
+          "duration": 34.706
+        },
+        {
+          "trackId": "defense:defense-q72:en",
+          "id": "defense-q72",
+          "start": 3249.332,
+          "end": 3280.726,
+          "duration": 31.394
+        },
+        {
+          "trackId": "defense:defense-q73:en",
+          "id": "defense-q73",
+          "start": 3280.726,
+          "end": 3316.824,
+          "duration": 36.098
+        },
+        {
+          "trackId": "defense:defense-q74:en",
+          "id": "defense-q74",
+          "start": 3316.824,
+          "end": 3345.386,
+          "duration": 28.562
+        },
+        {
+          "trackId": "presentation:research-2:en",
+          "id": "research-2",
+          "start": 3345.386,
+          "end": 3359.212,
+          "duration": 13.826
+        },
+        {
+          "trackId": "presentation:research-4:en",
+          "id": "research-4",
+          "start": 3359.212,
+          "end": 3396.966,
+          "duration": 37.754
+        },
+        {
+          "trackId": "presentation:research-5:en",
+          "id": "research-5",
+          "start": 3396.966,
+          "end": 3429.536,
+          "duration": 32.57
+        },
+        {
+          "trackId": "presentation:research-6:en",
+          "id": "research-6",
+          "start": 3429.536,
+          "end": 3477.634,
+          "duration": 48.098
+        },
+        {
+          "trackId": "presentation:research-7:en",
+          "id": "research-7",
+          "start": 3477.634,
+          "end": 3504.492,
+          "duration": 26.858
+        },
+        {
+          "trackId": "presentation:research-8:en",
+          "id": "research-8",
+          "start": 3504.492,
+          "end": 3561.35,
+          "duration": 56.858
+        },
+        {
+          "trackId": "presentation:research-9:en",
+          "id": "research-9",
+          "start": 3561.35,
+          "end": 3594.256,
+          "duration": 32.906
+        },
+        {
+          "trackId": "presentation:research-10:en",
+          "id": "research-10",
+          "start": 3594.256,
+          "end": 3629.922,
+          "duration": 35.666
+        },
+        {
+          "trackId": "presentation:research-11:en",
+          "id": "research-11",
+          "start": 3629.922,
+          "end": 3697.676,
+          "duration": 67.754
+        },
+        {
+          "trackId": "presentation:research-12:en",
+          "id": "research-12",
+          "start": 3697.676,
+          "end": 3724.03,
+          "duration": 26.354
+        },
+        {
+          "trackId": "presentation:research-13:en",
+          "id": "research-13",
+          "start": 3724.03,
+          "end": 3746.64,
+          "duration": 22.61
+        }
+      ]
+    },
+    "ko": {
+      "src": "/audio/tracks/continuous-ko.mp3",
+      "duration": 3220.738,
+      "trackCount": 103,
+      "tracks": [
+        {
+          "trackId": "application:application-opening-60:ko",
+          "id": "application-opening-60",
+          "start": 0.0,
+          "end": 50.954,
+          "duration": 50.954
+        },
+        {
+          "trackId": "application:application-opening-30:ko",
+          "id": "application-opening-30",
+          "start": 50.954,
+          "end": 80.644,
+          "duration": 29.69
+        },
+        {
+          "trackId": "application:application-q5:ko",
+          "id": "application-q5",
+          "start": 80.644,
+          "end": 113.526,
+          "duration": 32.882
+        },
+        {
+          "trackId": "application:application-q6:ko",
+          "id": "application-q6",
+          "start": 113.526,
+          "end": 142.256,
+          "duration": 28.73
+        },
+        {
+          "trackId": "defense:defense-tom-fit:ko",
+          "id": "defense-tom-fit",
+          "start": 142.256,
+          "end": 176.578,
+          "duration": 34.322
+        },
+        {
+          "trackId": "presentation:research-1:ko",
+          "id": "research-1",
+          "start": 176.578,
+          "end": 199.884,
+          "duration": 23.306
+        },
+        {
+          "trackId": "presentation:research-3:ko",
+          "id": "research-3",
+          "start": 199.884,
+          "end": 222.398,
+          "duration": 22.514
+        },
+        {
+          "trackId": "application:application-q40:ko",
+          "id": "application-q40",
+          "start": 222.398,
+          "end": 251.992,
+          "duration": 29.594
+        },
+        {
+          "trackId": "application:application-q41:ko",
+          "id": "application-q41",
+          "start": 251.992,
+          "end": 282.714,
+          "duration": 30.722
+        },
+        {
+          "trackId": "application:application-q44:ko",
+          "id": "application-q44",
+          "start": 282.714,
+          "end": 310.58,
+          "duration": 27.866
+        },
+        {
+          "trackId": "application:application-q39:ko",
+          "id": "application-q39",
+          "start": 310.58,
+          "end": 348.886,
+          "duration": 38.306
+        },
+        {
+          "trackId": "application:application-q32:ko",
+          "id": "application-q32",
+          "start": 348.886,
+          "end": 399.023,
+          "duration": 50.138
+        },
+        {
+          "trackId": "application:application-q7:ko",
+          "id": "application-q7",
+          "start": 399.023,
+          "end": 435.553,
+          "duration": 36.53
+        },
+        {
+          "trackId": "application:application-extra-101:ko",
+          "id": "application-extra-101",
+          "start": 435.553,
+          "end": 462.051,
+          "duration": 26.498
+        },
+        {
+          "trackId": "application:application-q62:ko",
+          "id": "application-q62",
+          "start": 462.051,
+          "end": 503.813,
+          "duration": 41.762
+        },
+        {
+          "trackId": "defense:defense-q11:ko",
+          "id": "defense-q11",
+          "start": 503.813,
+          "end": 522.631,
+          "duration": 18.818
+        },
+        {
+          "trackId": "defense:defense-q13:ko",
+          "id": "defense-q13",
+          "start": 522.631,
+          "end": 548.433,
+          "duration": 25.802
+        },
+        {
+          "trackId": "defense:defense-q28:ko",
+          "id": "defense-q28",
+          "start": 548.433,
+          "end": 589.691,
+          "duration": 41.258
+        },
+        {
+          "trackId": "application:application-q4:ko",
+          "id": "application-q4",
+          "start": 589.691,
+          "end": 635.221,
+          "duration": 45.53
+        },
+        {
+          "trackId": "application:application-q8:ko",
+          "id": "application-q8",
+          "start": 635.221,
+          "end": 665.199,
+          "duration": 29.978
+        },
+        {
+          "trackId": "application:application-q9:ko",
+          "id": "application-q9",
+          "start": 665.199,
+          "end": 707.945,
+          "duration": 42.746
+        },
+        {
+          "trackId": "application:application-q10:ko",
+          "id": "application-q10",
+          "start": 707.945,
+          "end": 733.579,
+          "duration": 25.634
+        },
+        {
+          "trackId": "application:application-q33:ko",
+          "id": "application-q33",
+          "start": 733.579,
+          "end": 782.373,
+          "duration": 48.794
+        },
+        {
+          "trackId": "application:application-q34:ko",
+          "id": "application-q34",
+          "start": 782.373,
+          "end": 817.367,
+          "duration": 34.994
+        },
+        {
+          "trackId": "application:application-q35:ko",
+          "id": "application-q35",
+          "start": 817.367,
+          "end": 845.569,
+          "duration": 28.202
+        },
+        {
+          "trackId": "application:application-q36:ko",
+          "id": "application-q36",
+          "start": 845.569,
+          "end": 888.099,
+          "duration": 42.53
+        },
+        {
+          "trackId": "application:application-q37:ko",
+          "id": "application-q37",
+          "start": 888.099,
+          "end": 920.237,
+          "duration": 32.138
+        },
+        {
+          "trackId": "application:application-q42:ko",
+          "id": "application-q42",
+          "start": 920.237,
+          "end": 948.391,
+          "duration": 28.154
+        },
+        {
+          "trackId": "application:application-q43:ko",
+          "id": "application-q43",
+          "start": 948.391,
+          "end": 978.873,
+          "duration": 30.482
+        },
+        {
+          "trackId": "application:application-q45:ko",
+          "id": "application-q45",
+          "start": 978.873,
+          "end": 1005.371,
+          "duration": 26.498
+        },
+        {
+          "trackId": "application:application-q46:ko",
+          "id": "application-q46",
+          "start": 1005.371,
+          "end": 1031.293,
+          "duration": 25.922
+        },
+        {
+          "trackId": "application:application-q47:ko",
+          "id": "application-q47",
+          "start": 1031.293,
+          "end": 1069.647,
+          "duration": 38.354
+        },
+        {
+          "trackId": "application:application-q48:ko",
+          "id": "application-q48",
+          "start": 1069.647,
+          "end": 1099.049,
+          "duration": 29.402
+        },
+        {
+          "trackId": "application:application-q49:ko",
+          "id": "application-q49",
+          "start": 1099.049,
+          "end": 1137.115,
+          "duration": 38.066
+        },
+        {
+          "trackId": "application:application-q50:ko",
+          "id": "application-q50",
+          "start": 1137.115,
+          "end": 1164.693,
+          "duration": 27.578
+        },
+        {
+          "trackId": "application:application-q51:ko",
+          "id": "application-q51",
+          "start": 1164.693,
+          "end": 1197.406,
+          "duration": 32.714
+        },
+        {
+          "trackId": "application:application-q52:ko",
+          "id": "application-q52",
+          "start": 1197.406,
+          "end": 1222.248,
+          "duration": 24.842
+        },
+        {
+          "trackId": "application:application-q53:ko",
+          "id": "application-q53",
+          "start": 1222.248,
+          "end": 1252.922,
+          "duration": 30.674
+        },
+        {
+          "trackId": "application:application-q54:ko",
+          "id": "application-q54",
+          "start": 1252.922,
+          "end": 1287.34,
+          "duration": 34.418
+        },
+        {
+          "trackId": "application:application-q55:ko",
+          "id": "application-q55",
+          "start": 1287.34,
+          "end": 1327.59,
+          "duration": 40.25
+        },
+        {
+          "trackId": "application:application-q56:ko",
+          "id": "application-q56",
+          "start": 1327.59,
+          "end": 1364.12,
+          "duration": 36.53
+        },
+        {
+          "trackId": "application:application-q57:ko",
+          "id": "application-q57",
+          "start": 1364.12,
+          "end": 1388.914,
+          "duration": 24.794
+        },
+        {
+          "trackId": "application:application-q58:ko",
+          "id": "application-q58",
+          "start": 1388.914,
+          "end": 1418.316,
+          "duration": 29.402
+        },
+        {
+          "trackId": "application:application-q59:ko",
+          "id": "application-q59",
+          "start": 1418.316,
+          "end": 1443.374,
+          "duration": 25.058
+        },
+        {
+          "trackId": "application:application-q60:ko",
+          "id": "application-q60",
+          "start": 1443.374,
+          "end": 1470.736,
+          "duration": 27.362
+        },
+        {
+          "trackId": "application:application-q61:ko",
+          "id": "application-q61",
+          "start": 1470.736,
+          "end": 1501.674,
+          "duration": 30.938
+        },
+        {
+          "trackId": "application:application-q63:ko",
+          "id": "application-q63",
+          "start": 1501.674,
+          "end": 1533.38,
+          "duration": 31.706
+        },
+        {
+          "trackId": "application:application-q64:ko",
+          "id": "application-q64",
+          "start": 1533.38,
+          "end": 1557.598,
+          "duration": 24.218
+        },
+        {
+          "trackId": "application:application-q75:ko",
+          "id": "application-q75",
+          "start": 1557.598,
+          "end": 1586.016,
+          "duration": 28.418
+        },
+        {
+          "trackId": "application:application-q76:ko",
+          "id": "application-q76",
+          "start": 1586.016,
+          "end": 1626.434,
+          "duration": 40.418
+        },
+        {
+          "trackId": "application:application-q77:ko",
+          "id": "application-q77",
+          "start": 1626.434,
+          "end": 1658.404,
+          "duration": 31.97
+        },
+        {
+          "trackId": "application:application-q78:ko",
+          "id": "application-q78",
+          "start": 1658.404,
+          "end": 1694.022,
+          "duration": 35.618
+        },
+        {
+          "trackId": "application:application-q79:ko",
+          "id": "application-q79",
+          "start": 1694.022,
+          "end": 1732.496,
+          "duration": 38.474
+        },
+        {
+          "trackId": "application:application-extra-102:ko",
+          "id": "application-extra-102",
+          "start": 1732.496,
+          "end": 1765.954,
+          "duration": 33.458
+        },
+        {
+          "trackId": "application:application-extra-103:ko",
+          "id": "application-extra-103",
+          "start": 1765.954,
+          "end": 1807.788,
+          "duration": 41.834
+        },
+        {
+          "trackId": "application:application-extra-104:ko",
+          "id": "application-extra-104",
+          "start": 1807.788,
+          "end": 1841.702,
+          "duration": 33.914
+        },
+        {
+          "trackId": "application:application-extra-105:ko",
+          "id": "application-extra-105",
+          "start": 1841.702,
+          "end": 1864.72,
+          "duration": 23.018
+        },
+        {
+          "trackId": "application:application-extra-106:ko",
+          "id": "application-extra-106",
+          "start": 1864.72,
+          "end": 1888.194,
+          "duration": 23.474
+        },
+        {
+          "trackId": "application:application-extra-113:ko",
+          "id": "application-extra-113",
+          "start": 1888.194,
+          "end": 1921.7,
+          "duration": 33.506
+        },
+        {
+          "trackId": "application:application-extra-114:ko",
+          "id": "application-extra-114",
+          "start": 1921.7,
+          "end": 1944.045,
+          "duration": 22.346
+        },
+        {
+          "trackId": "application:application-extra-115:ko",
+          "id": "application-extra-115",
+          "start": 1944.045,
+          "end": 1977.215,
+          "duration": 33.17
+        },
+        {
+          "trackId": "application:application-extra-116:ko",
+          "id": "application-extra-116",
+          "start": 1977.215,
+          "end": 2007.025,
+          "duration": 29.81
+        },
+        {
+          "trackId": "application:application-extra-117:ko",
+          "id": "application-extra-117",
+          "start": 2007.025,
+          "end": 2036.259,
+          "duration": 29.234
+        },
+        {
+          "trackId": "application:application-extra-118:ko",
+          "id": "application-extra-118",
+          "start": 2036.259,
+          "end": 2058.989,
+          "duration": 22.73
+        },
+        {
+          "trackId": "application:application-extra-119:ko",
+          "id": "application-extra-119",
+          "start": 2058.989,
+          "end": 2082.919,
+          "duration": 23.93
+        },
+        {
+          "trackId": "application:application-extra-120:ko",
+          "id": "application-extra-120",
+          "start": 2082.919,
+          "end": 2122.473,
+          "duration": 39.554
+        },
+        {
+          "trackId": "application:application-extra-121:ko",
+          "id": "application-extra-121",
+          "start": 2122.473,
+          "end": 2141.147,
+          "duration": 18.674
+        },
+        {
+          "trackId": "application:application-extra-122:ko",
+          "id": "application-extra-122",
+          "start": 2141.147,
+          "end": 2176.381,
+          "duration": 35.234
+        },
+        {
+          "trackId": "defense:defense-q12:ko",
+          "id": "defense-q12",
+          "start": 2176.381,
+          "end": 2205.783,
+          "duration": 29.402
+        },
+        {
+          "trackId": "defense:defense-q14:ko",
+          "id": "defense-q14",
+          "start": 2205.783,
+          "end": 2242.193,
+          "duration": 36.41
+        },
+        {
+          "trackId": "defense:defense-q15:ko",
+          "id": "defense-q15",
+          "start": 2242.193,
+          "end": 2267.395,
+          "duration": 25.202
+        },
+        {
+          "trackId": "defense:defense-q16:ko",
+          "id": "defense-q16",
+          "start": 2267.395,
+          "end": 2294.469,
+          "duration": 27.074
+        },
+        {
+          "trackId": "defense:defense-q17:ko",
+          "id": "defense-q17",
+          "start": 2294.469,
+          "end": 2327.279,
+          "duration": 32.81
+        },
+        {
+          "trackId": "defense:defense-q18:ko",
+          "id": "defense-q18",
+          "start": 2327.279,
+          "end": 2360.449,
+          "duration": 33.17
+        },
+        {
+          "trackId": "defense:defense-q19:ko",
+          "id": "defense-q19",
+          "start": 2360.449,
+          "end": 2388.939,
+          "duration": 28.49
+        },
+        {
+          "trackId": "defense:defense-q20:ko",
+          "id": "defense-q20",
+          "start": 2388.939,
+          "end": 2414.573,
+          "duration": 25.634
+        },
+        {
+          "trackId": "defense:defense-q21:ko",
+          "id": "defense-q21",
+          "start": 2414.573,
+          "end": 2440.375,
+          "duration": 25.802
+        },
+        {
+          "trackId": "defense:defense-q22:ko",
+          "id": "defense-q22",
+          "start": 2440.375,
+          "end": 2474.985,
+          "duration": 34.61
+        },
+        {
+          "trackId": "defense:defense-q23:ko",
+          "id": "defense-q23",
+          "start": 2474.985,
+          "end": 2503.547,
+          "duration": 28.562
+        },
+        {
+          "trackId": "defense:defense-q24:ko",
+          "id": "defense-q24",
+          "start": 2503.547,
+          "end": 2532.493,
+          "duration": 28.946
+        },
+        {
+          "trackId": "defense:defense-q25:ko",
+          "id": "defense-q25",
+          "start": 2532.493,
+          "end": 2561.055,
+          "duration": 28.562
+        },
+        {
+          "trackId": "defense:defense-q26:ko",
+          "id": "defense-q26",
+          "start": 2561.055,
+          "end": 2588.201,
+          "duration": 27.146
+        },
+        {
+          "trackId": "defense:defense-q27:ko",
+          "id": "defense-q27",
+          "start": 2588.201,
+          "end": 2613.043,
+          "duration": 24.842
+        },
+        {
+          "trackId": "defense:defense-q29:ko",
+          "id": "defense-q29",
+          "start": 2613.043,
+          "end": 2647.076,
+          "duration": 34.034
+        },
+        {
+          "trackId": "defense:defense-q30:ko",
+          "id": "defense-q30",
+          "start": 2647.076,
+          "end": 2675.686,
+          "duration": 28.61
+        },
+        {
+          "trackId": "defense:defense-q31:ko",
+          "id": "defense-q31",
+          "start": 2675.686,
+          "end": 2706.024,
+          "duration": 30.338
+        },
+        {
+          "trackId": "defense:defense-q38:ko",
+          "id": "defense-q38",
+          "start": 2706.024,
+          "end": 2739.53,
+          "duration": 33.506
+        },
+        {
+          "trackId": "defense:defense-q70:ko",
+          "id": "defense-q70",
+          "start": 2739.53,
+          "end": 2762.548,
+          "duration": 23.018
+        },
+        {
+          "trackId": "defense:defense-q71:ko",
+          "id": "defense-q71",
+          "start": 2762.548,
+          "end": 2791.902,
+          "duration": 29.354
+        },
+        {
+          "trackId": "defense:defense-q72:ko",
+          "id": "defense-q72",
+          "start": 2791.902,
+          "end": 2819.768,
+          "duration": 27.866
+        },
+        {
+          "trackId": "defense:defense-q73:ko",
+          "id": "defense-q73",
+          "start": 2819.768,
+          "end": 2849.458,
+          "duration": 29.69
+        },
+        {
+          "trackId": "defense:defense-q74:ko",
+          "id": "defense-q74",
+          "start": 2849.458,
+          "end": 2872.428,
+          "duration": 22.97
+        },
+        {
+          "trackId": "presentation:research-2:ko",
+          "id": "research-2",
+          "start": 2872.428,
+          "end": 2885.294,
+          "duration": 12.866
+        },
+        {
+          "trackId": "presentation:research-4:ko",
+          "id": "research-4",
+          "start": 2885.294,
+          "end": 2914.696,
+          "duration": 29.402
+        },
+        {
+          "trackId": "presentation:research-5:ko",
+          "id": "research-5",
+          "start": 2914.696,
+          "end": 2943.474,
+          "duration": 28.778
+        },
+        {
+          "trackId": "presentation:research-6:ko",
+          "id": "research-6",
+          "start": 2943.474,
+          "end": 2986.34,
+          "duration": 42.866
+        },
+        {
+          "trackId": "presentation:research-7:ko",
+          "id": "research-7",
+          "start": 2986.34,
+          "end": 3010.726,
+          "duration": 24.386
+        },
+        {
+          "trackId": "presentation:research-8:ko",
+          "id": "research-8",
+          "start": 3010.726,
+          "end": 3059.304,
+          "duration": 48.578
+        },
+        {
+          "trackId": "presentation:research-9:ko",
+          "id": "research-9",
+          "start": 3059.304,
+          "end": 3087.65,
+          "duration": 28.346
+        },
+        {
+          "trackId": "presentation:research-10:ko",
+          "id": "research-10",
+          "start": 3087.65,
+          "end": 3122.884,
+          "duration": 35.234
+        },
+        {
+          "trackId": "presentation:research-11:ko",
+          "id": "research-11",
+          "start": 3122.884,
+          "end": 3179.358,
+          "duration": 56.474
+        },
+        {
+          "trackId": "presentation:research-12:ko",
+          "id": "research-12",
+          "start": 3179.358,
+          "end": 3203.912,
+          "duration": 24.554
+        },
+        {
+          "trackId": "presentation:research-13:ko",
+          "id": "research-13",
+          "start": 3203.912,
+          "end": 3220.738,
+          "duration": 16.826
+        }
+      ]
+    }
+  }
+}
