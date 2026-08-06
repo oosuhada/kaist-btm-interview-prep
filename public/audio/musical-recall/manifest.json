@@ -17,7 +17,7 @@
         {
           "section": "B1",
           "start": 12.0,
-          "text": "At GfK, I structured market questions through data. At Oosu Saloin, I turned customer needs into operating standards.",
+          "text": "At GfK, I structured market questions through data. At Oosu Salon, I turned customer needs into operating standards.",
           "end": 36.0,
           "role": "answer"
         },
@@ -186,7 +186,7 @@
         {
           "section": "B2",
           "start": 48.0,
-          "text": "I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Saloin. Taeyoung Tech later had a more limited, short-term support nature.",
+          "text": "I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Salon. Taeyoung Tech later had a more limited, short-term support nature.",
           "end": 66.0,
           "role": "answer"
         },
@@ -443,7 +443,7 @@
         {
           "section": "B1",
           "start": 10.0,
-          "text": "When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
+          "text": "When I first opened Oosu Salon, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
           "end": 30.0,
           "role": "answer"
         },
@@ -457,7 +457,7 @@
         {
           "section": "C3",
           "start": 50.0,
-          "text": "This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality. When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
+          "text": "This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality. When I first opened Oosu Salon, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
           "end": 69.407292,
           "role": "answer"
         }
@@ -515,77 +515,41 @@
       "style": "A",
       "cues": [
         {
-          "section": "Intro - question cue",
-          "role": "question",
-          "text": "Please introduce yourself in 30 seconds.",
+          "section": "A0",
           "start": 0.0,
-          "end": 11.76
+          "text": "Please introduce yourself in 30 seconds.",
+          "end": 12.0,
+          "role": "question"
         },
         {
-          "section": "Chorus - thesis",
-          "role": "answer",
+          "section": "B1",
+          "start": 12.0,
           "text": "If you remember one thing about me, I hope it's that I learn by trying things myself.",
-          "start": 11.76,
-          "end": 33.6
+          "end": 32.0,
+          "role": "answer"
         },
         {
-          "section": "Verse 1",
-          "role": "answer",
-          "text": "Hello, I'm Woosu Jang.",
-          "start": 33.6,
-          "end": 39.77
+          "section": "C2",
+          "start": 32.0,
+          "text": "Hello, I'm Woosu Jang. I ran my own business for nearly five years, then learned development and built RAG-based AI services when I saw the need for technology.",
+          "end": 52.0,
+          "role": "answer"
         },
         {
-          "section": "Verse 1",
-          "role": "answer",
-          "text": "I ran my own business for nearly five years,",
-          "start": 39.77,
-          "end": 43.52
+          "section": "C3",
+          "start": 52.0,
+          "text": "Each step led to a new question. At KAIST BTM, I want to turn those questions from practical experience into research I can test systematically.",
+          "end": 72.0,
+          "role": "answer"
         },
         {
-          "section": "Verse 1",
-          "role": "answer",
-          "text": "then learned development and built RAG-based AI services when I saw the need for technology.",
-          "start": 43.52,
-          "end": 51.04
-        },
-        {
-          "section": "Verse 2",
-          "role": "answer",
-          "text": "Each step led to a new question.",
-          "start": 51.04,
-          "end": 59.52
-        },
-        {
-          "section": "Verse 2",
-          "role": "answer",
-          "text": "At KAIST BTM, I want to turn those questions from practical experience into research I can test systematically.",
-          "start": 59.52,
-          "end": 71.78
-        },
-        {
-          "section": "Final Chorus / Reprise",
-          "role": "answer",
+          "section": "D4",
+          "start": 72.0,
           "text": "If you remember one thing about me, I hope it's that I learn by trying things myself.",
-          "start": 71.78,
-          "end": 81.345
+          "end": 81.34525,
+          "role": "answer"
         }
-      ],
-      "alignment": {
-        "engine": "whisper-large-v3-turbo",
-        "mode": "actual-audio-word-alignment",
-        "averagePhraseMatch": 0.923,
-        "phraseMatchScores": [
-          0.945,
-          0.944,
-          0.748,
-          1.0,
-          0.938,
-          1.0,
-          0.869,
-          0.944
-        ]
-      }
+      ]
     },
     {
       "trackId": "application-opening-30",
@@ -648,7 +612,7 @@
         {
           "section": "B1",
           "start": 18.0,
-          "text": "Hello, I am Woosu Jang. As an undergraduate, I learned many management tools, but I had not yet found the technical domain in which I wanted to build distinctive expertise. At GfK, I learned how global point-of-sales data is transformed into business decisions. I then operated Oosu Saloin for nearly five years, where I experienced the importance of tacit knowledge, routines, and exception handling.",
+          "text": "Hello, I am Woosu Jang. As an undergraduate, I learned many management tools, but I had not yet found the technical domain in which I wanted to build distinctive expertise. At GfK, I learned how global point-of-sales data is transformed into business decisions. I then operated Oosu Salon for nearly five years, where I experienced the importance of tacit knowledge, routines, and exception handling.",
           "end": 42.0,
           "role": "answer"
         },
@@ -817,7 +781,7 @@
         {
           "section": "A4",
           "start": 57.0,
-          "text": "At Oosu Saloin, I worked directly with customers and operations, but I experienced the scalability limits of an offline business, which led me to digital products and development. Programming and R-A-G then brought data, operations, and user experience together within one system. I am now integrating these experiences into one research question: under what conditions does organizational A-I actually work in practice?",
+          "text": "At Oosu Salon, I worked directly with customers and operations, but I experienced the scalability limits of an offline business, which led me to digital products and development. Programming and R-A-G then brought data, operations, and user experience together within one system. I am now integrating these experiences into one research question: under what conditions does organizational A-I actually work in practice?",
           "end": 79.8,
           "role": "answer"
         },
@@ -1053,14 +1017,14 @@
         {
           "section": "A0",
           "start": 0.0,
-          "text": "What does operating Oosu Saloin have to do with academic research?",
+          "text": "What does operating Oosu Salon have to do with academic research?",
           "end": 12.0,
           "role": "question"
         },
         {
           "section": "B1",
           "start": 12.0,
-          "text": "At Oosu Saloin, I designed not only products and marketing, but also ordering, inventory, customer service, employee handoffs, and exception handling. (Exception handling)",
+          "text": "At Oosu Salon, I designed not only products and marketing, but also ordering, inventory, customer service, employee handoffs, and exception handling. (Exception handling)",
           "end": 36.0,
           "role": "answer"
         },
@@ -1081,7 +1045,7 @@
         {
           "section": "C4",
           "start": 74.4,
-          "text": "At Oosu Saloin, I designed not only products and marketing, but also ordering, inventory, customer service, employee handoffs, and exception handling. (Oosu Saloin)",
+          "text": "At Oosu Salon, I designed not only products and marketing, but also ordering, inventory, customer service, employee handoffs, and exception handling. (Oosu Salon)",
           "end": 88.241583,
           "role": "answer"
         }
@@ -1324,7 +1288,7 @@
         {
           "section": "B1",
           "start": 20.0,
-          "text": "The tendency that led me to solve computer problems and adopt new collaboration tools early has now developed into the ability to learn Python and RAG systems and implement them within a relatively short period. At GfK, I translated market questions into data. At Oosu Saloin, I translated customer needs into operating standards.",
+          "text": "The tendency that led me to solve computer problems and adopt new collaboration tools early has now developed into the ability to learn Python and RAG systems and implement them within a relatively short period. At GfK, I translated market questions into data. At Oosu Salon, I translated customer needs into operating standards.",
           "end": 44.0,
           "role": "answer"
         },
@@ -1507,7 +1471,7 @@
         {
           "section": "D3",
           "start": 53.3,
-          "text": "I learned that leadership is not about doing everything personally; it is about clarifying goals and standards so that different roles lead to one result. While operating Oosu Saloin, I tried to develop that lesson further through repeatable operating standards and exception-handling procedures.",
+          "text": "I learned that leadership is not about doing everything personally; it is about clarifying goals and standards so that different roles lead to one result. While operating Oosu Salon, I tried to develop that lesson further through repeatable operating standards and exception-handling procedures.",
           "end": 74.6,
           "role": "answer"
         },
@@ -1905,6 +1869,249 @@
           "start": 68.0,
           "text": "학부와 직장생활 동안에는 제가 어떤 분야에서 대체하기 어려운 전문성을 만들 수 있을지 계속 탐색했습니다.",
           "end": 83.435042,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "defense-tom-fit",
+      "language": "en",
+      "src": "/audio/musical-recall/defense-tom-fit-en.mp3",
+      "duration": 81.946,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why do you specifically want to work with Professor Tom Steinberger?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "Professor Tom Steinberger is the closest fit for my research question. (He's the closest fit for my research question.)",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "His work examines how domain experts actually use data in real work and what makes data-science systems actionable in practice. I want to extend that problem to workplace R-A-G by studying how organizational knowledge structures and verification information such as provenance, freshness, and uncertainty shape users' actual verification behavior and calibrated reliance on AI.",
+          "end": 60.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 60.0,
+          "text": "So the fit is not simply that we both study AI; the unit of analysis and the underlying research problem connect directly.",
+          "end": 72.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 72.0,
+          "text": "Professor Tom Steinberger is the closest fit for my research question. Yeah, he is the closest fit for my research question.",
+          "end": 81.946083,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "defense-tom-fit",
+      "language": "ko",
+      "src": "/audio/musical-recall/defense-tom-fit-ko.mp3",
+      "duration": 81.58,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 Tom Steinberger 교수님과 연구하고 싶습니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "제 연구질문과 가장 직접적으로 맞닿아 있는 분이 Tom Steinberger 교수님이라고 생각합니다.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "C2",
+          "start": 28.0,
+          "text": "교수님은 도메인 전문가가 실제 업무에서 데이터를 어떻게 사용하고, 분석 시스템의 결과가 실제 행동으로 이어지려면 무엇이 필요한지를 연구해 왔습니다.",
+          "end": 50.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 50.0,
+          "text": "저는 이 문제를 업무용 래그로 확장해서, 조직지식의 구조와 출처·최신성·불확실성 같은 검증 정보가 사용자의 실제 검증 행동과 적정 의존을 어떻게 바꾸는지 연구하고 싶습니다.",
+          "end": 70.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 70.0,
+          "text": "그래서 단순히 AI라는 공통 키워드 때문이 아니라 분석 단위와 연구문제가 직접 연결된다고 봅니다.",
+          "end": 76.0,
+          "role": "answer"
+        },
+        {
+          "section": "E5",
+          "start": 76.0,
+          "text": "제 연구질문과 가장 직접적으로 맞닿아 있는 분이 Tom Steinberger 교수님이라고 생각합니다.",
+          "end": 81.580333,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "research-1",
+      "language": "en",
+      "src": "/audio/musical-recall/research-1-en.mp3",
+      "duration": 72.96,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Explain your research topic in one sentence. I want to study how knowledge structuring and verification-interface design in workplace RAG systems affect domain experts' verification behavior and calibrated reliance on AI.",
+          "end": 30.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 30.0,
+          "text": "More specifically, I want to examine how organizational documents and operational knowledge are structured for R-A-G, and how provenance, freshness, uncertainty, and verification controls shape observable verification behavior and decision quality.",
+          "end": 56.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 56.0,
+          "text": "I want to study how knowledge structuring and verification-interface design in workplace RAG systems affect domain experts' verification behavior and calibrated reliance on AI.",
+          "end": 72.959958,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "research-1",
+      "language": "ko",
+      "src": "/audio/musical-recall/research-1-ko.mp3",
+      "duration": 73.326,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "연구주제를 한 문장으로 설명해보세요. 저는 업무용 래그에서 조직의 문서와 운영지식을 어떻게 연결하고, 사용자가 답의 근거를 얼마나 쉽게 확인할 수 있게 하느냐가 실제 검증 행동에 어떤 영향을 주는지 연구하고 싶습니다.",
+          "end": 44.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 44.0,
+          "text": "특히 출처, 최신성, 불확실성 같은 정보를 어떻게 보여줄 때 사용자가 AI의 답을 더 정확하게 확인하고 적절하게 활용하는지 보고자 합니다.",
+          "end": 60.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 60.0,
+          "text": "저는 업무용 래그에서 조직의 문서와 운영지식을 어떻게 연결하고, 사용자가 답의 근거를 얼마나 쉽게 확인할 수 있게 하느냐가 실제 검증 행동에 어떤 영향을 주는지 연구하고 싶습니다.",
+          "end": 73.325667,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "research-3",
+      "language": "en",
+      "src": "/audio/musical-recall/research-3-en.mp3",
+      "duration": 67.082,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "Why is this research necessary?",
+          "end": 12.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 12.0,
+          "text": "When organizations adopt R-A-G-based A-I, I do not think the goal should be simply to maximize answer accuracy.",
+          "end": 28.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 28.0,
+          "text": "In real work, it is risky when users accept weakly supported answers too easily, but it is also a problem when they distrust useful answers and refuse to use them.",
+          "end": 44.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 44.0,
+          "text": "My interest is therefore not in making people trust A-I more, but in helping them verify its outputs and rely on them appropriately.",
+          "end": 58.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 58.0,
+          "text": "When organizations adopt R-A-G-based A-I, I do not think the goal should be simply to maximize answer accuracy.",
+          "end": 67.082375,
+          "role": "answer"
+        }
+      ]
+    },
+    {
+      "trackId": "research-3",
+      "language": "ko",
+      "src": "/audio/musical-recall/research-3-ko.mp3",
+      "duration": 73.796,
+      "style": "A",
+      "cues": [
+        {
+          "section": "A0",
+          "start": 0.0,
+          "text": "왜 이 연구가 필요합니까?",
+          "end": 8.0,
+          "role": "question"
+        },
+        {
+          "section": "B1",
+          "start": 8.0,
+          "text": "그래서 기업에서 중요한 것은 단순히 AI의 답변 정확도를 높이는 것만은 아니라고 생각합니다.",
+          "end": 24.0,
+          "role": "answer"
+        },
+        {
+          "section": "A2",
+          "start": 24.0,
+          "text": "실제 업무에서는 근거가 약한 답을 그대로 믿는 것도 위험하고, 반대로 쓸 만한 답까지 불신해서 활용하지 않는 것도 문제입니다.",
+          "end": 42.0,
+          "role": "answer"
+        },
+        {
+          "section": "C3",
+          "start": 42.0,
+          "text": "저는 사용자가 AI를 더 많이 믿게 만드는 것보다, 답의 근거를 확인하고 상황에 맞게 적절히 활용할 수 있게 만드는 조건에 관심이 있습니다.",
+          "end": 60.0,
+          "role": "answer"
+        },
+        {
+          "section": "D4",
+          "start": 60.0,
+          "text": "그래서 기업에서 중요한 것은 단순히 AI의 답변 정확도를 높이는 것만은 아니라고 생각합니다.",
+          "end": 73.795875,
           "role": "answer"
         }
       ]

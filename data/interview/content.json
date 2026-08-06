@@ -3237,11 +3237,11 @@
         "empirical research skills",
         "not another practical framework"
       ],
-      "core": false,
+      "core": true,
       "sources": [
         "APPLICATION"
       ],
-      "priority": "A",
+      "priority": "S",
       "readiness": "ready",
       "speakable": true
     },

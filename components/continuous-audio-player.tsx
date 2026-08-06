@@ -70,7 +70,7 @@ type PriorityLevel = 0 | 1 | 2 | 3;
 type PlaybackMode = "standard" | "musical";
 
 const rates = [0.9, 1, 1.1, 1.25];
-const sectionOrder: Section[] = ["application", "defense", "presentation", "all"];
+const sectionOrder: Section[] = ["all", "application", "defense", "presentation"];
 const sectionPriority: Record<PlaylistTrack["section"], number> = {
   application: 0,
   defense: 1,
@@ -80,7 +80,7 @@ const sectionLabels: Record<Section, { label: string; description: string }> = {
   application: { label: "Application Defense", description: "Part 1 · 지원서·경력·학점·활동" },
   defense: { label: "Research Defense", description: "Part 2 · 연구계획·방법론·교수 적합성" },
   presentation: { label: "연구주제 발표", description: "Part 2 · 연구주제 발표 구간" },
-  all: { label: "전체", description: "Application → Research Defense → 발표" },
+  all: { label: "최종 통합", description: "최신 면접 우선순위 · Application + Research + Faculty fit" },
 };
 const priorityRank: Record<PlaylistTrack["priority"], number> = {
   B: 0,
@@ -94,6 +94,38 @@ const priorityLabels: Record<PriorityLevel, { label: string; description: string
   2: { label: "핵심", description: "S급" },
   3: { label: "면접 직전", description: "최우선만" },
 };
+
+const interviewPriorityOrder = [
+  "application-opening-60",
+  "application-opening-30",
+  "application-q5",
+  "application-q6",
+  "defense-tom-fit",
+  "research-1",
+  "research-3",
+  "application-q40",
+  "application-q41",
+  "application-q44",
+  "application-q39",
+  "application-q32",
+  "application-q7",
+  "application-extra-101",
+  "application-q62",
+  "defense-q11",
+  "defense-q13",
+  "defense-q28",
+] as const;
+const interviewPriority = new Map<string, number>(
+  interviewPriorityOrder.map((id, index) => [id, index])
+);
+
+function compareInterviewPriority(a: PlaylistTrack, b: PlaylistTrack) {
+  const aRank = interviewPriority.get(a.id) ?? Number.MAX_SAFE_INTEGER;
+  const bRank = interviewPriority.get(b.id) ?? Number.MAX_SAFE_INTEGER;
+  if (aRank !== bRank) return aRank - bRank;
+  const sectionDiff = sectionPriority[a.section] - sectionPriority[b.section];
+  return sectionDiff || a.number - b.number;
+}
 
 function getMusicalRecallSrc(track: PlaylistTrack) {
   return track.musicalRecall?.src ?? null;
@@ -200,12 +232,10 @@ export function ContinuousAudioPlayer({
     : undefined;
   const defaultTrack =
     deepLinkedTrack ??
-    tracks.find(
-      (track) => track.language === "en" && track.section === "application"
-    ) ??
-    tracks.find((track) => track.language === "ko");
+    [...tracks.filter((track) => track.language === "en")].sort(compareInterviewPriority)[0] ??
+    [...tracks.filter((track) => track.language === "ko")].sort(compareInterviewPriority)[0];
   const [section, setSection] = useState<Section>(
-    deepLinkedTrack?.section ?? "application"
+    deepLinkedTrack?.section ?? "all"
   );
   const [language, setLanguage] = useState<Language>(deepLinkedTrack?.language ?? "en");
   const [rate, setRate] = useState(1);
@@ -225,6 +255,14 @@ export function ContinuousAudioPlayer({
   const timeSyncFrameRef = useRef<number | null>(null);
   const lastTimeSyncRef = useRef(0);
 
+  const musicalRecallTrackCount = useMemo(
+    () =>
+      tracks.filter(
+        (track) => track.language === language && Boolean(track.musicalRecall)
+      ).length,
+    [language, tracks]
+  );
+
   const filteredTracks = useMemo(() => {
     const selected = tracks.filter(
       (track) =>
@@ -232,11 +270,7 @@ export function ContinuousAudioPlayer({
         matchesPriority(track, priorityLevel) &&
         (section === "all" || track.section === section)
     );
-    if (section !== "all") return selected;
-    return [...selected].sort((a, b) => {
-      const sectionDiff = sectionPriority[a.section] - sectionPriority[b.section];
-      return sectionDiff || a.number - b.number;
-    });
+    return [...selected].sort(compareInterviewPriority);
   }, [tracks, language, priorityLevel, section]);
 
   const trackMap = useMemo(
@@ -398,12 +432,7 @@ export function ContinuousAudioPlayer({
         matchesPriority(track, priorityLevel) &&
         (nextSection === "all" || track.section === nextSection)
     );
-    if (nextSection === "all") {
-      nextTracks.sort((a, b) => {
-        const sectionDiff = sectionPriority[a.section] - sectionPriority[b.section];
-        return sectionDiff || a.number - b.number;
-      });
-    }
+    nextTracks.sort(compareInterviewPriority);
     const first = nextTracks[0];
     setSection(nextSection);
     setLanguage(nextLanguage);
@@ -431,12 +460,7 @@ export function ContinuousAudioPlayer({
         matchesPriority(track, nextLevel) &&
         (section === "all" || track.section === section)
     );
-    if (section === "all") {
-      nextTracks.sort((a, b) => {
-        const sectionDiff = sectionPriority[a.section] - sectionPriority[b.section];
-        return sectionDiff || a.number - b.number;
-      });
-    }
+    nextTracks.sort(compareInterviewPriority);
     const currentStillVisible = nextTracks.find(
       (track) => track.trackId === currentTrack?.trackId
     );
@@ -630,7 +654,7 @@ export function ContinuousAudioPlayer({
               </div>
               <div className="flex items-center gap-2">
                 <div className="hidden items-center gap-1.5 rounded-full bg-violet-50 px-2.5 py-2 text-[11px] font-black text-violet-700 sm:flex">
-                  <Music2 className="h-3.5 w-3.5" /> Musical Recall 22
+                  <Music2 className="h-3.5 w-3.5" /> Musical Recall {musicalRecallTrackCount}
                 </div>
                 <button
                   type="button"
