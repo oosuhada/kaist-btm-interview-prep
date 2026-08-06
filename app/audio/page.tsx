@@ -47,10 +47,54 @@ export default async function AudioPage({
   const musicalMap = new Map(
     musicalManifest.tracks.map((track) => [`${track.trackId}:${track.language}`, track])
   );
+  const continuousManifestPath = path.join(
+    process.cwd(),
+    "public",
+    "audio",
+    "musical-recall",
+    "continuous.json"
+  );
+  const continuousManifest = fs.existsSync(continuousManifestPath)
+    ? (JSON.parse(fs.readFileSync(continuousManifestPath, "utf8")) as {
+        languages: Record<
+          "ko" | "en",
+          {
+            src: string;
+            duration: number;
+            tracks: Array<{
+              trackId: string;
+              start: number;
+              end: number;
+              duration: number;
+            }>;
+          }
+        >;
+      })
+    : null;
+  const continuousMap = new Map<string, {
+    src: string;
+    playlistDuration: number;
+    start: number;
+    end: number;
+  }>();
+  if (continuousManifest) {
+    for (const language of ["ko", "en"] as const) {
+      const playlist = continuousManifest.languages[language];
+      for (const track of playlist.tracks) {
+        continuousMap.set(`${track.trackId}:${language}`, {
+          src: playlist.src,
+          playlistDuration: playlist.duration,
+          start: track.start,
+          end: track.end,
+        });
+      }
+    }
+  }
   const alignmentMap = musicalAlignmentMap(readMusicalRecallAlignment());
   const tracks = manifest.tracks.map((track) => {
     const musicalRecall = musicalMap.get(`${track.id}:${track.language}`);
     const alignment = alignmentMap.get(`${track.id}:${track.language}`);
+    const continuous = continuousMap.get(`${track.id}:${track.language}`);
     return musicalRecall
       ? {
           ...track,
@@ -60,6 +104,7 @@ export default async function AudioPage({
             alignmentEngine: alignment?.alignmentEngine,
             alignmentConfidence: alignment?.alignmentConfidence,
             matchRate: alignment?.matchRate,
+            continuous,
           },
         }
       : track;
