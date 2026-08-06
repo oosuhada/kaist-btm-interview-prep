@@ -58,19 +58,31 @@ Moving the slider from `All → Major → Core → Right before interview` progr
 
 ![Audio Recall and priority filter](docs/screenshots/02-audio-recall.png)
 
-### 3. Visual Recall — 문장이 아니라 관계를 기억하기
+### 3. Visual Recall — 하나의 내용을 세 가지 방식으로 회상하기
 
-연구주제는 문장을 그대로 외우는 것보다 `문제 → 연구질문 → 문헌공백 → 방법론 → 기여`, 그리고 `경력 → 연구 관심 → 교수 적합성`의 연결을 기억하는 것이 더 중요하다고 판단했습니다.
+연구주제는 문장을 그대로 외우는 것보다 `문제 → 연구질문 → 문헌공백 → 방법론 → 기여`, 그리고 `경력 → 연구 관심 → 교수 적합성`의 연결을 기억하는 것이 더 중요하다고 판단했습니다. 최신 Visual Recall은 같은 면접 지식을 학습 상황에 따라 세 가지 모드로 보여줍니다.
 
-그래서 노드와 관계를 직접 선택하고, Path / Node Recall / Edge Recall을 통해 **어떤 개념이 왜 연결되는지** 먼저 떠올리게 만들었습니다.
+- **Map** — 전체 지식 그래프에서 노드와 관계를 탐색하고 Path / Node / Edge Recall로 연결을 복구합니다.
+- **Guided Recall** — 질문별 핵심 단서를 순서대로 따라가며 답변 구조를 단계적으로 재구성합니다.
+- **Musical Recall** — 사전 생성된 KR/EN 오디오와 동기화된 motion lyrics로 리듬과 문장 흐름을 함께 기억합니다.
 
-For research preparation, I found the relationships more important than memorizing exact sentences: `problem → research question → literature gap → method → contribution`, and `experience → research interest → faculty fit`.
+For research preparation, I found relationships more important than memorizing exact sentences: `problem → research question → literature gap → method → contribution`, and `experience → research interest → faculty fit`. The upgraded Visual Recall surface now provides three complementary modes:
 
-The visual mode therefore turns those relationships into an interactive graph with Path, Node Recall, and Edge Recall modes.
+- **Map** for exploring the full knowledge graph and rebuilding paths, nodes, and edges.
+- **Guided Recall** for reconstructing an answer step by step from ordered cues.
+- **Musical Recall** for pairing pre-generated KR/EN audio with synchronized motion lyrics.
 
-![Visual Recall knowledge graph](docs/screenshots/03-visual-recall.png)
+![Visual Recall modes](docs/screenshots/03-visual-recall.png)
 
-### 4. Mobile-first rehearsal
+### 4. Musical Recall — 듣기에서 동기화된 회상으로
+
+기존 Audio Recall이 이동 중 반복 청취에 초점을 맞췄다면, Musical Recall은 재생 중인 문장을 화면의 리듬과 움직임으로 함께 따라가게 합니다. 트랙을 선택하면 질문, 현재 문장, 전체 진행률이 하나의 집중 화면에 표시되고 한국어와 영어 버전을 즉시 전환할 수 있습니다.
+
+Where Audio Recall is optimized for hands-free repetition, Musical Recall turns playback into a synchronized visual exercise. Selecting a track opens a focused motion-lyrics view with the question, current phrase, full progress, and immediate KR/EN switching.
+
+![Musical Recall motion lyrics](docs/screenshots/07-musical-recall.png)
+
+### 5. Mobile-first rehearsal
 
 실제로 가장 자주 연습하는 환경이 노트북 앞이 아니라 이동 중의 iPhone이었기 때문에, 면접카드·Audio·Visual 모두 작은 화면에서 바로 사용할 수 있도록 반복해서 모바일 UI를 다듬었습니다. 아래 화면은 별도의 포트폴리오용 목업이 아니라 **실제 배포본을 iPhone 크기로 실행한 화면**입니다.
 
@@ -80,7 +92,7 @@ Because much of the actual rehearsal happens on an iPhone while moving rather th
   <tr>
     <td align="center"><strong>Interview Cards</strong><br/><sub>질문 → 회상 → 키워드 → 답변</sub></td>
     <td align="center"><strong>Audio Recall</strong><br/><sub>이동 중 연속 재생</sub></td>
-    <td align="center"><strong>Visual Recall</strong><br/><sub>관계와 경로로 복구</sub></td>
+    <td align="center"><strong>Guided Recall</strong><br/><sub>단서를 따라 답변 구조 복구</sub></td>
   </tr>
   <tr>
     <td width="33%"><img src="docs/screenshots/04-mobile-home.png" alt="KAIST BTM interview cards on mobile" /></td>
@@ -140,7 +152,9 @@ The private working project used application documents, recommendation material,
 | `Application Defense` | Opening, motivation, career, GPA, activities, project and personal-fit recall |
 | `Research Defense` | Research question, literature gap, methodology, contribution, feasibility and faculty-fit defense |
 | `Audio Recall` | Continuous KR/EN Q&A playback, shuffle/repeat and priority-based track reduction |
-| `Visual Recall` | Spatial knowledge graph, Path Mode, Node Recall and Edge Recall |
+| `Visual Recall · Map` | Spatial knowledge graph with Path, Node and Edge Recall |
+| `Visual Recall · Guided` | Step-by-step answer reconstruction from ordered visual cues |
+| `Visual Recall · Musical` | KR/EN synchronized audio, motion lyrics and track progress |
 | `Difficulty masking` | Progressively removes visible answer information as recall improves |
 
 ### Data layout
@@ -148,6 +162,7 @@ The private working project used application documents, recommendation material,
 - `data/interview/content.json` — sanitized snapshot of content rendered by the app
 - `public/audio/interview/` — per-card question/answer audio assets
 - `public/audio/tracks/` — continuous-playback tracks and manifest
+- `public/audio/musical-recall/` — bilingual Musical Recall tracks and synchronization manifest
 - `docs/screenshots/` — portfolio screenshots used in this README
 
 The bundled snapshot is the production default, so a fresh clone does not depend on my private local folders. For private development only, `INTERVIEW_CONTENT_DIR` can override the bundled source.
