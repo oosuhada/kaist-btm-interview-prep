@@ -204,6 +204,13 @@ Original application PDFs, recommendation letters, device histories, personal lo
 
 [MIT](LICENSE)
 
-## Topics
+## Architecture & Topics / 아키텍처 및 주제
 
-[`active-recall`](https://github.com/topics/active-recall) · [`ai-assisted-development`](https://github.com/topics/ai-assisted-development) · [`interview-prep`](https://github.com/topics/interview-prep) · [`kaist`](https://github.com/topics/kaist) · [`learning-tools`](https://github.com/topics/learning-tools) · [`nextjs`](https://github.com/topics/nextjs) · [`typescript`](https://github.com/topics/typescript) · [`education`](https://github.com/topics/education) · [`study-tool`](https://github.com/topics/study-tool) · [`spaced-repetition`](https://github.com/topics/spaced-repetition) · [`llm`](https://github.com/topics/llm) · [`react`](https://github.com/topics/react) · [`tailwindcss`](https://github.com/topics/tailwindcss) · [`vercel`](https://github.com/topics/vercel)
+**Architecture / 아키텍처**<br>
+[`local-first`](https://github.com/topics/local-first) · [`static-site-architecture`](https://github.com/topics/static-site-architecture) · [`client-side-state`](https://github.com/topics/client-side-state) · [`component-based-ui`](https://github.com/topics/component-based-ui) · [`content-pipeline`](https://github.com/topics/content-pipeline) · [`progressive-disclosure`](https://github.com/topics/progressive-disclosure)
+
+**Project context / 프로젝트 맥락**<br>
+[`active-recall`](https://github.com/topics/active-recall) · [`ai-assisted-development`](https://github.com/topics/ai-assisted-development) · [`education`](https://github.com/topics/education) · [`interview-prep`](https://github.com/topics/interview-prep) · [`kaist`](https://github.com/topics/kaist) · [`learning-tools`](https://github.com/topics/learning-tools) · [`llm`](https://github.com/topics/llm) · [`spaced-repetition`](https://github.com/topics/spaced-repetition) · [`study-tool`](https://github.com/topics/study-tool) · [`vercel`](https://github.com/topics/vercel)
+
+**Implementation stack / 구현 스택**<br>
+[`nextjs`](https://github.com/topics/nextjs) · [`react`](https://github.com/topics/react) · [`tailwindcss`](https://github.com/topics/tailwindcss) · [`typescript`](https://github.com/topics/typescript)
