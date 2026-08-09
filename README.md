@@ -118,14 +118,6 @@ Terms such as `KAIST BTM`, personal names, and brand names are stored separately
 
 `KAIST BTM`, 사람 이름, 브랜드명처럼 TTS가 자주 틀리는 표현은 화면 표기와 음성 입력을 분리했습니다. 사용자가 보는 텍스트는 원래 표기를 유지하고, 오디오 생성 단계에서만 별도의 발음 사전을 적용합니다.
 
-### 4. Privacy-aware public release / 공개 가능한 형태로 분리하기
-
-The private working project used application documents, recommendation material, and personal records as evidence. Those raw sources are deliberately excluded from this public repository; only a **sanitized content snapshot** and the assets required to run the product are bundled here.
-
-실제 프로젝트는 개인 지원서, 추천서, 기기 기록 등을 참고해 만들어졌지만 이 공개 저장소에는 원본 개인 문서를 포함하지 않습니다. 웹사이트에 표시하는 데 필요한 **sanitized content snapshot**과 실행 자산만 별도로 묶었습니다.
-
----
-
 ## Implementation / 구현
 
 ### Stack / 스택
@@ -148,18 +140,6 @@ The private working project used application documents, recommendation material,
 | `Visual Recall · Musical` | KR/EN synchronized audio, motion lyrics and track progress |
 | `Difficulty masking` | Progressively removes visible answer information as recall improves |
 
-### Data layout / 데이터 구조
-
-- `data/interview/content.json` — sanitized snapshot of content rendered by the app
-- `public/audio/interview/` — per-card question/answer audio assets
-- `public/audio/tracks/` — continuous-playback tracks and manifest
-- `public/audio/musical-recall/` — bilingual Musical Recall tracks and synchronization manifest
-- `docs/screenshots/` — portfolio screenshots used in this README
-
-The bundled snapshot is the production default, so a fresh clone does not depend on my private local folders. For private development only, `INTERVIEW_CONTENT_DIR` can override the bundled source.
-
----
-
 ## How AI was used / AI를 어떻게 사용했나
 
 I used **AI-assisted development** aggressively because the project had a real deadline. But the product direction came from actual use: deciding which facts needed recovery, which answers should not be invented, how aggressively to reduce rehearsal scope, where TTS pronunciation failed, and what broke on an iPhone.
@@ -169,44 +149,6 @@ For me, the portfolio value is not simply that AI helped generate code. It is th
 이 프로젝트는 짧은 시간 안에 실제 문제를 해결하기 위해 **AI-assisted development**를 적극적으로 사용했습니다. 하지만 제품 방향, 어떤 정보를 복원해야 하는지, 무엇을 외우지 않아야 하는지, 우선순위를 어떻게 줄일지, 모바일에서 어떤 UI가 불편한지 같은 판단은 실제 면접 준비 과정에서 계속 수정했습니다.
 
 저에게 이 프로젝트의 포인트는 “AI로 코드를 만들었다”가 아니라, **개인적인 문제를 제품 요구사항으로 바꾸고 → 빠르게 구현하고 → 실제 사용하면서 불편을 발견하고 → 다시 설계한 과정**에 있습니다.
-
----
-
-## Run locally / 로컬 실행
-
-Node.js 20 or newer is recommended.  
-Node.js 20 이상을 권장합니다.
-
-```bash
-npm ci
-npm run dev
-```
-
-Open `http://localhost:3000`.  
-`http://localhost:3000`을 엽니다.
-
-Production build:
-
-```bash
-npm ci
-npm run lint
-npm run build
-npm start
-```
-
-Set `PORT` to choose a production port, for example `PORT=3010 npm start`.
-
----
-
-## Privacy / 개인정보 보호
-
-Original application PDFs, recommendation letters, device histories, personal logs, credentials, and private source documents are deliberately excluded. This repository contains only the sanitized interview-preparation content exposed by the application and the assets needed to run it.
-
-원본 지원서 PDF, 추천서, 기기 기록, 개인 로그, credential, 비공개 source document는 의도적으로 제외했습니다. 이 저장소에는 애플리케이션이 공개적으로 사용하는 sanitized interview-preparation content와 실행에 필요한 asset만 포함됩니다.
-
-## License / 라이선스
-
-[MIT](LICENSE)
 
 ## Architecture & Topics / 아키텍처 및 주제
 
