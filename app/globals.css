@@ -20,6 +20,193 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+@keyframes visual-cinema-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes visual-cinema-step {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes visual-cinema-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes visual-cinema-scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.65;
+  }
+  88% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(440px);
+    opacity: 0;
+  }
+}
+
+@keyframes visual-cinema-orb-a {
+  0%,
+  100% {
+    transform: translate(-18%, -12%) scale(1);
+  }
+  50% {
+    transform: translate(20%, 18%) scale(1.18);
+  }
+}
+
+@keyframes visual-cinema-orb-b {
+  0%,
+  100% {
+    transform: translate(270%, 150%) scale(1.15);
+  }
+  50% {
+    transform: translate(210%, 95%) scale(0.92);
+  }
+}
+
+@keyframes visual-orbit-ring {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes visual-core-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.72);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes visual-brain-node {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes visual-live-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+    box-shadow: 0 0 0 0 rgba(110, 231, 183, 0.45);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 5px rgba(110, 231, 183, 0);
+  }
+}
+
+.visual-cinema-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.visual-cinema-enter {
+  animation: visual-cinema-enter 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-cinema-step {
+  animation: visual-cinema-step 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-cinema-progress {
+  animation: visual-cinema-progress 6.2s linear both;
+}
+
+.visual-cinema-scan {
+  animation: visual-cinema-scan 5.8s linear infinite;
+}
+
+.visual-cinema-orb-a {
+  left: 2%;
+  top: 4%;
+  animation: visual-cinema-orb-a 9s ease-in-out infinite;
+}
+
+.visual-cinema-orb-b {
+  left: 18%;
+  top: 8%;
+  animation: visual-cinema-orb-b 11s ease-in-out infinite;
+}
+
+.visual-orbit-ring {
+  animation: visual-orbit-ring 20s linear infinite;
+}
+
+.visual-core-pop {
+  animation: visual-core-pop 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-brain-node {
+  animation: visual-brain-node 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.visual-live-dot {
+  animation: visual-live-dot 1.35s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-cinema-enter,
+  .visual-cinema-step,
+  .visual-cinema-progress,
+  .visual-cinema-scan,
+  .visual-cinema-orb,
+  .visual-orbit-ring,
+  .visual-core-pop,
+  .visual-brain-node,
+  .visual-live-dot {
+    animation: none !important;
+  }
+}
+
 button,
 select {
   font: inherit;
