@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 
 type Mode = "research" | "faculty" | "experience" | "pressure" | "integrated";
+type VisualSurface = "map" | "guided" | "musical";
 type NodeKind = "core" | "concept" | "faculty" | "paper" | "experience" | "question";
 
 type GraphNode = {
@@ -602,11 +603,11 @@ const graphs: Record<Mode, GraphData> = {
 };
 
 const modeMeta: { id: Mode; label: string; icon: typeof Network }[] = [
+  { id: "integrated", label: "Overview", icon: Layers3 },
   { id: "research", label: "Research", icon: Network },
-  { id: "faculty", label: "Faculty", icon: BookOpen },
   { id: "experience", label: "Experience", icon: BriefcaseBusiness },
-  { id: "pressure", label: "Pressure", icon: ShieldCheck },
-  { id: "integrated", label: "Integrated", icon: Layers3 },
+  { id: "faculty", label: "Faculty", icon: BookOpen },
+  { id: "pressure", label: "Defense", icon: ShieldCheck },
 ];
 
 const nodeStageLinks: Record<Mode, Record<string, number>> = {
@@ -1205,8 +1206,9 @@ export function InterviewKnowledgeGraph({
   initialMusicalTrackId?: string;
   initialMusicalLanguage?: "ko" | "en";
 }) {
-  const [mode, setMode] = useState<Mode>("research");
-  const [focusEnabled, setFocusEnabled] = useState(true);
+  const [mode, setMode] = useState<Mode>("integrated");
+  const [surface, setSurface] = useState<VisualSurface>("map");
+  const focusEnabled = true;
   const [recallMode, setRecallMode] = useState(false);
   const [edgeRecallMode, setEdgeRecallMode] = useState(false);
   const [pathEnabled, setPathEnabled] = useState(false);
@@ -1305,6 +1307,11 @@ export function InterviewKnowledgeGraph({
   const selectNode = (id: string) => {
     revealNode(id);
     setSelectedByMode((current) => ({ ...current, [mode]: id }));
+    if (mode === "integrated" && rawData.expandable?.[id]) {
+      setExpandedIntegrated((current) =>
+        current.includes(id) ? current : [...current, id]
+      );
+    }
   };
 
   const resetRecall = () => {
@@ -1314,7 +1321,19 @@ export function InterviewKnowledgeGraph({
 
   const changeMode = (nextMode: Mode) => {
     setMode(nextMode);
-    setPathEnabled(false);
+    const nextPath = graphs[nextMode].path ?? [];
+    if (surface === "guided" && nextPath.length > 0) {
+      setPathEnabled(true);
+      setSelectedByMode((current) => ({ ...current, [nextMode]: nextPath[0] }));
+      setRevealedByMode((current) => ({
+        ...current,
+        [nextMode]: current[nextMode].includes(nextPath[0])
+          ? current[nextMode]
+          : [...current[nextMode], nextPath[0]],
+      }));
+    } else {
+      setPathEnabled(false);
+    }
     setPathIndex(0);
     setShowMobileMap(false);
   };
@@ -1348,21 +1367,19 @@ export function InterviewKnowledgeGraph({
     );
   };
 
-  const jumpFromCinema = (targetMode: Mode, targetNode: string) => {
-    setMode(targetMode);
+  const openMap = () => {
+    setSurface("map");
     setPathEnabled(false);
+    setRecallMode(false);
+    setEdgeRecallMode(false);
+  };
+
+  const openGuidedRecall = () => {
+    setSurface("guided");
+    if (!currentPath.length) return;
+    setPathEnabled(true);
     setPathIndex(0);
-    setShowMobileMap(false);
-    setSelectedByMode((current) => ({ ...current, [targetMode]: targetNode }));
-    setRevealedByMode((current) => ({
-      ...current,
-      [targetMode]: current[targetMode].includes(targetNode)
-        ? current[targetMode]
-        : [...current[targetMode], targetNode],
-    }));
-    window.setTimeout(() => {
-      document.getElementById("visual-knowledge-map")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 40);
+    selectNode(currentPath[0]);
   };
 
   return (
@@ -1388,16 +1405,63 @@ export function InterviewKnowledgeGraph({
       </header>
 
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-7">
-        <MemoryCinema onJump={jumpFromCinema} />
+        <section className="mb-5 overflow-hidden rounded-[28px] border border-slate-200 bg-white">
+          <div className="flex flex-col gap-4 px-5 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <div className="text-[10px] font-black uppercase tracking-[0.18em] text-violet-500">Visual Recall Stage</div>
+              <div className="mt-1 text-xl font-black tracking-tight text-slate-950 sm:text-2xl">
+                지금 기억할 한 가지에만 집중하기
+              </div>
+              <div className="mt-1 text-sm font-semibold leading-6 text-slate-500">
+                맵으로 구조를 보고, Guided Recall로 직접 복구하고, 필요할 때만 Musical Recall을 엽니다.
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-2 rounded-2xl bg-slate-100 p-1.5">
+              <button
+                type="button"
+                onClick={openMap}
+                className={`rounded-xl px-3 py-2.5 text-xs font-black transition ${
+                  surface === "map" ? "bg-white text-slate-950 shadow-sm" : "text-slate-500 hover:text-slate-800"
+                }`}
+              >
+                Map
+              </button>
+              <button
+                type="button"
+                onClick={openGuidedRecall}
+                className={`rounded-xl px-3 py-2.5 text-xs font-black transition ${
+                  surface === "guided" ? "bg-white text-slate-950 shadow-sm" : "text-slate-500 hover:text-slate-800"
+                }`}
+              >
+                Guided Recall
+              </button>
+              <button
+                type="button"
+                onClick={() => setSurface("musical")}
+                disabled={musicalTracks.length === 0}
+                className={`rounded-xl px-3 py-2.5 text-xs font-black transition disabled:opacity-35 ${
+                  surface === "musical"
+                    ? "bg-slate-950 text-white shadow-sm"
+                    : "text-violet-600 hover:bg-violet-50"
+                }`}
+              >
+                Musical Recall
+              </button>
+            </div>
+          </div>
+        </section>
 
-        {musicalTracks.length > 0 && (
+        {surface === "musical" && musicalTracks.length > 0 && (
           <MusicalRecallVisualizer
             tracks={musicalTracks}
             initialTrackId={initialMusicalTrackId}
             initialLanguage={initialMusicalLanguage}
+            onClose={openMap}
           />
         )}
 
+        {surface !== "musical" && (
+          <>
         <div id="visual-knowledge-map" className="scroll-mt-24" />
         <div className="mb-5 flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -1417,64 +1481,49 @@ export function InterviewKnowledgeGraph({
             })}
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={startOrStopPath}
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-black transition ${
-                pathEnabled
-                  ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                  : "border-slate-200 bg-white text-slate-500"
-              }`}
-            >
-              {pathEnabled ? <Square className="h-3 w-3" /> : <Play className="h-3.5 w-3.5" />}
-              Path
-            </button>
-            <button
-              type="button"
-              onClick={() => setFocusEnabled((current) => !current)}
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-black transition ${
-                focusEnabled
-                  ? "border-violet-200 bg-violet-50 text-violet-700"
-                  : "border-slate-200 bg-white text-slate-500"
-              }`}
-            >
-              <Network className="h-3.5 w-3.5" /> 연결 강조
-            </button>
-            <button
-              type="button"
-              onClick={() => setRecallMode((current) => !current)}
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-black transition ${
-                recallMode
-                  ? "border-amber-200 bg-amber-50 text-amber-700"
-                  : "border-slate-200 bg-white text-slate-500"
-              }`}
-            >
-              {recallMode ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
-              Node Recall
-            </button>
-            <button
-              type="button"
-              onClick={() => setEdgeRecallMode((current) => !current)}
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-black transition ${
-                edgeRecallMode
-                  ? "border-orange-200 bg-orange-50 text-orange-700"
-                  : "border-slate-200 bg-white text-slate-500"
-              }`}
-            >
-              <Route className="h-3.5 w-3.5" /> Edge Recall
-            </button>
-            {(recallMode || edgeRecallMode) && (
+          {surface === "guided" && (
+            <div className="flex flex-wrap gap-2 rounded-2xl border border-slate-200 bg-white p-1.5">
               <button
                 type="button"
-                onClick={resetRecall}
-                className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-black text-slate-500"
-                aria-label="Recall 다시 시작"
+                onClick={startOrStopPath}
+                className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black transition ${
+                  pathEnabled ? "bg-emerald-50 text-emerald-700" : "text-slate-500 hover:bg-slate-50"
+                }`}
               >
-                <RotateCcw className="h-3.5 w-3.5" />
+                {pathEnabled ? <Square className="h-3 w-3" /> : <Play className="h-3.5 w-3.5" />}
+                Flow
               </button>
-            )}
-          </div>
+              <button
+                type="button"
+                onClick={() => setRecallMode((current) => !current)}
+                className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black transition ${
+                  recallMode ? "bg-amber-50 text-amber-700" : "text-slate-500 hover:bg-slate-50"
+                }`}
+              >
+                {recallMode ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+                Nodes
+              </button>
+              <button
+                type="button"
+                onClick={() => setEdgeRecallMode((current) => !current)}
+                className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black transition ${
+                  edgeRecallMode ? "bg-orange-50 text-orange-700" : "text-slate-500 hover:bg-slate-50"
+                }`}
+              >
+                <Route className="h-3.5 w-3.5" /> Relations
+              </button>
+              {(recallMode || edgeRecallMode) && (
+                <button
+                  type="button"
+                  onClick={resetRecall}
+                  className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black text-slate-400 hover:bg-slate-50"
+                  aria-label="Recall 다시 시작"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" /> Reset
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         <section className="mb-4">
@@ -1596,13 +1645,8 @@ export function InterviewKnowledgeGraph({
           <aside className="min-w-0 w-full max-w-full rounded-3xl border border-slate-200 bg-white p-5 lg:sticky lg:top-24">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-black uppercase text-slate-500">
-                    {selected.kind}
-                  </span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">Selected</span>
-                </div>
-                <h2 className="mt-2 text-xl font-black leading-7 tracking-tight text-slate-900">{selected.label}</h2>
+                <div className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">Current focus</div>
+                <h2 className="mt-1.5 text-xl font-black leading-7 tracking-tight text-slate-900">{selected.label}</h2>
                 {selected.subtitle && <div className="mt-1 text-xs font-bold text-slate-400">{selected.subtitle}</div>}
               </div>
               {selected.url && (
@@ -1620,8 +1664,8 @@ export function InterviewKnowledgeGraph({
             <p className="mt-4 break-words text-sm font-semibold leading-7 text-slate-700">{selected.summary}</p>
 
             {selected.cue && (
-              <div className="mt-4 rounded-2xl border border-violet-100 bg-violet-50 px-4 py-3">
-                <div className="text-[10px] font-black uppercase tracking-[0.14em] text-violet-500">Recall cue</div>
+              <div className="mt-4 rounded-2xl border border-violet-100 bg-violet-50 px-4 py-3.5">
+                <div className="text-[10px] font-black uppercase tracking-[0.16em] text-violet-500">Memory hook</div>
                 <div className="mt-1 break-words text-sm font-black leading-6 text-violet-900">{selected.cue}</div>
               </div>
             )}
@@ -1652,56 +1696,43 @@ export function InterviewKnowledgeGraph({
               </button>
             )}
 
-            {selected.bullets && selected.bullets.length > 0 && (
-              <div className="mt-4 space-y-2">
-                {selected.bullets.map((bullet) => (
-                  <div key={bullet} className="break-words rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm font-bold leading-5 text-slate-600">
-                    {bullet}
+            {(selected.bullets?.length || relatedNodes.length > 0) && (
+              <details className="mt-4 border-t border-slate-100 pt-4">
+                <summary className="cursor-pointer text-xs font-black text-slate-500">More context & connections</summary>
+                {selected.bullets && selected.bullets.length > 0 && (
+                  <div className="mt-3 space-y-2">
+                    {selected.bullets.map((bullet) => (
+                      <div key={bullet} className="break-words rounded-xl bg-slate-50 px-3 py-2.5 text-xs font-bold leading-5 text-slate-600">
+                        {bullet}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            )}
-
-            {relatedNodes.length > 0 && (
-              <div className="mt-5 border-t border-slate-100 pt-4">
-                <div className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">직접 연결</div>
-                <div className="mt-2 space-y-2">
-                  {relatedNodes.map(({ node, relation, edgeKey: relationKey }) => (
-                    <div
-                      key={`${selected.id}-${node.id}`}
-                      className="flex w-full items-center gap-2 rounded-xl border border-slate-200 bg-white p-1.5"
-                    >
+                )}
+                {relatedNodes.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {relatedNodes.map(({ node, relation }) => (
                       <button
+                        key={`${selected.id}-${node.id}`}
                         type="button"
                         onClick={() => selectNode(node.id)}
-                        className="min-w-0 flex-1 rounded-lg px-2 py-1.5 text-left text-xs font-black text-slate-700 hover:bg-violet-50"
+                        className="rounded-full border border-slate-200 bg-white px-3 py-2 text-left text-[10px] font-black text-slate-600 hover:border-violet-200 hover:text-violet-700"
                       >
-                        <span className="block truncate">{node.label}</span>
+                        {node.label} · <span className="text-slate-400">{relation}</span>
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => revealEdge(relationKey)}
-                        disabled={!edgeRecallMode || revealedEdgeKeys.has(relationKey)}
-                        className={`max-w-[45%] shrink-0 truncate rounded-lg px-2 py-1.5 text-[10px] font-black ${
-                          edgeRecallMode && !revealedEdgeKeys.has(relationKey)
-                            ? "bg-orange-100 text-orange-700"
-                            : "bg-slate-50 text-slate-400"
-                        }`}
-                      >
-                        {edgeRecallMode && !revealedEdgeKeys.has(relationKey) ? "???" : relation}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                    ))}
+                  </div>
+                )}
+              </details>
             )}
           </aside>
         </div>
 
         <div className="mt-5 flex items-center justify-between gap-3 text-xs font-semibold text-slate-400">
-          <span>Path로 흐름을 익히고, Node/Edge Recall로 개념과 관계를 따로 회상할 수 있습니다.</span>
+          <span>{surface === "guided" ? "먼저 말해본 뒤 노드와 관계를 열어 확인하세요." : "노드를 눌러 전체 면접 서사의 연결을 복구하세요."}</span>
           <span className="hidden items-center gap-1 sm:flex"><User className="h-3.5 w-3.5" /> Active Recall</span>
         </div>
+          </>
+        )}
       </div>
     </main>
   );
