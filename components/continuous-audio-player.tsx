@@ -17,7 +17,7 @@ import {
   SkipBack,
   SkipForward,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export type PlaylistCue = {
   role: "question" | "answer";
@@ -108,6 +108,12 @@ function formatTime(value: number) {
   const minutes = Math.floor(value / 60);
   const seconds = Math.floor(value % 60);
   return `${minutes}:${String(seconds).padStart(2, "0")}`;
+}
+
+function displayText(value: string) {
+  return value
+    .replaceAll("Oosu Saloin", "Oosu Salon")
+    .replace(/\bSaloin\b/g, "Salon");
 }
 
 function countLexicalTokens(text: string) {
@@ -666,7 +672,7 @@ export function ContinuousAudioPlayer({
                       className="min-w-0 flex-1 text-left"
                     >
                       <div className={`line-clamp-2 text-sm font-black leading-5 ${active ? playbackMode === "musical" ? "text-violet-900" : "text-cyan-900" : "text-slate-800"}`}>
-                        {track.title}
+                        {displayText(track.title)}
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-[11px] font-semibold text-slate-400">
                         <span className="truncate">{track.category}</span>
@@ -683,7 +689,7 @@ export function ContinuousAudioPlayer({
                             ? "border-cyan-300 bg-cyan-600 text-white"
                             : "border-slate-200 bg-white text-slate-500 hover:border-cyan-200 hover:text-cyan-700"
                         }`}
-                        aria-label={`${track.title} 일반 음성 ${standardActive && isPlaying ? "일시정지" : "재생"}`}
+                        aria-label={`${displayText(track.title)} 일반 음성 ${standardActive && isPlaying ? "일시정지" : "재생"}`}
                         title="일반 음성"
                       >
                         {standardActive && isPlaying ? (
@@ -702,7 +708,7 @@ export function ContinuousAudioPlayer({
                               ? "border-violet-300 bg-violet-600 text-white"
                               : "border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100"
                           }`}
-                          aria-label={`${track.title} Musical Recall ${musicalActive && isPlaying ? "일시정지" : "재생"}`}
+                          aria-label={`${displayText(track.title)} Musical Recall ${musicalActive && isPlaying ? "일시정지" : "재생"}`}
                           title="Musical Recall"
                         >
                           {musicalActive && isPlaying ? (
@@ -733,7 +739,7 @@ export function ContinuousAudioPlayer({
                     </span>
                   )}
                 </div>
-                <div className="mt-1 line-clamp-2 text-sm font-bold text-slate-300">{currentTrack.title}</div>
+                <div className="mt-1 line-clamp-2 text-sm font-bold text-slate-300">{displayText(currentTrack.title)}</div>
               </div>
               <div className="max-h-[62vh] space-y-2 overflow-y-auto px-4 py-5 sm:px-6">
                 {currentCues.map((cue, index) => {
@@ -803,9 +809,9 @@ export function ContinuousAudioPlayer({
                               word.role ??
                               (index === 0 && wordIndex < questionWordCount ? "question" : "answer");
                             return (
-                              <span
-                                key={`${word.start}-${word.text}-${wordIndex}`}
-                                className={`inline-block rounded px-0.5 transition-all duration-100 ${
+                              <Fragment key={`${word.start}-${word.text}-${wordIndex}`}>
+                                <span
+                                  className={`inline-block rounded px-0.5 transition-all duration-100 ${
                                   wordActive
                                     ? wordRole === "question"
                                       ? "scale-110 bg-amber-300/10 font-black text-amber-100 [text-shadow:0_0_18px_rgba(251,191,36,.6)]"
@@ -817,14 +823,16 @@ export function ContinuousAudioPlayer({
                                       : wordRole === "question"
                                         ? "text-amber-200/35"
                                         : "text-slate-500"
-                                }`}
-                              >
-                                {word.text}{wordIndex < cue.words!.length - 1 ? " " : ""}
-                              </span>
+                                  }`}
+                                >
+                                  {displayText(word.text)}
+                                </span>
+                                {wordIndex < cue.words!.length - 1 ? " " : null}
+                              </Fragment>
                             );
                           })}
                         </span>
-                      ) : cue.text}
+                      ) : displayText(cue.text)}
                     </button>
                   );
                 })}
@@ -865,7 +873,7 @@ export function ContinuousAudioPlayer({
                       Musical
                     </span>
                   )}
-                  <div className="truncate text-sm font-black">{currentTrack.title}</div>
+                  <div className="truncate text-sm font-black">{displayText(currentTrack.title)}</div>
                   {playbackMode === "musical" && currentTrack.musicalRecall && (
                     <Link
                       href={`/visual?track=${encodeURIComponent(currentTrack.id)}&lang=${currentTrack.language}#musical-recall-motion`}
