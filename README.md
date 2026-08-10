@@ -72,13 +72,26 @@ The visual mode therefore turns those relationships into an interactive graph wi
 
 ### 4. Mobile-first rehearsal
 
-실제로 가장 자주 연습하는 환경이 노트북 앞이 아니라 이동 중의 iPhone이었기 때문에, 면접카드·Audio·Visual 모두 작은 화면에서 바로 사용할 수 있도록 반복해서 모바일 UI를 다듬었습니다.
+실제로 가장 자주 연습하는 환경이 노트북 앞이 아니라 이동 중의 iPhone이었기 때문에, 면접카드·Audio·Visual 모두 작은 화면에서 바로 사용할 수 있도록 반복해서 모바일 UI를 다듬었습니다. 아래 화면은 별도의 포트폴리오용 목업이 아니라 **실제 배포본을 iPhone 크기로 실행한 화면**입니다.
 
-Because much of the actual rehearsal happens on an iPhone while moving rather than at a desk, the card, audio, and visual interfaces were repeatedly adjusted for small-screen use.
+Because much of the actual rehearsal happens on an iPhone while moving rather than at a desk, the card, audio, and visual interfaces were repeatedly adjusted for small-screen use. These are **the deployed product at an iPhone viewport**, not separate portfolio mockups.
 
-<p align="center">
-  <img src="docs/screenshots/04-mobile-overview.png" alt="Mobile interview prep UI" width="320" />
-</p>
+<table>
+  <tr>
+    <td align="center"><strong>Interview Cards</strong><br/><sub>질문 → 회상 → 키워드 → 답변</sub></td>
+    <td align="center"><strong>Audio Recall</strong><br/><sub>이동 중 연속 재생</sub></td>
+    <td align="center"><strong>Visual Recall</strong><br/><sub>관계와 경로로 복구</sub></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="docs/screenshots/04-mobile-home.png" alt="KAIST BTM interview cards on mobile" /></td>
+    <td width="33%"><img src="docs/screenshots/05-mobile-audio.png" alt="KAIST BTM Audio Recall on mobile" /></td>
+    <td width="33%"><img src="docs/screenshots/06-mobile-visual.png" alt="KAIST BTM Visual Recall on mobile" /></td>
+  </tr>
+</table>
+
+세 화면을 따로 만든 이유도 같습니다. **앉아 있을 때는 면접카드로 직접 말하고, 이동할 때는 Audio로 반복하고, 연구·경력·논문의 연결이 흐려질 때는 Visual로 구조를 다시 봅니다.** 하나의 자료를 세 번 복제한 것이 아니라, 상황에 따라 다른 회상 경로를 쓰도록 설계했습니다.
+
+The three surfaces are intentionally different. **Cards are for speaking, Audio is for repetition while moving, and Visual is for rebuilding relationships when the structure becomes fuzzy.** They are not three copies of the same material; they are three retrieval paths for different rehearsal contexts.
 
 ---
 
