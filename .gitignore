@@ -1,0 +1,34 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+build/
+coverage/
+
+# Local configuration and credentials
+.env*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Logs, caches, and editor/OS files
+*.log
+*.tsbuildinfo
+.DS_Store
+.pnp*
+.yarn/
+.vercel/
+__pycache__/
+*.pyc
+cache/
+tmp/
+temp/
+
+# Private source material is intentionally never versioned
+private/
+source-documents/
+*.pdf
+*.doc
+*.docx
+*.zip
