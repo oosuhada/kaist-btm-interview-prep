@@ -3,6 +3,10 @@ import path from "node:path";
 
 import { ContinuousAudioPlayer } from "@/components/continuous-audio-player";
 import type { PlaylistTrack } from "@/components/continuous-audio-player";
+import {
+  musicalAlignmentMap,
+  readMusicalRecallAlignment,
+} from "@/lib/musical-recall-alignment";
 
 export default async function AudioPage({
   searchParams,
@@ -21,9 +25,48 @@ export default async function AudioPage({
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as {
     tracks: PlaylistTrack[];
   };
+  const musicalManifestPath = path.join(
+    process.cwd(),
+    "public",
+    "audio",
+    "musical-recall",
+    "manifest.json"
+  );
+  const musicalManifest = fs.existsSync(musicalManifestPath)
+    ? (JSON.parse(fs.readFileSync(musicalManifestPath, "utf8")) as {
+        tracks: Array<{
+          trackId: string;
+          language: "ko" | "en";
+          src: string;
+          duration: number;
+          style: "A" | "B" | "C";
+          cues: PlaylistTrack["cues"];
+        }>;
+      })
+    : { tracks: [] };
+  const musicalMap = new Map(
+    musicalManifest.tracks.map((track) => [`${track.trackId}:${track.language}`, track])
+  );
+  const alignmentMap = musicalAlignmentMap(readMusicalRecallAlignment());
+  const tracks = manifest.tracks.map((track) => {
+    const musicalRecall = musicalMap.get(`${track.id}:${track.language}`);
+    const alignment = alignmentMap.get(`${track.id}:${track.language}`);
+    return musicalRecall
+      ? {
+          ...track,
+          musicalRecall: {
+            ...musicalRecall,
+            cues: alignment?.cues ?? musicalRecall.cues,
+            alignmentEngine: alignment?.alignmentEngine,
+            alignmentConfidence: alignment?.alignmentConfidence,
+            matchRate: alignment?.matchRate,
+          },
+        }
+      : track;
+  });
   return (
     <ContinuousAudioPlayer
-      tracks={manifest.tracks}
+      tracks={tracks}
       initialTrackId={initialTrackId}
     />
   );

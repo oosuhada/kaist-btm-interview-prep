@@ -6,6 +6,7 @@ import {
   Headphones,
   Languages,
   ListMusic,
+  Music2,
   Pause,
   Play,
   Repeat1,
@@ -23,6 +24,16 @@ export type PlaylistCue = {
   text: string;
   start: number;
   end: number;
+  section?: string;
+  matchRate?: number;
+  words?: Array<{
+    text: string;
+    start: number;
+    end: number;
+    role?: "question" | "answer";
+    confidence?: number;
+    matched?: boolean;
+  }>;
 };
 
 export type PlaylistTrack = {
@@ -41,12 +52,22 @@ export type PlaylistTrack = {
   questionEnd: number;
   answerStart: number;
   cues: PlaylistCue[];
+  musicalRecall?: {
+    src: string;
+    duration: number;
+    style: "A" | "B" | "C";
+    cues: PlaylistCue[];
+    alignmentEngine?: string;
+    alignmentConfidence?: number;
+    matchRate?: number;
+  };
 };
 
 type Section = "all" | PlaylistTrack["section"];
 type Language = PlaylistTrack["language"];
 type RepeatMode = "off" | "all" | "one";
 type PriorityLevel = 0 | 1 | 2 | 3;
+type PlaybackMode = "standard" | "musical";
 
 const rates = [0.9, 1, 1.1, 1.25];
 const sectionOrder: Section[] = ["application", "defense", "presentation", "all"];
@@ -74,6 +95,10 @@ const priorityLabels: Record<PriorityLevel, { label: string; description: string
   3: { label: "면접 직전", description: "최우선만" },
 };
 
+function getMusicalRecallSrc(track: PlaylistTrack) {
+  return track.musicalRecall?.src ?? null;
+}
+
 function matchesPriority(track: PlaylistTrack, level: PriorityLevel) {
   return priorityRank[track.priority] >= level;
 }
@@ -83,6 +108,24 @@ function formatTime(value: number) {
   const minutes = Math.floor(value / 60);
   const seconds = Math.floor(value % 60);
   return `${minutes}:${String(seconds).padStart(2, "0")}`;
+}
+
+function countLexicalTokens(text: string) {
+  return (
+    text.match(/[\p{L}\p{N}+#’'.-]+/gu)?.filter((token) =>
+      token.replace(/[^\p{L}\p{N}+#]/gu, "").length > 0
+    ).length ?? 0
+  );
+}
+
+function getQuestionWordCount(track: PlaylistTrack, cue: PlaylistCue | undefined) {
+  if (!cue) return 0;
+  const questionMark = cue.text.search(/[?？]/);
+  const count =
+    questionMark >= 0
+      ? countLexicalTokens(cue.text.slice(0, questionMark + 1))
+      : countLexicalTokens(track.question);
+  return Math.min(count, cue.words?.length ?? count);
 }
 
 function shuffled(ids: string[], keepFirst?: string) {
@@ -122,10 +165,14 @@ export function ContinuousAudioPlayer({
   const [shuffleOrder, setShuffleOrder] = useState<string[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
+  const [playbackMode, setPlaybackMode] = useState<PlaybackMode>("standard");
+  const [mediaDuration, setMediaDuration] = useState(defaultTrack?.duration ?? 0);
   const [showScript, setShowScript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const activeCueRef = useRef<HTMLButtonElement>(null);
   const autoPlayNextRef = useRef(false);
+  const timeSyncFrameRef = useRef<number | null>(null);
+  const lastTimeSyncRef = useRef(0);
 
   const filteredTracks = useMemo(() => {
     const selected = tracks.filter(
@@ -149,6 +196,17 @@ export function ContinuousAudioPlayer({
   const currentTrack =
     trackMap.get(currentTrackId) ?? filteredTracks[0] ?? null;
 
+  const musicalRecallSrc = currentTrack ? getMusicalRecallSrc(currentTrack) : null;
+  const currentSrc =
+    currentTrack && playbackMode === "musical" && musicalRecallSrc
+      ? musicalRecallSrc
+      : currentTrack?.src ?? "";
+  const currentDuration = mediaDuration || currentTrack?.duration || 0;
+  const currentCues =
+    currentTrack && playbackMode === "musical" && currentTrack.musicalRecall
+      ? currentTrack.musicalRecall.cues
+      : currentTrack?.cues ?? [];
+
   const orderedIds = useMemo(() => {
     const natural = filteredTracks.map((track) => track.trackId);
     if (!shuffleEnabled) return natural;
@@ -163,7 +221,7 @@ export function ContinuousAudioPlayer({
     : 0;
 
   const activeCueIndex = currentTrack
-    ? currentTrack.cues.findIndex(
+    ? currentCues.findIndex(
         (cue) => currentTime >= cue.start && currentTime < cue.end
       )
     : -1;
@@ -174,6 +232,30 @@ export function ContinuousAudioPlayer({
   }, [rate]);
 
   useEffect(() => {
+    if (!isPlaying || playbackMode !== "musical" || !showScript) return;
+
+    let cancelled = false;
+    const syncTime = (now: number) => {
+      if (cancelled) return;
+      const audio = audioRef.current;
+      if (audio && now - lastTimeSyncRef.current >= 32) {
+        lastTimeSyncRef.current = now;
+        setCurrentTime(audio.currentTime);
+      }
+      timeSyncFrameRef.current = window.requestAnimationFrame(syncTime);
+    };
+
+    timeSyncFrameRef.current = window.requestAnimationFrame(syncTime);
+    return () => {
+      cancelled = true;
+      if (timeSyncFrameRef.current !== null) {
+        window.cancelAnimationFrame(timeSyncFrameRef.current);
+        timeSyncFrameRef.current = null;
+      }
+    };
+  }, [isPlaying, playbackMode, showScript]);
+
+  useEffect(() => {
     if (!showScript || activeCueIndex < 0) return;
     activeCueRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [activeCueIndex, showScript]);
@@ -181,17 +263,29 @@ export function ContinuousAudioPlayer({
   useEffect(() => {
     if (!currentTrack || !("mediaSession" in navigator)) return;
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: currentTrack.title,
+      title: playbackMode === "musical" ? `Musical Recall · ${currentTrack.title}` : currentTrack.title,
       artist: "KAIST BTM Interview Prep",
       album: currentTrack.category,
     });
-  }, [currentTrack]);
+  }, [currentTrack, playbackMode]);
 
-  const playTrack = useCallback((trackId: string) => {
-    autoPlayNextRef.current = true;
-    setCurrentTrackId(trackId);
-    setCurrentTime(0);
-  }, []);
+  const playTrack = useCallback(
+    (trackId: string, mode: PlaybackMode = "standard") => {
+      const track = tracks.find((item) => item.trackId === trackId);
+      const nextMode = mode === "musical" && track && getMusicalRecallSrc(track) ? "musical" : "standard";
+      if (trackId === currentTrackId && nextMode === playbackMode && audioRef.current) {
+        if (audioRef.current.paused) void audioRef.current.play();
+        else audioRef.current.pause();
+        return;
+      }
+      autoPlayNextRef.current = true;
+      setPlaybackMode(nextMode);
+      setCurrentTrackId(trackId);
+      setCurrentTime(0);
+      setMediaDuration(track?.duration ?? 0);
+    },
+    [currentTrackId, playbackMode, tracks]
+  );
 
   const moveTrack = useCallback(
     (direction: 1 | -1, fromEnded = false) => {
@@ -214,9 +308,15 @@ export function ContinuousAudioPlayer({
           return;
         }
       }
-      playTrack(orderedIds[nextIndex]);
+      const nextTrackId = orderedIds[nextIndex];
+      const nextTrack = trackMap.get(nextTrackId);
+      const nextMode =
+        playbackMode === "musical" && nextTrack && getMusicalRecallSrc(nextTrack)
+          ? "musical"
+          : "standard";
+      playTrack(nextTrackId, nextMode);
     },
-    [currentIndex, currentTrack, orderedIds, playTrack, repeatMode]
+    [currentIndex, currentTrack, orderedIds, playbackMode, playTrack, repeatMode, trackMap]
   );
 
   useEffect(() => {
@@ -253,8 +353,10 @@ export function ContinuousAudioPlayer({
     const first = nextTracks[0];
     setSection(nextSection);
     setLanguage(nextLanguage);
+    setPlaybackMode("standard");
     setCurrentTrackId(first?.trackId ?? "");
     setCurrentTime(0);
+    setMediaDuration(first?.duration ?? 0);
     setIsPlaying(false);
     setShuffleOrder(
       shuffleEnabled
@@ -286,8 +388,10 @@ export function ContinuousAudioPlayer({
     );
     const nextCurrent = currentStillVisible ?? nextTracks[0];
     setPriorityLevel(nextLevel);
+    setPlaybackMode("standard");
     setCurrentTrackId(nextCurrent?.trackId ?? "");
     setCurrentTime(0);
+    setMediaDuration(nextCurrent?.duration ?? 0);
     setIsPlaying(false);
     setShuffleOrder(
       shuffleEnabled
@@ -470,15 +574,20 @@ export function ContinuousAudioPlayer({
                   {filteredTracks.length} tracks · {formatTime(totalDuration)}
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setShowScript((current) => !current)}
-                className={`flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-black transition ${
-                  showScript ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"
-                }`}
-              >
-                <ScrollText className="h-4 w-4" /> Script
-              </button>
+              <div className="flex items-center gap-2">
+                <div className="hidden items-center gap-1.5 rounded-full bg-violet-50 px-2.5 py-2 text-[11px] font-black text-violet-700 sm:flex">
+                  <Music2 className="h-3.5 w-3.5" /> Musical Recall 22
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowScript((current) => !current)}
+                  className={`flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-black transition ${
+                    showScript ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"
+                  }`}
+                >
+                  <ScrollText className="h-4 w-4" /> Script
+                </button>
+              </div>
             </div>
 
             <div className="max-h-[62vh] overflow-y-auto">
@@ -486,20 +595,29 @@ export function ContinuousAudioPlayer({
                 const track = trackMap.get(trackId);
                 if (!track) return null;
                 const active = track.trackId === currentTrack?.trackId;
+                const trackMusicalSrc = getMusicalRecallSrc(track);
+                const standardActive = active && playbackMode === "standard";
+                const musicalActive = active && playbackMode === "musical";
                 return (
-                  <button
+                  <div
                     key={track.trackId}
-                    type="button"
-                    onClick={() => playTrack(track.trackId)}
                     className={`flex w-full items-start gap-3 border-b border-slate-100 px-4 py-3.5 text-left transition sm:px-5 ${
-                      active ? "bg-cyan-50" : "hover:bg-slate-50"
+                      active
+                        ? playbackMode === "musical"
+                          ? "bg-violet-50"
+                          : "bg-cyan-50"
+                        : "hover:bg-slate-50"
                     }`}
                   >
-                    <div className={`mt-0.5 w-7 shrink-0 text-center text-xs font-black ${active ? "text-cyan-600" : "text-slate-300"}`}>
+                    <div className={`mt-0.5 w-7 shrink-0 text-center text-xs font-black ${active ? playbackMode === "musical" ? "text-violet-600" : "text-cyan-600" : "text-slate-300"}`}>
                       {active && isPlaying ? "▶" : index + 1}
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <div className={`line-clamp-2 text-sm font-black leading-5 ${active ? "text-cyan-900" : "text-slate-800"}`}>
+                    <button
+                      type="button"
+                      onClick={() => playTrack(track.trackId, "standard")}
+                      className="min-w-0 flex-1 text-left"
+                    >
+                      <div className={`line-clamp-2 text-sm font-black leading-5 ${active ? playbackMode === "musical" ? "text-violet-900" : "text-cyan-900" : "text-slate-800"}`}>
                         {track.title}
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-[11px] font-semibold text-slate-400">
@@ -507,8 +625,48 @@ export function ContinuousAudioPlayer({
                         <span>·</span>
                         <span className="shrink-0">{formatTime(track.duration)}</span>
                       </div>
+                    </button>
+                    <div className="flex shrink-0 items-center gap-1.5 pt-0.5">
+                      <button
+                        type="button"
+                        onClick={() => playTrack(track.trackId, "standard")}
+                        className={`flex h-9 items-center gap-1.5 rounded-full border px-2.5 text-[11px] font-black transition ${
+                          standardActive
+                            ? "border-cyan-300 bg-cyan-600 text-white"
+                            : "border-slate-200 bg-white text-slate-500 hover:border-cyan-200 hover:text-cyan-700"
+                        }`}
+                        aria-label={`${track.title} 일반 음성 ${standardActive && isPlaying ? "일시정지" : "재생"}`}
+                        title="일반 음성"
+                      >
+                        {standardActive && isPlaying ? (
+                          <Pause className="h-3.5 w-3.5 fill-current" />
+                        ) : (
+                          <Play className="h-3.5 w-3.5 fill-current" />
+                        )}
+                        <span className="hidden sm:inline">음성</span>
+                      </button>
+                      {trackMusicalSrc && (
+                        <button
+                          type="button"
+                          onClick={() => playTrack(track.trackId, "musical")}
+                          className={`flex h-9 items-center gap-1.5 rounded-full border px-2.5 text-[11px] font-black transition ${
+                            musicalActive
+                              ? "border-violet-300 bg-violet-600 text-white"
+                              : "border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100"
+                          }`}
+                          aria-label={`${track.title} Musical Recall ${musicalActive && isPlaying ? "일시정지" : "재생"}`}
+                          title="Musical Recall"
+                        >
+                          {musicalActive && isPlaying ? (
+                            <Pause className="h-3.5 w-3.5 fill-current" />
+                          ) : (
+                            <Music2 className="h-3.5 w-3.5" />
+                          )}
+                          <span className="hidden sm:inline">Musical</span>
+                        </button>
+                      )}
                     </div>
-                  </button>
+                  </div>
                 );
               })}
             </div>
@@ -517,13 +675,41 @@ export function ContinuousAudioPlayer({
           {showScript && currentTrack && (
             <section className="overflow-hidden rounded-[26px] border border-slate-200 bg-slate-950 text-white">
               <div className="border-b border-slate-800 px-5 py-4">
-                <div className="text-xs font-black uppercase tracking-[0.16em] text-cyan-400">Live script</div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className={`text-xs font-black uppercase tracking-[0.16em] ${playbackMode === "musical" ? "text-violet-400" : "text-cyan-400"}`}>
+                    {playbackMode === "musical" ? "Musical Recall · synced lyrics" : "Live script"}
+                  </div>
+                  {playbackMode === "musical" && currentTrack.musicalRecall?.alignmentEngine && (
+                    <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-emerald-300">
+                      word sync {Math.round((currentTrack.musicalRecall.matchRate ?? currentTrack.musicalRecall.alignmentConfidence ?? 0) * 100)}%
+                    </span>
+                  )}
+                </div>
                 <div className="mt-1 line-clamp-2 text-sm font-bold text-slate-300">{currentTrack.title}</div>
               </div>
               <div className="max-h-[62vh] space-y-2 overflow-y-auto px-4 py-5 sm:px-6">
-                {currentTrack.cues.map((cue, index) => {
+                {currentCues.map((cue, index) => {
                   const active = index === activeCueIndex;
                   const passed = currentTime >= cue.end;
+                  const questionWordCount =
+                    playbackMode === "musical" && index === 0
+                      ? getQuestionWordCount(currentTrack, cue)
+                      : 0;
+                  const activeWordIndex =
+                    cue.words?.findIndex(
+                      (word) => currentTime >= word.start && currentTime < word.end
+                    ) ?? -1;
+                  const mixedQuestionAnswer =
+                    playbackMode === "musical" &&
+                    index === 0 &&
+                    questionWordCount > 0 &&
+                    (cue.words?.length ?? 0) > questionWordCount;
+                  const effectiveRole: "question" | "answer" =
+                    playbackMode === "musical" && index === 0 && activeWordIndex >= 0
+                      ? activeWordIndex < questionWordCount
+                        ? "question"
+                        : "answer"
+                      : cue.role;
                   return (
                     <button
                       key={`${cue.start}-${index}`}
@@ -536,20 +722,68 @@ export function ContinuousAudioPlayer({
                       }}
                       className={`block w-full rounded-xl px-3 py-2.5 text-left text-[15px] font-semibold leading-7 transition sm:text-base ${
                         active
-                          ? cue.role === "question"
-                            ? "bg-violet-400/20 text-violet-100 ring-1 ring-violet-400/30"
+                          ? effectiveRole === "question"
+                            ? "bg-amber-400/15 text-amber-50 ring-1 ring-amber-300/30"
                             : "bg-cyan-400/20 text-cyan-50 ring-1 ring-cyan-400/30"
                           : passed
                             ? "text-slate-500"
                             : "text-slate-300"
                       }`}
                     >
-                      {index === 0 || currentTrack.cues[index - 1]?.role !== cue.role ? (
-                        <span className={`mb-1 block text-[10px] font-black uppercase tracking-[0.16em] ${cue.role === "question" ? "text-violet-400" : "text-cyan-400"}`}>
-                          {cue.role === "question" ? "Question" : "Answer"}
+                      {playbackMode === "musical" || index === 0 || currentCues[index - 1]?.role !== cue.role ? (
+                        <span
+                          className={`mb-1 block text-[10px] font-black uppercase tracking-[0.16em] ${
+                            playbackMode === "musical"
+                              ? effectiveRole === "question"
+                                ? "text-amber-300"
+                                : "text-cyan-300"
+                              : cue.role === "question"
+                                ? "text-violet-400"
+                                : "text-cyan-400"
+                          }`}
+                        >
+                          {playbackMode === "musical"
+                            ? mixedQuestionAnswer
+                              ? "Question → Answer"
+                              : effectiveRole === "question"
+                                ? "Question · Interviewer"
+                                : "Answer · Me"
+                            : cue.role === "question"
+                              ? "Question"
+                              : "Answer"}
                         </span>
                       ) : null}
-                      {cue.text}
+                      {playbackMode === "musical" && cue.words?.length ? (
+                        <span className="leading-8">
+                          {cue.words.map((word, wordIndex) => {
+                            const wordActive = currentTime >= word.start && currentTime < word.end;
+                            const wordPassed = currentTime >= word.end;
+                            const wordRole: "question" | "answer" =
+                              word.role ??
+                              (index === 0 && wordIndex < questionWordCount ? "question" : "answer");
+                            return (
+                              <span
+                                key={`${word.start}-${word.text}-${wordIndex}`}
+                                className={`inline-block rounded px-0.5 transition-all duration-100 ${
+                                  wordActive
+                                    ? wordRole === "question"
+                                      ? "scale-110 bg-amber-300/10 font-black text-amber-100 [text-shadow:0_0_18px_rgba(251,191,36,.6)]"
+                                      : "scale-110 bg-cyan-300/10 font-black text-cyan-50 [text-shadow:0_0_18px_rgba(103,232,249,.65)]"
+                                    : wordPassed
+                                      ? wordRole === "question"
+                                        ? "text-amber-200/75"
+                                        : "text-cyan-100/85"
+                                      : wordRole === "question"
+                                        ? "text-amber-200/35"
+                                        : "text-slate-500"
+                                }`}
+                              >
+                                {word.text}
+                              </span>
+                            );
+                          })}
+                        </span>
+                      ) : cue.text}
                     </button>
                   );
                 })}
@@ -564,12 +798,13 @@ export function ContinuousAudioPlayer({
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             <audio
               ref={audioRef}
-              key={currentTrack.src}
-              src={currentTrack.src}
+              key={`${currentTrack.trackId}:${playbackMode}:${currentSrc}`}
+              src={currentSrc}
               preload="auto"
               onLoadedMetadata={() => {
                 if (!audioRef.current) return;
                 audioRef.current.playbackRate = rate;
+                setMediaDuration(audioRef.current.duration || currentTrack.duration);
                 if (autoPlayNextRef.current) {
                   autoPlayNextRef.current = false;
                   void audioRef.current.play();
@@ -583,7 +818,22 @@ export function ContinuousAudioPlayer({
 
             <div className="grid gap-2 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center">
               <div className="min-w-0">
-                <div className="truncate text-sm font-black">{currentTrack.title}</div>
+                <div className="flex min-w-0 items-center gap-2">
+                  {playbackMode === "musical" && (
+                    <span className="shrink-0 rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-wide text-violet-300">
+                      Musical
+                    </span>
+                  )}
+                  <div className="truncate text-sm font-black">{currentTrack.title}</div>
+                  {playbackMode === "musical" && currentTrack.musicalRecall && (
+                    <Link
+                      href={`/visual?track=${encodeURIComponent(currentTrack.id)}&lang=${currentTrack.language}#musical-recall-motion`}
+                      className="hidden shrink-0 rounded-full border border-violet-400/20 bg-violet-400/10 px-2 py-1 text-[9px] font-black uppercase tracking-[0.1em] text-violet-200 transition hover:bg-violet-400/20 sm:inline-flex"
+                    >
+                      Motion lyrics
+                    </Link>
+                  )}
+                </div>
                 <div className="mt-0.5 truncate text-[11px] font-semibold text-slate-400">
                   {currentIndex + 1} / {orderedIds.length} · {currentTrack.category}
                 </div>
@@ -601,7 +851,9 @@ export function ContinuousAudioPlayer({
                     if (audio.paused) void audio.play();
                     else audio.pause();
                   }}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-950"
+                  className={`flex h-11 w-11 items-center justify-center rounded-full text-slate-950 ${
+                    playbackMode === "musical" ? "bg-violet-300" : "bg-white"
+                  }`}
                   aria-label={isPlaying ? "일시정지" : "재생"}
                 >
                   {isPlaying ? <Pause className="h-5 w-5 fill-current" /> : <Play className="ml-0.5 h-5 w-5 fill-current" />}
@@ -617,7 +869,13 @@ export function ContinuousAudioPlayer({
                     key={value}
                     type="button"
                     onClick={() => setRate(value)}
-                    className={`rounded-full px-2 py-1 text-[11px] font-black ${rate === value ? "bg-cyan-400 text-slate-950" : "text-slate-400 hover:bg-slate-800"}`}
+                    className={`rounded-full px-2 py-1 text-[11px] font-black ${
+                      rate === value
+                        ? playbackMode === "musical"
+                          ? "bg-violet-300 text-slate-950"
+                          : "bg-cyan-400 text-slate-950"
+                        : "text-slate-400 hover:bg-slate-800"
+                    }`}
                   >
                     {value}×
                   </button>
@@ -630,18 +888,20 @@ export function ContinuousAudioPlayer({
               <input
                 type="range"
                 min={0}
-                max={Math.max(0.1, currentTrack.duration)}
+                max={Math.max(0.1, currentDuration)}
                 step={0.05}
-                value={Math.min(currentTime, currentTrack.duration)}
+                value={Math.min(currentTime, currentDuration)}
                 onChange={(event) => {
                   const value = Number(event.target.value);
                   if (audioRef.current) audioRef.current.currentTime = value;
                   setCurrentTime(value);
                 }}
-                className="h-1 flex-1 cursor-pointer accent-cyan-400"
+                className={`h-1 flex-1 cursor-pointer ${
+                  playbackMode === "musical" ? "accent-violet-300" : "accent-cyan-400"
+                }`}
                 aria-label="재생 위치"
               />
-              <span className="w-9 text-[10px] font-bold text-slate-500">{formatTime(currentTrack.duration)}</span>
+              <span className="w-9 text-[10px] font-bold text-slate-500">{formatTime(currentDuration)}</span>
             </div>
           </div>
         </div>
