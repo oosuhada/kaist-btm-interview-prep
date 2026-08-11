@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
+import { SixTapPortal } from "@/components/six-tap-portal";
+
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -18,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <SixTapPortal />
+        {children}
+      </body>
     </html>
   );
 }

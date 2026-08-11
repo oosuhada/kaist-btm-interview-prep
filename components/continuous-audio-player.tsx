@@ -60,6 +60,12 @@ export type PlaylistTrack = {
     alignmentEngine?: string;
     alignmentConfidence?: number;
     matchRate?: number;
+    continuous?: {
+      src: string;
+      playlistDuration: number;
+      start: number;
+      end: number;
+    };
   };
 };
 
@@ -252,6 +258,7 @@ export function ContinuousAudioPlayer({
   const audioRef = useRef<HTMLAudioElement>(null);
   const activeCueRef = useRef<HTMLButtonElement>(null);
   const autoPlayNextRef = useRef(false);
+  const pendingContinuousSeekRef = useRef<number | null>(null);
   const timeSyncFrameRef = useRef<number | null>(null);
   const lastTimeSyncRef = useRef(0);
 
@@ -282,11 +289,39 @@ export function ContinuousAudioPlayer({
     trackMap.get(currentTrackId) ?? filteredTracks[0] ?? null;
 
   const musicalRecallSrc = currentTrack ? getMusicalRecallSrc(currentTrack) : null;
+  const continuousMusicalEnabled = Boolean(
+    playbackMode === "musical" &&
+      currentTrack?.musicalRecall?.continuous &&
+      section === "all" &&
+      priorityLevel === 0 &&
+      !shuffleEnabled &&
+      repeatMode !== "one"
+  );
+  const continuousMusicalSegments = useMemo(
+    () =>
+      tracks
+        .filter(
+          (track) =>
+            track.language === language && Boolean(track.musicalRecall?.continuous)
+        )
+        .map((track) => ({
+          trackId: track.trackId,
+          start: track.musicalRecall!.continuous!.start,
+          end: track.musicalRecall!.continuous!.end,
+        }))
+        .sort((a, b) => a.start - b.start),
+    [language, tracks]
+  );
   const currentSrc =
-    currentTrack && playbackMode === "musical" && musicalRecallSrc
-      ? musicalRecallSrc
+    continuousMusicalEnabled && currentTrack?.musicalRecall?.continuous
+      ? currentTrack.musicalRecall.continuous.src
+      : currentTrack && playbackMode === "musical" && musicalRecallSrc
+        ? musicalRecallSrc
       : currentTrack?.src ?? "";
-  const currentDuration = mediaDuration || currentTrack?.duration || 0;
+  const currentDuration =
+    playbackMode === "musical"
+      ? currentTrack?.musicalRecall?.duration ?? currentTrack?.duration ?? 0
+      : mediaDuration || currentTrack?.duration || 0;
   const currentCues = useMemo(() => {
     if (!currentTrack) return [];
     if (playbackMode === "musical" && currentTrack.musicalRecall) {
@@ -318,6 +353,19 @@ export function ContinuousAudioPlayer({
     if (!audioRef.current) return;
     audioRef.current.playbackRate = rate;
   }, [rate]);
+
+  useEffect(() => {
+    if (!continuousMusicalEnabled || pendingContinuousSeekRef.current === null) return;
+    const audio = audioRef.current;
+    if (!audio || audio.readyState < 1) return;
+    audio.currentTime = pendingContinuousSeekRef.current;
+    pendingContinuousSeekRef.current = null;
+    setCurrentTime(0);
+    if (autoPlayNextRef.current) {
+      autoPlayNextRef.current = false;
+      void audio.play();
+    }
+  }, [continuousMusicalEnabled, currentTrackId, currentSrc]);
 
   useEffect(() => {
     if (!isPlaying || playbackMode !== "musical" || !showScript) return;
@@ -361,23 +409,63 @@ export function ContinuousAudioPlayer({
     (trackId: string, mode: PlaybackMode = "standard") => {
       const track = tracks.find((item) => item.trackId === trackId);
       const nextMode = mode === "musical" && track && getMusicalRecallSrc(track) ? "musical" : "standard";
+      const useContinuous = Boolean(
+        nextMode === "musical" &&
+          track?.musicalRecall?.continuous &&
+          section === "all" &&
+          priorityLevel === 0 &&
+          !shuffleEnabled &&
+          repeatMode !== "one"
+      );
       if (trackId === currentTrackId && nextMode === playbackMode && audioRef.current) {
+        if (useContinuous && track?.musicalRecall?.continuous) {
+          audioRef.current.currentTime = track.musicalRecall.continuous.start;
+          setCurrentTime(0);
+          void audioRef.current.play();
+          return;
+        }
         if (audioRef.current.paused) void audioRef.current.play();
         else audioRef.current.pause();
         return;
       }
       autoPlayNextRef.current = true;
+      pendingContinuousSeekRef.current =
+        useContinuous && track?.musicalRecall?.continuous
+          ? track.musicalRecall.continuous.start
+          : null;
       setPlaybackMode(nextMode);
       setCurrentTrackId(trackId);
       setCurrentTime(0);
-      setMediaDuration(track?.duration ?? 0);
+      setMediaDuration(
+        nextMode === "musical"
+          ? track?.musicalRecall?.duration ?? track?.duration ?? 0
+          : track?.duration ?? 0
+      );
     },
-    [currentTrackId, playbackMode, tracks]
+    [currentTrackId, playbackMode, priorityLevel, repeatMode, section, shuffleEnabled, tracks]
   );
 
   const moveTrack = useCallback(
     (direction: 1 | -1, fromEnded = false) => {
       if (!orderedIds.length || !currentTrack) return;
+      if (continuousMusicalEnabled && playbackMode === "musical") {
+        const currentContinuousIndex = continuousMusicalSegments.findIndex(
+          (segment) => segment.trackId === currentTrack.trackId
+        );
+        if (currentContinuousIndex >= 0) {
+          let nextIndex = currentContinuousIndex + direction;
+          if (nextIndex >= continuousMusicalSegments.length || nextIndex < 0) {
+            if (repeatMode === "all" || !fromEnded) {
+              nextIndex = direction > 0 ? 0 : continuousMusicalSegments.length - 1;
+            } else {
+              setIsPlaying(false);
+              return;
+            }
+          }
+          playTrack(continuousMusicalSegments[nextIndex].trackId, "musical");
+          return;
+        }
+      }
       if (repeatMode === "one" && fromEnded) {
         const audio = audioRef.current;
         if (audio) {
@@ -404,7 +492,7 @@ export function ContinuousAudioPlayer({
           : "standard";
       playTrack(nextTrackId, nextMode);
     },
-    [currentIndex, currentTrack, orderedIds, playbackMode, playTrack, repeatMode, trackMap]
+    [continuousMusicalEnabled, continuousMusicalSegments, currentIndex, currentTrack, orderedIds, playbackMode, playTrack, repeatMode, trackMap]
   );
 
   useEffect(() => {
@@ -656,6 +744,9 @@ export function ContinuousAudioPlayer({
                 <div className="hidden items-center gap-1.5 rounded-full bg-violet-50 px-2.5 py-2 text-[11px] font-black text-violet-700 sm:flex">
                   <Music2 className="h-3.5 w-3.5" /> Musical Recall {musicalRecallTrackCount}
                 </div>
+                <div className="hidden rounded-full bg-emerald-50 px-2.5 py-2 text-[10px] font-black text-emerald-700 md:block">
+                  iPhone 잠금 연속재생
+                </div>
                 <button
                   type="button"
                   onClick={() => setShowScript((current) => !current)}
@@ -790,7 +881,10 @@ export function ContinuousAudioPlayer({
                       type="button"
                       onClick={() => {
                         if (!audioRef.current) return;
-                        audioRef.current.currentTime = cue.start;
+                        audioRef.current.currentTime =
+                          continuousMusicalEnabled && currentTrack.musicalRecall?.continuous
+                            ? currentTrack.musicalRecall.continuous.start + cue.start
+                            : cue.start;
                         setCurrentTime(cue.start);
                       }}
                       className={`block w-full rounded-xl px-3 py-2.5 text-left text-[15px] font-semibold leading-7 transition sm:text-base ${
@@ -871,22 +965,57 @@ export function ContinuousAudioPlayer({
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             <audio
               ref={audioRef}
-              key={`${currentTrack.trackId}:${playbackMode}:${currentSrc}`}
+              key={
+                continuousMusicalEnabled
+                  ? `continuous-musical:${language}:${currentSrc}`
+                  : `${currentTrack.trackId}:${playbackMode}:${currentSrc}`
+              }
               src={currentSrc}
               preload="auto"
+              playsInline
+              loop={continuousMusicalEnabled && repeatMode === "all"}
               onLoadedMetadata={() => {
                 if (!audioRef.current) return;
                 audioRef.current.playbackRate = rate;
-                setMediaDuration(audioRef.current.duration || currentTrack.duration);
+                setMediaDuration(
+                  playbackMode === "musical"
+                    ? currentTrack.musicalRecall?.duration ?? currentTrack.duration
+                    : audioRef.current.duration || currentTrack.duration
+                );
+                if (continuousMusicalEnabled && pendingContinuousSeekRef.current !== null) {
+                  audioRef.current.currentTime = pendingContinuousSeekRef.current;
+                  pendingContinuousSeekRef.current = null;
+                  setCurrentTime(0);
+                }
                 if (autoPlayNextRef.current) {
                   autoPlayNextRef.current = false;
                   void audioRef.current.play();
                 }
               }}
-              onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+              onTimeUpdate={(event) => {
+                const globalTime = event.currentTarget.currentTime;
+                if (!continuousMusicalEnabled) {
+                  setCurrentTime(globalTime);
+                  return;
+                }
+                const segment = continuousMusicalSegments.find(
+                  (item) => globalTime >= item.start && globalTime < item.end
+                );
+                if (!segment) return;
+                if (segment.trackId !== currentTrackId) {
+                  setCurrentTrackId(segment.trackId);
+                }
+                setCurrentTime(Math.max(0, globalTime - segment.start));
+              }}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
-              onEnded={() => moveTrack(1, true)}
+              onEnded={() => {
+                if (continuousMusicalEnabled) {
+                  setIsPlaying(false);
+                  return;
+                }
+                moveTrack(1, true);
+              }}
             />
 
             <div className="grid gap-2 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center">
@@ -966,7 +1095,12 @@ export function ContinuousAudioPlayer({
                 value={Math.min(currentTime, currentDuration)}
                 onChange={(event) => {
                   const value = Number(event.target.value);
-                  if (audioRef.current) audioRef.current.currentTime = value;
+                  if (audioRef.current) {
+                    audioRef.current.currentTime =
+                      continuousMusicalEnabled && currentTrack.musicalRecall?.continuous
+                        ? currentTrack.musicalRecall.continuous.start + value
+                        : value;
+                  }
                   setCurrentTime(value);
                 }}
                 className={`h-1 flex-1 cursor-pointer ${
