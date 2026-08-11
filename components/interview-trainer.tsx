@@ -1722,6 +1722,27 @@ export function InterviewTrainer({
     [content.applicationQuestions, section]
   );
 
+  const applicationPriorityOrder = useMemo(
+    () =>
+      new Map(
+        [
+          "application-opening-60",
+          "application-opening-30",
+          "application-q5",
+          "application-q6",
+          "application-q40",
+          "application-q41",
+          "application-q44",
+          "application-q39",
+          "application-q32",
+          "application-q7",
+          "application-extra-101",
+          "application-q62",
+        ].map((id, index) => [id, index])
+      ),
+    []
+  );
+
   const researchFlow = useMemo(
     () => buildResearchFlow(content.researchStages),
     [content.researchStages]
@@ -1738,8 +1759,12 @@ export function InterviewTrainer({
         (a, b) => (order.get(a.id) ?? 9999) - (order.get(b.id) ?? 9999)
       );
     }
-    return selected;
-  }, [activeQuestions, category, deck, progress, randomOrder]);
+    return [...selected].sort((a, b) => {
+      const aRank = applicationPriorityOrder.get(a.id) ?? Number.MAX_SAFE_INTEGER;
+      const bRank = applicationPriorityOrder.get(b.id) ?? Number.MAX_SAFE_INTEGER;
+      return aRank - bRank || a.number - b.number;
+    });
+  }, [activeQuestions, applicationPriorityOrder, category, deck, progress, randomOrder]);
 
   const mastered = activeQuestions.filter((item) => progress[item.id] === "mastered").length;
   const unsure = activeQuestions.filter((item) => progress[item.id] === "unsure").length;

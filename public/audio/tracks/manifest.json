@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T08:23:44.426Z",
+  "generatedAt": "2026-08-11T02:44:51.044Z",
   "tracks": [
     {
       "section": "presentation",
@@ -7,33 +7,33 @@
       "language": "ko",
       "number": 1,
       "priority": "essential",
-      "title": "발표 핵심 한 문장",
+      "title": "연구주제를 한 문장으로 설명해보세요.",
       "category": "연구주제 발표",
-      "question": "발표 핵심 한 문장",
+      "question": "연구주제를 한 문장으로 설명해보세요.",
       "answer": "저는 업무용 RAG에서 조직의 문서와 운영지식을 어떻게 연결하고, 사용자가 답의 근거를 얼마나 쉽게 확인할 수 있게 하느냐가 실제 검증 행동에 어떤 영향을 주는지 연구하고 싶습니다. 특히 출처, 최신성, 불확실성 같은 정보를 어떻게 보여줄 때 사용자가 AI의 답을 더 정확하게 확인하고 적절하게 활용하는지 보고자 합니다.",
       "trackId": "presentation:research-1:ko",
-      "src": "/audio/tracks/ko/research-1.mp3?v=1786322110667",
-      "duration": 23.594,
-      "questionEnd": 1.704,
-      "answerStart": 2.329,
+      "src": "/audio/tracks/ko/research-1.mp3?v=1786416258663",
+      "duration": 23.306,
+      "questionEnd": 2.328,
+      "answerStart": 2.953,
       "cues": [
         {
           "role": "question",
-          "text": "발표 핵심 한 문장",
+          "text": "연구주제를 한 문장으로 설명해보세요.",
           "start": 0,
-          "end": 1.704
+          "end": 2.328
         },
         {
           "role": "answer",
           "text": "저는 업무용 RAG에서 조직의 문서와 운영지식을 어떻게 연결하고, 사용자가 답의 근거를 얼마나 쉽게 확인할 수 있게 하느냐가 실제 검증 행동에 어떤 영향을 주는지 연구하고 싶습니다.",
-          "start": 2.329,
-          "end": 14.395
+          "start": 2.953,
+          "end": 14.501
         },
         {
           "role": "answer",
           "text": "특히 출처, 최신성, 불확실성 같은 정보를 어떻게 보여줄 때 사용자가 AI의 답을 더 정확하게 확인하고 적절하게 활용하는지 보고자 합니다.",
-          "start": 14.395,
-          "end": 23.593
+          "start": 14.501,
+          "end": 23.305
         }
       ]
     },
@@ -43,40 +43,35 @@
       "language": "en",
       "number": 1,
       "priority": "essential",
-      "title": "Research in one sentence",
+      "title": "Explain your research topic in one sentence.",
       "category": "Research Presentation",
-      "question": "Research in one sentence",
+      "question": "Explain your research topic in one sentence.",
       "answer": "I want to study how knowledge structuring and verification-interface design in workplace RAG systems affect domain experts’ verification behavior and calibrated reliance on AI. More specifically, I want to examine how organizational documents and operational knowledge are structured for RAG, and how provenance, freshness, uncertainty, and verification controls shape observable verification behavior and decision quality.",
       "trackId": "presentation:research-1:en",
-      "src": "/audio/tracks/en/research-1.mp3?v=1786321642881",
-      "duration": 28.178,
-      "questionEnd": 2.016,
-      "answerStart": 2.641,
+      "src": "/audio/tracks/en/research-1.mp3?v=1786416258963",
+      "duration": 29.522,
+      "questionEnd": 2.808,
+      "answerStart": 3.433,
       "cues": [
         {
           "role": "question",
-          "text": "Research in one sentence",
+          "text": "Explain your research topic in one sentence.",
           "start": 0,
-          "end": 2.26
+          "end": 2.808
         },
         {
           "role": "answer",
           "text": "I want to study how knowledge structuring and verification-interface design in workplace RAG systems affect domain experts’ verification behavior and calibrated reliance on AI.",
-          "start": 3.44,
-          "end": 13.58
+          "start": 3.433,
+          "end": 14.313
         },
         {
           "role": "answer",
           "text": "More specifically, I want to examine how organizational documents and operational knowledge are structured for RAG, and how provenance, freshness, uncertainty, and verification controls shape observable verification behavior and decision quality.",
-          "start": 14.28,
-          "end": 27.96
+          "start": 14.313,
+          "end": 29.521
         }
-      ],
-      "alignment": {
-        "engine": "whisper-tiny.en",
-        "questionConfidence": 1,
-        "answerConfidence": 0.982
-      }
+      ]
     },
     {
       "section": "presentation",
@@ -154,40 +149,40 @@
       "id": "research-3",
       "language": "ko",
       "number": 3,
-      "priority": "S",
-      "title": "문제 배경",
+      "priority": "essential",
+      "title": "왜 이 연구가 필요합니까?",
       "category": "연구주제 발표",
-      "question": "문제 배경",
+      "question": "왜 이 연구가 필요합니까?",
       "answer": "그래서 기업에서 중요한 것은 단순히 AI의 답변 정확도를 높이는 것만은 아니라고 생각합니다. 실제 업무에서는 근거가 약한 답을 그대로 믿는 것도 위험하고, 반대로 쓸 만한 답까지 불신해서 활용하지 않는 것도 문제입니다. 저는 사용자가 AI를 더 많이 믿게 만드는 것보다, 답의 근거를 확인하고 상황에 맞게 적절히 활용할 수 있게 만드는 조건에 관심이 있습니다.",
       "trackId": "presentation:research-3:ko",
-      "src": "/audio/tracks/ko/research-3.mp3?v=1786322111278",
-      "duration": 20.93,
-      "questionEnd": 1.032,
-      "answerStart": 1.657,
+      "src": "/audio/tracks/ko/research-3.mp3?v=1786416259497",
+      "duration": 22.514,
+      "questionEnd": 1.992,
+      "answerStart": 2.617,
       "cues": [
         {
           "role": "question",
-          "text": "문제 배경",
+          "text": "왜 이 연구가 필요합니까?",
           "start": 0,
-          "end": 1.032
+          "end": 1.992
         },
         {
           "role": "answer",
           "text": "그래서 기업에서 중요한 것은 단순히 AI의 답변 정확도를 높이는 것만은 아니라고 생각합니다.",
-          "start": 1.657,
-          "end": 6.596
+          "start": 2.617,
+          "end": 7.716
         },
         {
           "role": "answer",
           "text": "실제 업무에서는 근거가 약한 답을 그대로 믿는 것도 위험하고, 반대로 쓸 만한 답까지 불신해서 활용하지 않는 것도 문제입니다.",
-          "start": 6.596,
-          "end": 13.375
+          "start": 7.716,
+          "end": 14.715
         },
         {
           "role": "answer",
           "text": "저는 사용자가 AI를 더 많이 믿게 만드는 것보다, 답의 근거를 확인하고 상황에 맞게 적절히 활용할 수 있게 만드는 조건에 관심이 있습니다.",
-          "start": 13.375,
-          "end": 20.929
+          "start": 14.715,
+          "end": 22.513
         }
       ]
     },
@@ -196,47 +191,42 @@
       "id": "research-3",
       "language": "en",
       "number": 3,
-      "priority": "S",
-      "title": "Problem",
+      "priority": "essential",
+      "title": "Why is this research necessary?",
       "category": "Research Presentation",
-      "question": "Problem",
+      "question": "Why is this research necessary?",
       "answer": "When organizations adopt RAG-based AI, I do not think the goal should be simply to maximize answer accuracy. In real work, it is risky when users accept weakly supported answers too easily, but it is also a problem when they distrust useful answers and refuse to use them. My interest is therefore not in making people trust AI more, but in helping them verify its outputs and rely on them appropriately.",
       "trackId": "presentation:research-3:en",
-      "src": "/audio/tracks/en/research-3.mp3?v=1786321643378",
-      "duration": 24.89,
-      "questionEnd": 1.536,
-      "answerStart": 2.161,
+      "src": "/audio/tracks/en/research-3.mp3?v=1786416259775",
+      "duration": 25.898,
+      "questionEnd": 2.304,
+      "answerStart": 2.929,
       "cues": [
         {
           "role": "question",
-          "text": "Problem",
+          "text": "Why is this research necessary?",
           "start": 0,
-          "end": 1.296
+          "end": 2.304
         },
         {
           "role": "answer",
           "text": "When organizations adopt RAG-based AI, I do not think the goal should be simply to maximize answer accuracy.",
-          "start": 1.98,
-          "end": 8.04
+          "start": 2.929,
+          "end": 9.1
         },
         {
           "role": "answer",
           "text": "In real work, it is risky when users accept weakly supported answers too easily, but it is also a problem when they distrust useful answers and refuse to use them.",
-          "start": 8.92,
-          "end": 17.54
+          "start": 9.1,
+          "end": 18.413
         },
         {
           "role": "answer",
           "text": "My interest is therefore not in making people trust AI more, but in helping them verify its outputs and rely on them appropriately.",
-          "start": 17.9,
-          "end": 24.54
+          "start": 18.413,
+          "end": 25.897
         }
-      ],
-      "alignment": {
-        "engine": "whisper-tiny.en",
-        "questionConfidence": 0,
-        "answerConfidence": 0.986
-      }
+      ]
     },
     {
       "section": "presentation",
@@ -3036,6 +3026,102 @@
     },
     {
       "section": "defense",
+      "id": "defense-tom-fit",
+      "language": "ko",
+      "number": 128,
+      "priority": "essential",
+      "title": "왜 Tom Steinberger 교수님과 연구하고 싶습니까?",
+      "category": "연구실 적합성",
+      "question": "왜 Tom Steinberger 교수님과 연구하고 싶습니까?",
+      "answer": "제 연구질문과 가장 직접적으로 맞닿아 있는 분이 Tom Steinberger 교수님이라고 생각합니다. 교수님은 도메인 전문가가 실제 업무에서 데이터를 어떻게 사용하고, 분석 시스템의 결과가 실제 행동으로 이어지려면 무엇이 필요한지를 연구해 왔습니다. 저는 이 문제를 업무용 RAG로 확장해서, 조직지식의 구조와 출처·최신성·불확실성 같은 검증 정보가 사용자의 실제 검증 행동과 적정 의존을 어떻게 바꾸는지 연구하고 싶습니다. 그래서 단순히 AI라는 공통 키워드 때문이 아니라 분석 단위와 연구문제가 직접 연결된다고 봅니다.",
+      "trackId": "defense:defense-tom-fit:ko",
+      "src": "/audio/tracks/ko/defense-tom-fit.mp3?v=1786416269660",
+      "duration": 34.322,
+      "questionEnd": 2.736,
+      "answerStart": 3.361,
+      "cues": [
+        {
+          "role": "question",
+          "text": "왜 Tom Steinberger 교수님과 연구하고 싶습니까?",
+          "start": 0,
+          "end": 2.736
+        },
+        {
+          "role": "answer",
+          "text": "제 연구질문과 가장 직접적으로 맞닿아 있는 분이 Tom Steinberger 교수님이라고 생각합니다.",
+          "start": 3.361,
+          "end": 9.36
+        },
+        {
+          "role": "answer",
+          "text": "교수님은 도메인 전문가가 실제 업무에서 데이터를 어떻게 사용하고, 분석 시스템의 결과가 실제 행동으로 이어지려면 무엇이 필요한지를 연구해 왔습니다.",
+          "start": 9.36,
+          "end": 18.144
+        },
+        {
+          "role": "answer",
+          "text": "저는 이 문제를 업무용 RAG로 확장해서, 조직지식의 구조와 출처·최신성·불확실성 같은 검증 정보가 사용자의 실제 검증 행동과 적정 의존을 어떻게 바꾸는지 연구하고 싶습니다.",
+          "start": 18.144,
+          "end": 28.535
+        },
+        {
+          "role": "answer",
+          "text": "그래서 단순히 AI라는 공통 키워드 때문이 아니라 분석 단위와 연구문제가 직접 연결된다고 봅니다.",
+          "start": 28.535,
+          "end": 34.321
+        }
+      ]
+    },
+    {
+      "section": "defense",
+      "id": "defense-tom-fit",
+      "language": "en",
+      "number": 128,
+      "priority": "essential",
+      "title": "Why do you specifically want to work with Professor Tom Steinberger?",
+      "category": "Research Defense",
+      "question": "Why do you specifically want to work with Professor Tom Steinberger?",
+      "answer": "Professor Tom Steinberger is the closest fit for my research question. His work examines how domain experts actually use data in real work and what makes data-science systems actionable in practice. I want to extend that problem to workplace RAG by studying how organizational knowledge structures and verification information such as provenance, freshness, and uncertainty shape users' actual verification behavior and calibrated reliance on AI. So the fit is not simply that we both study AI; the unit of analysis and the underlying research problem connect directly.",
+      "trackId": "defense:defense-tom-fit:en",
+      "src": "/audio/tracks/en/defense-tom-fit.mp3?v=1786416269949",
+      "duration": 38.066,
+      "questionEnd": 4.104,
+      "answerStart": 4.729,
+      "cues": [
+        {
+          "role": "question",
+          "text": "Why do you specifically want to work with Professor Tom Steinberger?",
+          "start": 0,
+          "end": 4.104
+        },
+        {
+          "role": "answer",
+          "text": "Professor Tom Steinberger is the closest fit for my research question.",
+          "start": 4.729,
+          "end": 8.852
+        },
+        {
+          "role": "answer",
+          "text": "His work examines how domain experts actually use data in real work and what makes data-science systems actionable in practice.",
+          "start": 8.852,
+          "end": 16.332
+        },
+        {
+          "role": "answer",
+          "text": "I want to extend that problem to workplace RAG by studying how organizational knowledge structures and verification information such as provenance, freshness, and uncertainty shape users' actual verification behavior and calibrated reliance on AI.",
+          "start": 16.332,
+          "end": 30.88
+        },
+        {
+          "role": "answer",
+          "text": "So the fit is not simply that we both study AI; the unit of analysis and the underlying research problem connect directly.",
+          "start": 30.88,
+          "end": 38.065
+        }
+      ]
+    },
+    {
+      "section": "defense",
       "id": "defense-q29",
       "language": "ko",
       "number": 29,
@@ -4441,7 +4527,7 @@
       "id": "application-q6",
       "language": "ko",
       "number": 6,
-      "priority": "A",
+      "priority": "essential",
       "title": "다른 MOT나 MBA가 아니라 연구중심 BTM이어야 하는 이유는 무엇입니까?",
       "category": "1. Motivation & BTM Fit",
       "question": "다른 MOT나 MBA가 아니라 연구중심 BTM이어야 하는 이유는 무엇입니까?",
@@ -4489,7 +4575,7 @@
       "id": "application-q6",
       "language": "en",
       "number": 6,
-      "priority": "A",
+      "priority": "essential",
       "title": "Why a research-oriented BTM program rather than another MOT program or an MBA?",
       "category": "Application Defense",
       "question": "Why a research-oriented BTM program rather than another MOT program or an MBA?",
@@ -5795,7 +5881,7 @@
       "title": "Why were several of your earlier roles relatively short?",
       "category": "Application Defense",
       "question": "Why were several of your earlier roles relatively short?",
-      "answer": "Each short role had a specific reason for transition. At GfK, the company was also going through a difficult period, and I repeatedly saw that market definitions or data framing could change depending on what a client wanted to demonstrate. That experience challenged my earlier belief that data is automatically neutral and made me want to work closer to execution. I therefore moved to JW CRONY. At JW, however, salaries were delayed for several months, so I did not experience the stability I had expected from employment. I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Saloin. Taeyoung Tech later had a more limited, short-term support nature.",
+      "answer": "Each short role had a specific reason for transition. At GfK, the company was also going through a difficult period, and I repeatedly saw that market definitions or data framing could change depending on what a client wanted to demonstrate. That experience challenged my earlier belief that data is automatically neutral and made me want to work closer to execution. I therefore moved to JW CRONY. At JW, however, salaries were delayed for several months, so I did not experience the stability I had expected from employment. I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business. That thinking led to Oosu Salon. Taeyoung Tech later had a more limited, short-term support nature.",
       "trackId": "application:application-extra-103:en",
       "src": "/audio/tracks/en/application-extra-103.mp3?v=1786347882865",
       "duration": 48.242,
@@ -5812,48 +5898,48 @@
           "role": "answer",
           "text": "Each short role had a specific reason for transition.",
           "start": 3.961,
-          "end": 7.018
+          "end": 7.022
         },
         {
           "role": "answer",
           "text": "At GfK, the company was also going through a difficult period, and I repeatedly saw that market definitions or data framing could change depending on what a client wanted to demonstrate.",
-          "start": 7.018,
-          "end": 17.746
+          "start": 7.022,
+          "end": 17.764
         },
         {
           "role": "answer",
           "text": "That experience challenged my earlier belief that data is automatically neutral and made me want to work closer to execution.",
-          "start": 17.746,
-          "end": 24.955
+          "start": 17.764,
+          "end": 24.983
         },
         {
           "role": "answer",
           "text": "I therefore moved to JW CRONY.",
-          "start": 24.955,
-          "end": 26.685
+          "start": 24.983,
+          "end": 26.716
         },
         {
           "role": "answer",
           "text": "At JW, however, salaries were delayed for several months, so I did not experience the stability I had expected from employment.",
-          "start": 26.685,
-          "end": 34.01
+          "start": 26.716,
+          "end": 34.051
         },
         {
           "role": "answer",
           "text": "I began to think that if I had to accept that level of uncertainty anyway, I would rather take the risk directly and build my own business.",
-          "start": 34.01,
-          "end": 42.027
+          "start": 34.051,
+          "end": 42.079
         },
         {
           "role": "answer",
-          "text": "That thinking led to Oosu Saloin.",
-          "start": 42.027,
-          "end": 43.93
+          "text": "That thinking led to Oosu Salon.",
+          "start": 42.079,
+          "end": 43.927
         },
         {
           "role": "answer",
           "text": "Taeyoung Tech later had a more limited, short-term support nature.",
-          "start": 43.93,
+          "start": 43.927,
           "end": 47.737
         }
       ]
@@ -6645,7 +6731,7 @@
       "title": "What exactly is the 'unique weapon' described in your statement?",
       "category": "Application Defense",
       "question": "What exactly is the 'unique weapon' described in your statement?",
-      "answer": "My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services. At GfK, I structured market questions through data. At Oosu Saloin, I turned customer needs into operating standards. More recently, in AskOosu, I structured my project information for RAG retrieval and implemented source links and fallback behavior. My strength is therefore reducing the distance between problem definition and implementation rather than specializing in planning or coding alone.",
+      "answer": "My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services. At GfK, I structured market questions through data. At Oosu Salon, I turned customer needs into operating standards. More recently, in AskOosu, I structured my project information for RAG retrieval and implemented source links and fallback behavior. My strength is therefore reducing the distance between problem definition and implementation rather than specializing in planning or coding alone.",
       "trackId": "application:application-extra-101:en",
       "src": "/audio/tracks/en/application-extra-101.mp3?v=1786347886237",
       "duration": 36.77,
@@ -6662,30 +6748,30 @@
           "role": "answer",
           "text": "My unique strength is translating market, customer, and operational problems into data and technical structures, and then turning them into working services.",
           "start": 4.873,
-          "end": 13.845
+          "end": 13.861
         },
         {
           "role": "answer",
           "text": "At GfK, I structured market questions through data.",
-          "start": 13.845,
-          "end": 16.759
+          "start": 13.861,
+          "end": 16.781
         },
         {
           "role": "answer",
-          "text": "At Oosu Saloin, I turned customer needs into operating standards.",
-          "start": 16.759,
-          "end": 20.474
+          "text": "At Oosu Salon, I turned customer needs into operating standards.",
+          "start": 16.781,
+          "end": 20.445
         },
         {
           "role": "answer",
           "text": "More recently, in AskOosu, I structured my project information for RAG retrieval and implemented source links and fallback behavior.",
-          "start": 20.474,
-          "end": 28.017
+          "start": 20.445,
+          "end": 28.002
         },
         {
           "role": "answer",
           "text": "My strength is therefore reducing the distance between problem definition and implementation rather than specializing in planning or coding alone.",
-          "start": 28.017,
+          "start": 28.002,
           "end": 36.361
         }
       ]
@@ -8984,7 +9070,7 @@
       "title": "You wrote that small-business owners may distrust digital tools. What concrete example did you observe?",
       "category": "Application Defense",
       "question": "You wrote that small-business owners may distrust digital tools. What concrete example did you observe?",
-      "answer": "When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs. The problem was that the sales pitch could sound convincing while the actual service quality or follow-up was often poor, so I became cautious about trusting outside services from the beginning. I had a similar experience with tax services: I changed accountants twice before settling on one recommended by another business owner. This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality.",
+      "answer": "When I first opened Oosu Salon, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs. The problem was that the sales pitch could sound convincing while the actual service quality or follow-up was often poor, so I became cautious about trusting outside services from the beginning. I had a similar experience with tax services: I changed accountants twice before settling on one recommended by another business owner. This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality.",
       "trackId": "application:application-extra-120:en",
       "src": "/audio/tracks/en/application-extra-120.mp3?v=1786347897901",
       "duration": 46.778,
@@ -9005,26 +9091,26 @@
         },
         {
           "role": "answer",
-          "text": "When I first opened Oosu Saloin, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
+          "text": "When I first opened Oosu Salon, I received a flood of offers for blog-review campaigns and digital marketing partnerships through Naver messages, text messages, phone calls, and Instagram DMs.",
           "start": 6.073,
-          "end": 17.076
+          "end": 17.034
         },
         {
           "role": "answer",
           "text": "The problem was that the sales pitch could sound convincing while the actual service quality or follow-up was often poor, so I became cautious about trusting outside services from the beginning.",
-          "start": 17.076,
-          "end": 28.136
+          "start": 17.034,
+          "end": 28.109
         },
         {
           "role": "answer",
           "text": "I had a similar experience with tax services: I changed accountants twice before settling on one recommended by another business owner.",
-          "start": 28.136,
-          "end": 35.832
+          "start": 28.109,
+          "end": 35.816
         },
         {
           "role": "answer",
           "text": "This taught me that for small businesses, trust often depends less on the existence of features and more on having credible evidence and a reliable way to verify the provider's actual quality.",
-          "start": 35.832,
+          "start": 35.816,
           "end": 46.778
         }
       ]

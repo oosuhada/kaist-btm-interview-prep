@@ -94,14 +94,16 @@ python3 -m pip install faster-whisper
 
 ## 현재 생성 결과
 
-- 대상: **44곡** (22개 질문 × 한국어/영어)
-- 최종 manifest 생성 성공: **44곡 / 44곡**
+- 대상: **50곡** (기존 22개 질문 + 2026-08-11 최우선 3개 질문 × 한국어/영어)
+- 2026-08-11 추가 Musical Recall: `defense-tom-fit`(왜 Tom Steinberger인가), `research-1`(연구주제 한 문장), `research-3`(연구 필요성)
+- 추가 6곡 생성 모델: `lyria-3-pro-preview`, 추정 직접 모델 비용 **USD 0.48**
+- 최종 manifest 생성 성공: **50곡 / 50곡**
 - 실패: **0곡**
-- 1차 평균 token match rate: **86.4%** (median **92.7%**)
+- 현재 전체 평균 token match rate: **90.7%** (median **92.2%**)
+- 새 6곡 match rate: **84.2%~98.8%**, 6/6 성공
 - forced repair 적용: **8곡 / 17 cues**
-- forced repair 후 평균 match/coverage 지표: **90.8%** (median **92.7%**)
 - forced 결과가 기존 실제-ASR보다 낫지 않아 기존 값을 유지한 저신뢰 트랙도 있습니다. 따라서 UI/후속 렌더러는 `matchRate`와 `alignmentConfidence`를 함께 참고할 수 있습니다.
-- 최종 validation: **44곡 모두 cue/word timestamp가 실제 MP3 duration 범위 안에 있음**
+- 최종 validation: **50곡 모두 cue/word timestamp가 실제 MP3 duration 범위 안에 있음**
 - machine-readable 집계는 `alignment.json`의 `summary`와 `failures`를 기준으로 합니다.
 
 ## manifest 핵심 구조
