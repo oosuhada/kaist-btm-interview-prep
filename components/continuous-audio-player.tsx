@@ -52,6 +52,12 @@ export type PlaylistTrack = {
   questionEnd: number;
   answerStart: number;
   cues: PlaylistCue[];
+  continuous?: {
+    src: string;
+    playlistDuration: number;
+    start: number;
+    end: number;
+  };
   musicalRecall?: {
     src: string;
     duration: number;
@@ -289,39 +295,55 @@ export function ContinuousAudioPlayer({
     trackMap.get(currentTrackId) ?? filteredTracks[0] ?? null;
 
   const musicalRecallSrc = currentTrack ? getMusicalRecallSrc(currentTrack) : null;
-  const continuousMusicalEnabled = Boolean(
-    playbackMode === "musical" &&
-      currentTrack?.musicalRecall?.continuous &&
+  const activeContinuous =
+    playbackMode === "musical"
+      ? currentTrack?.musicalRecall?.continuous
+      : currentTrack?.continuous;
+  const continuousPlaybackEnabled = Boolean(
+    activeContinuous &&
       section === "all" &&
       priorityLevel === 0 &&
       !shuffleEnabled &&
       repeatMode !== "one"
   );
-  const continuousMusicalSegments = useMemo(
+  const continuousSegments = useMemo(
     () =>
       tracks
         .filter(
           (track) =>
-            track.language === language && Boolean(track.musicalRecall?.continuous)
+            track.language === language &&
+            Boolean(
+              playbackMode === "musical"
+                ? track.musicalRecall?.continuous
+                : track.continuous
+            )
         )
-        .map((track) => ({
-          trackId: track.trackId,
-          start: track.musicalRecall!.continuous!.start,
-          end: track.musicalRecall!.continuous!.end,
-        }))
+        .map((track) => {
+          const continuous =
+            playbackMode === "musical"
+              ? track.musicalRecall!.continuous!
+              : track.continuous!;
+          return {
+            trackId: track.trackId,
+            start: continuous.start,
+            end: continuous.end,
+          };
+        })
         .sort((a, b) => a.start - b.start),
-    [language, tracks]
+    [language, playbackMode, tracks]
   );
   const currentSrc =
-    continuousMusicalEnabled && currentTrack?.musicalRecall?.continuous
-      ? currentTrack.musicalRecall.continuous.src
+    continuousPlaybackEnabled && activeContinuous
+      ? activeContinuous.src
       : currentTrack && playbackMode === "musical" && musicalRecallSrc
         ? musicalRecallSrc
       : currentTrack?.src ?? "";
   const currentDuration =
     playbackMode === "musical"
       ? currentTrack?.musicalRecall?.duration ?? currentTrack?.duration ?? 0
-      : mediaDuration || currentTrack?.duration || 0;
+      : continuousPlaybackEnabled
+        ? currentTrack?.duration ?? 0
+        : mediaDuration || currentTrack?.duration || 0;
   const currentCues = useMemo(() => {
     if (!currentTrack) return [];
     if (playbackMode === "musical" && currentTrack.musicalRecall) {
@@ -355,7 +377,7 @@ export function ContinuousAudioPlayer({
   }, [rate]);
 
   useEffect(() => {
-    if (!continuousMusicalEnabled || pendingContinuousSeekRef.current === null) return;
+    if (!continuousPlaybackEnabled || pendingContinuousSeekRef.current === null) return;
     const audio = audioRef.current;
     if (!audio || audio.readyState < 1) return;
     audio.currentTime = pendingContinuousSeekRef.current;
@@ -365,7 +387,7 @@ export function ContinuousAudioPlayer({
       autoPlayNextRef.current = false;
       void audio.play();
     }
-  }, [continuousMusicalEnabled, currentTrackId, currentSrc]);
+  }, [continuousPlaybackEnabled, currentTrackId, currentSrc]);
 
   useEffect(() => {
     if (!isPlaying || playbackMode !== "musical" || !showScript) return;
@@ -409,17 +431,20 @@ export function ContinuousAudioPlayer({
     (trackId: string, mode: PlaybackMode = "standard") => {
       const track = tracks.find((item) => item.trackId === trackId);
       const nextMode = mode === "musical" && track && getMusicalRecallSrc(track) ? "musical" : "standard";
+      const candidateContinuous =
+        nextMode === "musical"
+          ? track?.musicalRecall?.continuous
+          : track?.continuous;
       const useContinuous = Boolean(
-        nextMode === "musical" &&
-          track?.musicalRecall?.continuous &&
+        candidateContinuous &&
           section === "all" &&
           priorityLevel === 0 &&
           !shuffleEnabled &&
           repeatMode !== "one"
       );
       if (trackId === currentTrackId && nextMode === playbackMode && audioRef.current) {
-        if (useContinuous && track?.musicalRecall?.continuous) {
-          audioRef.current.currentTime = track.musicalRecall.continuous.start;
+        if (useContinuous && candidateContinuous) {
+          audioRef.current.currentTime = candidateContinuous.start;
           setCurrentTime(0);
           void audioRef.current.play();
           return;
@@ -430,8 +455,8 @@ export function ContinuousAudioPlayer({
       }
       autoPlayNextRef.current = true;
       pendingContinuousSeekRef.current =
-        useContinuous && track?.musicalRecall?.continuous
-          ? track.musicalRecall.continuous.start
+        useContinuous && candidateContinuous
+          ? candidateContinuous.start
           : null;
       setPlaybackMode(nextMode);
       setCurrentTrackId(trackId);
@@ -448,21 +473,21 @@ export function ContinuousAudioPlayer({
   const moveTrack = useCallback(
     (direction: 1 | -1, fromEnded = false) => {
       if (!orderedIds.length || !currentTrack) return;
-      if (continuousMusicalEnabled && playbackMode === "musical") {
-        const currentContinuousIndex = continuousMusicalSegments.findIndex(
+      if (continuousPlaybackEnabled) {
+        const currentContinuousIndex = continuousSegments.findIndex(
           (segment) => segment.trackId === currentTrack.trackId
         );
         if (currentContinuousIndex >= 0) {
           let nextIndex = currentContinuousIndex + direction;
-          if (nextIndex >= continuousMusicalSegments.length || nextIndex < 0) {
+          if (nextIndex >= continuousSegments.length || nextIndex < 0) {
             if (repeatMode === "all" || !fromEnded) {
-              nextIndex = direction > 0 ? 0 : continuousMusicalSegments.length - 1;
+              nextIndex = direction > 0 ? 0 : continuousSegments.length - 1;
             } else {
               setIsPlaying(false);
               return;
             }
           }
-          playTrack(continuousMusicalSegments[nextIndex].trackId, "musical");
+          playTrack(continuousSegments[nextIndex].trackId, playbackMode);
           return;
         }
       }
@@ -492,7 +517,7 @@ export function ContinuousAudioPlayer({
           : "standard";
       playTrack(nextTrackId, nextMode);
     },
-    [continuousMusicalEnabled, continuousMusicalSegments, currentIndex, currentTrack, orderedIds, playbackMode, playTrack, repeatMode, trackMap]
+    [continuousPlaybackEnabled, continuousSegments, currentIndex, currentTrack, orderedIds, playbackMode, playTrack, repeatMode, trackMap]
   );
 
   useEffect(() => {
@@ -882,8 +907,8 @@ export function ContinuousAudioPlayer({
                       onClick={() => {
                         if (!audioRef.current) return;
                         audioRef.current.currentTime =
-                          continuousMusicalEnabled && currentTrack.musicalRecall?.continuous
-                            ? currentTrack.musicalRecall.continuous.start + cue.start
+                          continuousPlaybackEnabled && activeContinuous
+                            ? activeContinuous.start + cue.start
                             : cue.start;
                         setCurrentTime(cue.start);
                       }}
@@ -966,14 +991,14 @@ export function ContinuousAudioPlayer({
             <audio
               ref={audioRef}
               key={
-                continuousMusicalEnabled
-                  ? `continuous-musical:${language}:${currentSrc}`
+                continuousPlaybackEnabled
+                  ? `continuous:${playbackMode}:${language}:${currentSrc}`
                   : `${currentTrack.trackId}:${playbackMode}:${currentSrc}`
               }
               src={currentSrc}
               preload="auto"
               playsInline
-              loop={continuousMusicalEnabled && repeatMode === "all"}
+              loop={continuousPlaybackEnabled && repeatMode === "all"}
               onLoadedMetadata={() => {
                 if (!audioRef.current) return;
                 audioRef.current.playbackRate = rate;
@@ -982,7 +1007,7 @@ export function ContinuousAudioPlayer({
                     ? currentTrack.musicalRecall?.duration ?? currentTrack.duration
                     : audioRef.current.duration || currentTrack.duration
                 );
-                if (continuousMusicalEnabled && pendingContinuousSeekRef.current !== null) {
+                if (continuousPlaybackEnabled && pendingContinuousSeekRef.current !== null) {
                   audioRef.current.currentTime = pendingContinuousSeekRef.current;
                   pendingContinuousSeekRef.current = null;
                   setCurrentTime(0);
@@ -994,11 +1019,11 @@ export function ContinuousAudioPlayer({
               }}
               onTimeUpdate={(event) => {
                 const globalTime = event.currentTarget.currentTime;
-                if (!continuousMusicalEnabled) {
+                if (!continuousPlaybackEnabled) {
                   setCurrentTime(globalTime);
                   return;
                 }
-                const segment = continuousMusicalSegments.find(
+                const segment = continuousSegments.find(
                   (item) => globalTime >= item.start && globalTime < item.end
                 );
                 if (!segment) return;
@@ -1010,7 +1035,7 @@ export function ContinuousAudioPlayer({
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={() => {
-                if (continuousMusicalEnabled) {
+                if (continuousPlaybackEnabled) {
                   setIsPlaying(false);
                   return;
                 }
@@ -1097,8 +1122,8 @@ export function ContinuousAudioPlayer({
                   const value = Number(event.target.value);
                   if (audioRef.current) {
                     audioRef.current.currentTime =
-                      continuousMusicalEnabled && currentTrack.musicalRecall?.continuous
-                        ? currentTrack.musicalRecall.continuous.start + value
+                      continuousPlaybackEnabled && activeContinuous
+                        ? activeContinuous.start + value
                         : value;
                   }
                   setCurrentTime(value);
