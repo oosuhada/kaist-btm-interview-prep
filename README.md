@@ -14,27 +14,18 @@
 
 ---
 
-## 왜 만들었나 / Why I built it
+## Why I Built It / 만든 이유
 
-KAIST BTM 면접 일정이 잡힌 뒤 예상 질문과 답변을 먼저 Notion에 정리했습니다. 그런데 자료를 충분히 만들어 놓고도 계속 읽는 방식으로는 좀처럼 머리에 들어오지 않았습니다. **읽으면 익숙한데, 질문을 받으면 바로 말이 나오지 않는 문제**였습니다.
+Before my KAIST graduate-school interview, I had answers organized in Notion — but reading them over and over didn't help. I could recognize the material, yet the words wouldn't come out when asked aloud. I turned those notes into spoken, visual, and musical recall drills modeled after the musicals I already listen to every day.
 
-또 면접까지 시간이 많이 남지 않은 상황에서 모든 내용을 같은 강도로 반복하는 것도 비효율적이었습니다. 평소 자주 듣는 뮤지컬처럼 리듬과 소리까지 이용하면 훨씬 재미있게 반복할 수 있겠다는 생각이 들어 Audio와 Musical Recall을 넣었습니다. 같은 정보를 여러 형태로 다시 접하면서도, 핵심은 항상 **답을 보기 전에 먼저 떠올리고 말하게 만드는 것**에 두었습니다.
+카이스트 대학원 면접 일정이 급하게 잡히고 나서, 예상 질문과 답변은 Notion에 정리해두고 읽어봤지만 머리에 남지 않았습니다. 눈으로 보면 아는 내용인데 질문을 받으면 입에서 나오지 않는 게 문제였습니다. 평소 매일 듣던 뮤지컬 넘버처럼, 말하고 듣고 보고 반복하는 회상 도구로 바꿔서 만들었습니다.
 
-- 면접카드에서는 답변을 단계적으로 가려 Active Recall을 연습합니다.
-- Audio에서는 이동 중에도 질문 → 답변을 연속 재생하고, 우선순위 필터로 면접 직전 핵심 트랙만 남길 수 있습니다.
-- Visual에서는 연구주제·경력·교수 적합성의 관계를 공간적으로 배치해 연결 구조를 기억합니다.
-- 한국어와 영어를 같은 질문 구조에서 전환해, 영어 질문이 들어와도 별도의 암기 세트를 만들지 않도록 했습니다.
-
-After my KAIST BTM interview was scheduled, I first organized expected questions and answers in Notion. Even with the material prepared, rereading it did not make it easy to retrieve under pressure: **the material felt familiar when I saw it, but I could not always retrieve it immediately when a question was asked.**
-
-With only a few days left, rehearsing every question with equal intensity was also inefficient. I therefore designed the product around one principle: expose the same ideas through different media, but keep the learner in a **retrieve-first** loop rather than a reread-first loop.
+### Recall Design / 회상 설계
 
 - Interview cards progressively hide answer details to force active recall.
-- Audio Recall supports continuous question → answer listening and a priority slider for last-minute review.
-- Visual Recall maps relationships among experience, research design, and faculty fit spatially.
-- Korean and English share the same underlying question structure, so English preparation does not become a separate memorization task.
-
----
+- Audio Recall supports continuous question → answer listening and last-minute priority filtering.
+- Visual Recall maps relationships among experience, research design, and faculty fit.
+- Korean and English share the same question structure instead of becoming separate memorization sets.
 
 ## 제품 화면 / Product walkthrough
 
