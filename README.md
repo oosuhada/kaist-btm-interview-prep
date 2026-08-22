@@ -203,3 +203,7 @@ Original application PDFs, recommendation letters, device histories, personal lo
 ## License
 
 [MIT](LICENSE)
+
+## Topics
+
+[`active-recall`](https://github.com/topics/active-recall) · [`ai-assisted-development`](https://github.com/topics/ai-assisted-development) · [`interview-prep`](https://github.com/topics/interview-prep) · [`kaist`](https://github.com/topics/kaist) · [`learning-tools`](https://github.com/topics/learning-tools) · [`nextjs`](https://github.com/topics/nextjs) · [`typescript`](https://github.com/topics/typescript)
